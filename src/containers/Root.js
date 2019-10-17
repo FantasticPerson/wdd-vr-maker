@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
-import HomePage from "./HomePage/index";
+import HomePage from "./HomePage";
 import Header from "./Header";
-import EditPage from "./EditPage/index";
+import EditPage from "./EditPage";
 
 class Root extends Component {
 	render() {

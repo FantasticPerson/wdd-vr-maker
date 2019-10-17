@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { TextField, Checkbox, Button as FlatButton, FormControlLabel } from "@material-ui/core";
 
-import UploadPicModal from "./UploadPicModal";
-import PicListModal from "./PicListModal";
-import CopyImageTmpToImage from "../../../native/copyImageTmpToImage";
-import getPathOfImage from "../../../native/getPathOfImage";
+import UploadPicModal from "../components/UploadPicModal";
+import PicListModal from "../components/PicListModal";
+import CopyImageTmpToImage from "../../../../native/copyImageTmpToImage";
+import getPathOfImage from "../../../../native/getPathOfImage";
 
 export default class EditPicture extends Component {
 	constructor() {

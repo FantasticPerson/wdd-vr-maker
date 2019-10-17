@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button as FlatButton } from "@material-ui/core";
 
-import styles from "../../../styles/createSceneModal.module.css";
-import openAudio from "../../../native/openAudio";
-import CopyAudioToAudioTmp from "../../../native/copyAudioToTmpAudio";
-import getPathOfAudio from "../../../native/getPathOfAudio";
+import styles from "../../../../styles/createSceneModal.module.css";
+import openAudio from "../../../../native/openAudio";
+import CopyAudioToAudioTmp from "../../../../native/copyAudioToTmpAudio";
+import getPathOfAudio from "../../../../native/getPathOfAudio";
 import ReactAudioPlayer from "react-audio-player";
 
 class UploadPicModal extends Component {

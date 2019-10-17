@@ -3,13 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Button, Snackbar, Typography } from "@material-ui/core";
 import Slider from "@material-ui/core/Slider";
-
 import * as sceneActions from "../../../actions/scene";
 import { getSelector } from "../../../store/getStore";
-
 import Timer from "../../../utils/timer";
-
-import styles from "../../../styles/EditViewPort.module.css";
 
 const getSceneObjData = (sceneObj, obj) => {
 	let newStateObj = { max: 155, min: -5, start: 75, max1: 90, min1: -90 };

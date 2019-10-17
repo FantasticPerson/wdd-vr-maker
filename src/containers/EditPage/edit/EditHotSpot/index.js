@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createSelector } from "reselect";
 import { bindActionCreators } from "redux";
-import { Select as SelectField, MenuItem, TextField, Button as FlatButton } from "@material-ui/core";
+import { Select as SelectField, MenuItem, Button as FlatButton } from "@material-ui/core";
 
-import * as hotpotActions from "../../../actions/hotpot";
-import * as PicActions from "../../../actions/picture";
-import * as AudioActions from "../../../actions/audio";
-import getPathOfSceneHeadImg from "../../../native/getPathOfSceneHeadImg";
+import * as hotpotActions from "../../../../actions/hotpot";
+import * as PicActions from "../../../../actions/picture";
+import * as AudioActions from "../../../../actions/audio";
 
-import UploadPicModal from "./UploadPicModal";
-import CopyImageTmpToImage from "../../../native/copyImageTmpToImage";
-import PicListModal from "./PicListModal";
-import getPathOfImage from "../../../native/getPathOfImage";
-import { getHotspotIconPath } from "../../../native/pathUtils";
+import { getHotspotIconPath } from "../../../../native/pathUtils";
 
 import EditSelectScene from "./EditSelectScene";
 import EditPicture from "./EditPicture";
@@ -23,9 +17,9 @@ import EditAudio from "./EditAudio";
 import EditVideo from "./EditVideo";
 import EditLink from "./EditLink";
 
-import { getSelector } from "../../../store/getStore";
+import { getSelector } from "../../../../store/getStore";
 
-import styles from "../../../styles/editHotpot.module.css";
+import styles from "../../../../styles/editHotpot.module.css";
 
 const typeObj = {
 	switch: "切换",

@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { createSelector } from "reselect";
 import Timer from "../../utils/timer";
 
 import { getSelector } from "../../store/getStore";
 
 import styles from "../../styles/EditPage.module.css";
 
-import PanoContainer from "./containers/panoContainer";
-import EditSceneContainer from "./containers/editSceneContainer";
+import PanoContainer from "./panoContainer";
 import * as appActions from "../../actions/app";
 import * as vrActions from "../../actions/vr";
 import * as sceneActions from "../../actions/scene";
@@ -20,10 +18,11 @@ import * as audioActions from "../../actions/audio";
 import * as krpanoActions from "../../actions/krpano";
 import * as groupActions from "../../actions/group";
 
-import EditViewPort from "./containers/EditViewPort";
-import EditHotSpot from "./containers/EditHotpot";
-import EditEffect from "./containers/EditEffect";
-import EditMusic from "./containers/EditMusic";
+import EditViewPort from "./edit/EditViewPort";
+import EditHotSpot from "./edit/EditHotSpot";
+import EditEffect from "./edit/EditEffect";
+import EditMusic from "./edit/EditMusic";
+import EditScene from "./editScene";
 
 class EditPage extends Component {
 	constructor() {
@@ -64,15 +63,37 @@ class EditPage extends Component {
 		}
 	}
 
-	renderEditHotPot() {
-		if (this.state.editType == 1) {
-			return <EditHotSpot></EditHotSpot>;
-		}
+	render() {
+		return (
+			<div className={styles.container}>
+				{this.renderLeftBtns()}
+				<div className={styles.content}>
+					<div className={styles.panoContainer}>
+						<PanoContainer showEditHotpot={this.showHotspotEdit.bind(this)}></PanoContainer>
+					</div>
+					<div className={styles.sceneContainer}>
+						<EditScene></EditScene>
+					</div>
+				</div>
+				<div className={styles.rightBar}>
+					{this.renderEditHotPot()}
+					{this.renderEditSpecialShow()}
+					{this.renderEditMusic()}
+					{this.renderEditViewPort()}
+				</div>
+			</div>
+		);
 	}
 
 	renderEditViewPort() {
 		if (this.state.editType == 0) {
 			return <EditViewPort onfinish={this.showHotspotEdit.bind(this)}></EditViewPort>;
+		}
+	}
+
+	renderEditHotPot() {
+		if (this.state.editType == 1) {
+			return <EditHotSpot></EditHotSpot>;
 		}
 	}
 
@@ -82,50 +103,31 @@ class EditPage extends Component {
 		}
 	}
 
-	renderSpecialShow() {
+	renderEditSpecialShow() {
 		if (this.state.editType == 3) {
 			return <EditEffect onfinish={this.showHotspotEdit.bind(this)}></EditEffect>;
 		}
 	}
+
 	renderLeftBtns() {
 		let btnProps = [{ class: "fa fa-eye", name: "视角" }, { class: "fa fa-dot-circle-o", name: "热点" }, { class: "fa fa-music", name: "音乐" }, { class: "fa fa-magic", name: "特效" }];
-		let btns = btnProps.map((item, index) => {
-			let btnClassName = this.state.editType == index ? `${styles.btn} ${styles.btnSelected}` : `${styles.btn}`;
-			return (
-				<div
-					key={item.class}
-					className={btnClassName}
-					onClick={() => {
-						this.onEditClick(index);
-					}}
-				>
-					<i className={item.class}></i>
-					<p>{item.name}</p>
-				</div>
-			);
-		});
-		return <div className={styles.leftBar}>{btns}</div>;
-	}
-	render() {
-		const { vrList, vrId } = this.props;
-		let vrItem = vrList.find(item => item.id == vrId) || {};
 		return (
-			<div className={styles.container}>
-				{this.renderLeftBtns()}
-				<div className={styles.content}>
-					<div className={styles.panoContainer}>
-						<PanoContainer showEditHotpot={this.showHotspotEdit.bind(this)}></PanoContainer>
-					</div>
-					<div className={styles.sceneContainer}>
-						<EditSceneContainer></EditSceneContainer>
-					</div>
-				</div>
-				<div className={styles.rightBar}>
-					{this.renderEditHotPot()}
-					{this.renderSpecialShow()}
-					{this.renderEditMusic()}
-					{this.renderEditViewPort()}
-				</div>
+			<div className={styles.leftBar}>
+				{btnProps.map((item, index) => {
+					let btnClassName = this.state.editType == index ? `${styles.btn} ${styles.btnSelected}` : `${styles.btn}`;
+					return (
+						<div
+							key={item.class}
+							className={btnClassName}
+							onClick={() => {
+								this.onEditClick(index);
+							}}
+						>
+							<i className={item.class}></i>
+							<p>{item.name}</p>
+						</div>
+					);
+				})}
 			</div>
 		);
 	}

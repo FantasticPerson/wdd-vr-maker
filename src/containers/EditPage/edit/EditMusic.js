@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import FlatButton from "@material-ui/core/Button";
 
-import UploadAudioModal from "./UploadAudioModal";
+import UploadAudioModal from "./components/UploadAudioModal";
 import CopyAudioTmpToAudio from "../../../native/copyAudioTmpToAudio";
-import AudioListModal from "./AudioListModal";
-import getPathOfAudio from "../../../native/getPathOfAudio";
-import ReactAudioPlayer from "react-audio-player";
+import AudioListModal from "./components/AudioListModal";
 
 import * as audioActions from "../../../actions/audio";
 import * as vrActions from "../../../actions/vr";
@@ -154,20 +152,10 @@ class EditMusic extends Component {
 	render() {
 		return (
 			<div style={{ padding: "5px" }}>
-				<div
-					style={{
-						borderBottom: "1px solid #eee"
-					}}
-				>
+				<div style={{ borderBottom: "1px solid #eee" }}>
 					<span>
 						<i className="fa fa-music"></i>
-						<span
-							style={{
-								marginLeft: "5px"
-							}}
-						>
-							音乐
-						</span>
+						<span style={{ marginLeft: "5px" }}>音乐</span>
 					</span>
 				</div>
 				<div>
@@ -242,6 +230,14 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-	getSelector(editMusicConfig),
+	getSelector({
+		groupSelectId: true,
+		groupList: true,
+		vrItem: true,
+		groupSelectItem: true,
+		sceneSelected: true,
+		sceneSelectedItem: true,
+		sceneList: true
+	}),
 	mapDispatchToProps
 )(EditMusic);

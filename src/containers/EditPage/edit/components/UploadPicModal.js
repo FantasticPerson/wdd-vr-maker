@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } from "@material-ui/core";
 
-import styles from "../../../styles/createSceneModal.module.css";
-import openImage from "../../../native/openImage";
-import CopyImageToImageTmp from "../../../native/copyImageToImageTmp";
-import getPathOfImage from "../../../native/getPathOfImage";
+import styles from "../../../../styles/createSceneModal.module.css";
+import openImage from "../../../../native/openImage";
+import CopyImageToImageTmp from "../../../../native/copyImageToImageTmp";
+import getPathOfImage from "../../../../native/getPathOfImage";
 
 class UploadPicModal extends Component {
 	constructor() {

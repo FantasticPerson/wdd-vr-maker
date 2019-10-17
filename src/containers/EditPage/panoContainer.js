@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { panoConfig, getSelector } from "../../../store/getStore";
+import { panoConfig, getSelector } from "../../store/getStore";
 
-import styles from "../../../styles/panoContainer.module.css";
-import Common from "../../../utils/common";
+import styles from "../../styles/panoContainer.module.css";
+import Common from "../../utils/common";
 
-import * as actions from "../../../actions/krpano";
-import * as hotspotActions from "../../../actions/hotpot";
-import * as sceneActions from "../../../actions/scene";
+import * as actions from "../../actions/krpano";
+import * as hotspotActions from "../../actions/hotpot";
+import * as sceneActions from "../../actions/scene";
 
 class PanoContainer extends Component {
 	constructor() {

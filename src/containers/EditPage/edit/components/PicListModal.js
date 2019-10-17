@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 import { bindActionCreators } from "redux";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button as FlatButton } from "@material-ui/core";
 
-import getPathOfImage from "../../../native/getPathOfImage";
+import getPathOfImage from "../../../../native/getPathOfImage";
 
 class PicListModal extends Component {
 	constructor() {
