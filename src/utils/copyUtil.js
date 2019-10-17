@@ -11,12 +11,9 @@ export function moveImgToImage(src) {
 	let id = `img${new Hashid().encode()}`;
 	let Imgdest = path.resolve(window.electron_app_pic_path, "./" + id + "." + extension);
 	return new Promise(resolve => {
-		copyPath(src, Imgdest, resolve);
+		copyPath(src, Imgdest);
+		resolve();
 	});
-	// return new Promise((resolve, reject) => {
-	// 	fs.createReadStream(src).pipe(fs.createWriteStream(Imgdest));
-	// 	resolve(id + "." + extension);
-	// });
 }
 
 export function copyImageTmpToImage(name) {
