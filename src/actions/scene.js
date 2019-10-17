@@ -2,7 +2,7 @@ import Modals from "../modals";
 import { createAction } from "redux-act";
 import { getPanoXml } from "../utils/xmlBuilder";
 import { addHotspots } from "./hotpot";
-import { getScenePath } from "../native/pathUtils";
+import { getScenePath } from "../utils/pathUtils";
 import { AddSunlight, RemoveSunlight } from "./krpano";
 
 export const updateAllScene = createAction("update_all_scene");

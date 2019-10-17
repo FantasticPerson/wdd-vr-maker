@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
 import styles from "../../../styles/editSceneContainer.module.css";
-import { getHeadImgUrl, getScenePath } from "../../../native/pathUtils";
+import { getHeadImgUrl, getScenePath } from "../../../utils/pathUtils";
 
 class Sceneitemspe extends Component {
 	constructor() {

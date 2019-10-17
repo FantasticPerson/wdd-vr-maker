@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContextModal from "../../../components/ContextModal";
+import ContextModal from "../../components/ContextModal";
 
 export default class GroupContextModal extends Component {
 	onDeleteClick() {

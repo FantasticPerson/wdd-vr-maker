@@ -7,7 +7,7 @@ import * as hotpotActions from "../../../../actions/hotpot";
 import * as PicActions from "../../../../actions/picture";
 import * as AudioActions from "../../../../actions/audio";
 
-import { getHotspotIconPath } from "../../../../native/pathUtils";
+import { getHotspotIconPath } from "../../../../utils/pathUtils";
 
 import EditSelectScene from "./EditSelectScene";
 import EditPicture from "./EditPicture";

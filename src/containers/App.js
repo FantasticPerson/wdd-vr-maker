@@ -6,14 +6,14 @@ import HomePage from "./HomePage";
 import Header from "./Header";
 import EditPage from "./EditPage";
 
-class Root extends Component {
+class App extends Component {
 	render() {
-		let style = { position: "fixed", top: "64px", bottom: 0, left: 0, right: 0 };
+		let style = { position: "fixed", top: 64, bottom: 0, left: 0, right: 0 };
 		return (
 			<Provider store={this.props.store}>
 				<ConnectedRouter history={this.props.history}>
 					<HashRouter>
-						<div>
+						<React.Fragment>
 							<Header></Header>
 							<div style={style}>
 								<Switch>
@@ -22,7 +22,7 @@ class Root extends Component {
 									<Redirect from="/" to="/homePage" />
 								</Switch>
 							</div>
-						</div>
+						</React.Fragment>
 					</HashRouter>
 				</ConnectedRouter>
 			</Provider>
@@ -30,4 +30,4 @@ class Root extends Component {
 	}
 }
 
-export default Root;
+export default App;

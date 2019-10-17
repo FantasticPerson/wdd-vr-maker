@@ -1,6 +1,17 @@
+import Timer from "./timer";
 const fs = require("fs");
+const Path = require("path");
 
 function cleanPath(path) {
+	clean(path);
+	return new Promise(resolve => {
+		Timer(200).then(() => {
+			resolve();
+		});
+	});
+}
+
+function clean(path) {
 	var files = [];
 	if (fs.existsSync(path)) {
 		let stats = fs.statSync(path);
@@ -8,10 +19,10 @@ function cleanPath(path) {
 			fs.unlinkSync(path);
 		} else {
 			files = fs.readdirSync(path);
-			files.forEach(function(file) {
-				var curPath = path + "/" + file;
+			files.forEach(file => {
+				var curPath = Path.join(path, file);
 				if (fs.statSync(curPath).isDirectory()) {
-					cleanPath(curPath);
+					clean(curPath);
 				} else {
 					fs.unlinkSync(curPath);
 				}

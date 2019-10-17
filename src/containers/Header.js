@@ -7,7 +7,7 @@ import { Menu as MenuIcon, NavigateBefore } from "@material-ui/icons";
 
 import { GenerateOutput } from "../utils/generateOutput";
 import { getSelector } from "../store/getStore";
-import { getPreviewUrl } from "../native/pathUtils";
+import { getPreviewUrl } from "../utils/pathUtils";
 import { updateAppShowType } from "../actions/app";
 import packageKrpano from "../native/packageKrpano";
 import Hotpot from "../modals/Hotpot";

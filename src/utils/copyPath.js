@@ -1,6 +1,17 @@
+import Timer from "./timer";
 const fs = require("fs");
+const Path = require("path");
 
-const copyPath = async function(src, dst) {
+function copyPath(path) {
+	copy(path);
+	return new Promise(resolve => {
+		Timer(200).then(() => {
+			resolve();
+		});
+	});
+}
+
+function copy(src, dst) {
 	if (fs.statSync(src).isFile()) {
 		fs.copyFileSync(src, dst);
 	} else {
@@ -9,17 +20,17 @@ const copyPath = async function(src, dst) {
 			fs.mkdirSync(dst);
 		}
 		let paths = fs.readdirSync(src);
-		paths.forEach(async function(path) {
-			var _src = src + "\\" + path;
-			var _dst = dst + "\\" + path;
+		paths.forEach(path => {
+			var _src = Path.join(src, path);
+			var _dst = Path.join(dst, path);
 			var stats = fs.statSync(_src);
 			if (stats.isFile()) {
 				fs.copyFileSync(_src, _dst);
 			} else {
-				copyPath(_src, _dst);
+				copy(_src, _dst);
 			}
 		});
 	}
-};
+}
 
 export default copyPath;

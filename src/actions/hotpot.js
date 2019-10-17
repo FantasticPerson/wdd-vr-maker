@@ -2,7 +2,7 @@ import { createAction } from "redux-act";
 
 import Modals from "../modals";
 import { addHotspotToKrpano, selectHotspotInKrpano, removeHotspotFromKrpano, updateHotspotIcon } from "../utils/krpanoFunctions";
-import { getHotspotPath } from "../native/pathUtils";
+import { getHotspotPath } from "../utils/pathUtils";
 import Hashid from "../utils/generateHashId";
 
 export const dAddHotpot = createAction("add_hotpot");

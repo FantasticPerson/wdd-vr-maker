@@ -1,4 +1,4 @@
-import { getScenePath } from "../native/pathUtils";
+import { getScenePath } from "./pathUtils";
 import { IMG_NAME_ARR } from "../constants.js";
 import { getProductionXml } from "./xmlBuilder";
 

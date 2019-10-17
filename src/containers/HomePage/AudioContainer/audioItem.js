@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getAudioPath } from "../../../native/pathUtils";
+import { getAudioPath } from "../../../utils/pathUtils";
 import styles from "../../../styles/AudioContainer.module.css";
 
 export default class AudioItem extends Component {

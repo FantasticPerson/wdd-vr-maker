@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "../../../styles/SceneContextMenu.module.css";
-import ContextModal from "../../../components/ContextModal";
+import ContextModal from "../../components/ContextModal";
 
 export default class SceneContextModal extends Component {
 	onDeleteClick() {

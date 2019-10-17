@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getImagePath } from "../../../native/pathUtils";
+import { getImagePath } from "../../../utils/pathUtils";
 import styles from "../../../styles/vrItem.module.css";
 
 export default class VrItem extends Component {

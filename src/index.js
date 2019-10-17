@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import dbConfig from "./db";
-import App from "./App";
+import App from "./containers/App";
 import * as stores from "./store/configureStore";
 import "./styles/app.global.css";
 
@@ -19,8 +19,8 @@ render(
 );
 
 if (module.hot) {
-	module.hot.accept("./App", () => {
-		const NextApp = require("./App");
+	module.hot.accept("./containers/App", () => {
+		const NextApp = require("./containers/App");
 		render(
 			<AppContainer>
 				<NextApp store={store} history={history} />

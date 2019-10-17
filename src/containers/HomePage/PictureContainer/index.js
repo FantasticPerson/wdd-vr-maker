@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getImagePath } from "../../../native/pathUtils";
+import { getImagePath } from "../../../utils/pathUtils";
 import { getSelector } from "../../../store/getStore";
-
 import styles from "../../../styles/PictureContainer.module.css";
 
 class PictureContainer extends Component {

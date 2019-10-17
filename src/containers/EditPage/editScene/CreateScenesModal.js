@@ -6,7 +6,7 @@ import checkPicValid from '../../../native/checkPicValid'
 import copyFileToTmp from '../../../native/copyFileToTmp'
 import createPano from '../../../utils/createPano'
 
-import { getScenePath, getHeadImgUrl, getTmpPreviewPath } from '../../../native/pathUtils'
+import { getScenePath, getHeadImgUrl, getTmpPreviewPath } from '../../../utils/pathUtils'
 import copyImageToScene from '../../../native/copyImageToScene'
 import Hashid from '../../../utils/generateHashId'
 import Timer from '../../../utils/timer'

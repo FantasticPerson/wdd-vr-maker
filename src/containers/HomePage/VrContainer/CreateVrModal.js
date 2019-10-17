@@ -5,7 +5,7 @@ import openFolder from "../../../native/openFolder";
 import Hashid from "../../../utils/generateHashId";
 import checkVrCoverValid from "../../../utils/checkVrCoverValid";
 import { copyImagaToTmpImage, copyImageTmpToImage } from "../../../utils/copyUtil";
-import { getTmpImagePath, getImagePath } from "../../../native/pathUtils";
+import { getTmpImagePath, getImagePath } from "../../../utils/pathUtils";
 import styles from "../../../styles/CreateVrModal.module.css";
 
 export default class CreateVrModal extends Component {

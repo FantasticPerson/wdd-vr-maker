@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import styles from '../styles/ContextModal.module.css'
+import styles from '../../styles/ContextModal.module.css'
 
 export default class ContextModal extends Component{
     constructor(){
