@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="description" content="Web site created using create-react-app" />
+		<title>React App</title>
+		<script>
+			window.render_electron = require("electron");
+			if (!!render_electron) {
+				window.os = require("os");
+				window.native_remote = render_electron.remote;
+				window.native_require = native_remote.require;
+				window.native_global = native_remote.getGlobal;
+
+				window.NODE_ENV = native_global("NODE_ENV");
+
+				window.electron_app_path = native_global("electron_app_path");
+				window.electron_app_root_path = native_global("electron_app_root_path");
+				window.electron_app_assets_path = native_global("electron_app_assets_path");
+				window.electron_app_krpano_path = native_global("electron_app_krpano_path");
+				window.electron_app_scene_path = native_global("electron_app_scene_path");
+				window.electron_app_tmp_path = native_global("electron_app_tmp_path");
+				window.electron_app_vr_path = native_global("electron_app_vr_path");
+				window.electron_app_server_port = native_global("electron_app_server_port");
+				window.electron_app_krp_assets_path = native_global("electron_app_krp_path");
+				window.electron_app_krpano_assets_path = native_global("electron_app_krpano_path");
+				window.electron_app_pic_path = native_global("electron_app_pic_path");
+				window.electron_app_pic_tmp = native_global("electron_app_pic_tmp");
+				window.electron_app_audio_path = native_global("electron_app_audio_path");
+				window.electron_app_audio_tmp = native_global("electron_app_audio_tmp");
+				window.electron_app_output_path = native_global("electron_app_output_path");
+				window.etectron_app_vr_output = native_global("etectron_app_vr_output");
+				window.electron_app_cpano_path = native_global("electron_app_cpano_path");
+			}
+		</script>
+	</head>
+	<body>
+		<script src="./krpano/krpano.js"></script>
+		<div id="root"></div>
+	</body>
+</html>
