@@ -8,7 +8,7 @@ import * as folderActions from "../../../actions/folder";
 import * as appActions from "../../../actions/app";
 import * as groupActions from "../../../actions/group";
 import CreateFolderModal from "./CreateFolderModal";
-import VrContainer2 from "./VrContainer";
+import VrEdit from "./VrEdit";
 import FolderContextMenu from "./FolderContextMenu";
 import { getSelector } from "../../../store/getStore";
 
@@ -79,18 +79,13 @@ class VrContainer extends React.Component {
 					<div className={styles.projectList}>
 						<div>{this.renderFolderList()}</div>
 					</div>
-					<div
-						className={styles.addProject}
-						onClick={() => {
-							this.onCreateFolderClick();
-						}}
-					>
+					<div className={styles.addProject} onClick={() => this.onCreateFolderClick()}>
 						<i className="fa fa-plus" />
 						<span style={{ marginLeft: "17px" }}>新建文件夹</span>
 					</div>
 				</div>
 				<div className={styles.content}>
-					<VrContainer2></VrContainer2>
+					<VrEdit></VrEdit>
 				</div>
 				{this.renderCreateFolderModal()}
 				{this.renderContextMenu()}
@@ -103,17 +98,7 @@ class VrContainer extends React.Component {
 		let listItems = folderList.map(item => {
 			let iconClassName = item.id === folderSelectedId ? "fa fa-folder-open" : "fa fa-folder";
 			return (
-				<ListItem
-					style={{ padding: "5px" }}
-					button
-					key={item.id}
-					onClick={() => {
-						this.onFolderItemClick(item);
-					}}
-					onContextMenu={e => {
-						this.onFolderContext(e, item);
-					}}
-				>
+				<ListItem style={{ padding: "5px" }} button key={item.id} onClick={_ => this.onFolderItemClick(item)} onContextMenu={e => this.onFolderContext(e, item)}>
 					<ListItemIcon>
 						<i className={iconClassName} style={{ top: "4px" }} aria-hidden="true" />
 					</ListItemIcon>

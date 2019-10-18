@@ -16,7 +16,7 @@ class AudioContainer extends Component {
 			})
 			.concat(
 				new Array(16).fill(0).map((item, index) => {
-					return <div style={{ width: "150px" }} key={item + "" + index}></div>;
+					return <div className={styles.placeHolder} key={item + "" + index}></div>;
 				})
 			);
 

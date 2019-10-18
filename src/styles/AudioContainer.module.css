@@ -19,3 +19,29 @@
     line-height: 150px;
     background-color: #eee;
 }
+
+.placeHolder {
+    width: 150px;
+}
+
+.title {
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px
+}
+
+.btnStyle {
+    font-size: 50px;
+    display: inline-block;
+    cursor: pointer
+}
+
+.iconStyle {
+    font-size: 50px;
+}
+
+.audio {
+    visibility: hidden;
+}

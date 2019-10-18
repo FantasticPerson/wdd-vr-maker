@@ -16,16 +16,9 @@ export default class AudioItem extends Component {
 			<div style={{ margin: "5px" }}>
 				<div className={styles["audio-item"]}>
 					{this.renderIcon()}
-					<audio
-						style={{ visibility: "hidden" }}
-						ref={audio => {
-							this.audioObj = audio;
-						}}
-						src={source}
-						loop
-					></audio>
+					<audio className={styles.audio} ref={audio => (this.audioObj = audio)} src={source} loop></audio>
 				</div>
-				<div title={data.showName} style={{ width: "150px", textOverflow: "ellipsis", overflow: "hidden", height: "25px", lineHeight: "25px" }}>
+				<div className={styles.title} title={data.showName}>
 					{data.showName}
 				</div>
 			</div>
@@ -49,14 +42,14 @@ export default class AudioItem extends Component {
 	renderIcon() {
 		if (!this.state.playing) {
 			return (
-				<span onClick={this.play.bind(this)} style={{ fontSize: "50px", display: "inline-block", cursor: "pointer" }}>
-					<i className="iconfont icon-play" style={{ fontSize: "50px" }}></i>
+				<span onClick={this.play.bind(this)} className={styles.btnStyle}>
+					<i className={`iconfont icon-play ${styles.iconStyle}`}></i>
 				</span>
 			);
 		} else {
 			return (
-				<span onClick={this.pause.bind(this)} style={{ fontSize: "50px", display: "inline-block", cursor: "pointer" }}>
-					<i className="iconfont icon-pause" style={{ fontSize: "50px" }}></i>
+				<span onClick={this.pause.bind(this)} className={styles.btnStyle}>
+					<i className={`iconfont icon-pause ${styles.iconStyle}`}></i>
 				</span>
 			);
 		}
