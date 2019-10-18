@@ -139,13 +139,7 @@ class EditHotSpot extends Component {
 				let type = JSON.parse(item.action).type;
 				var typeText = typeObj[type];
 				return (
-					<div
-						className={styles["hotPot-item"]}
-						key={item.id}
-						onClick={() => {
-							this.selectHotspot(item.id);
-						}}
-					>
+					<div className={styles["hotPot-item"]} key={item.id} onClick={() => this.selectHotspot(item.id)}>
 						{`${typeText} ${item.id}`}
 					</div>
 				);
@@ -182,13 +176,7 @@ class EditHotSpot extends Component {
 			let id = String(item).length == 1 ? 0 + "" + item : String(item);
 
 			return (
-				<div
-					key={item}
-					onClick={() => {
-						this.onHotspotIconClick(item);
-					}}
-					className={className}
-				>
+				<div key={item} onClick={() => this.onHotspotIconClick(item)} className={className}>
 					<img style={{ width: "30px", height: "30px" }} src={getHotspotIconPath(id)} />
 				</div>
 			);
@@ -247,86 +235,29 @@ class EditHotSpot extends Component {
 		let hotSpotTypeActions = {
 			type1: () => {
 				const { sceneList, folderId, vrId } = this.props;
-				return (
-					<EditSelectScene
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-						selectId={null}
-						sceneList={sceneList}
-						folderId={folderId}
-						sceneSelected={sceneSelected}
-						vrId={vrId}
-					></EditSelectScene>
-				);
+				return <EditSelectScene action={action} ref={ref => (this.editEle = ref)} selectId={null} sceneList={sceneList} folderId={folderId} sceneSelected={sceneSelected} vrId={vrId}></EditSelectScene>;
 			},
 			type2: () => {
 				const { addPicture } = this.props;
-				return (
-					<EditPicture
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-						addPicture={addPicture}
-					></EditPicture>
-				);
+				return <EditPicture action={action} ref={ref => (this.editEle = ref)} addPicture={addPicture}></EditPicture>;
 			},
 			type3: () => {
-				return (
-					<EditText
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-					></EditText>
-				);
+				return <EditText action={action} ref={ref => (this.editEle = ref)}></EditText>;
 			},
 			type4: () => {
 				const { addPicture } = this.props;
-				return (
-					<EditPicAndText
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-						addPicture={addPicture}
-					></EditPicAndText>
-				);
+				return <EditPicAndText action={action} ref={ref => (this.editEle = ref)} addPicture={addPicture}></EditPicAndText>;
 			},
 			type5: () => {
 				const { addPicture } = this.props;
-				return (
-					<EditLink
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-					></EditLink>
-				);
+				return <EditLink action={action} ref={ref => (this.editEle = ref)}></EditLink>;
 			},
 			type6: () => {
 				const { addAudio } = this.props;
-				return (
-					<EditAudio
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-						addAudio={addAudio}
-					></EditAudio>
-				);
+				return <EditAudio action={action} ref={ref => (this.editEle = ref)} addAudio={addAudio}></EditAudio>;
 			},
 			type7: () => {
-				return (
-					<EditVideo
-						action={action}
-						ref={ref => {
-							this.editEle = ref;
-						}}
-					></EditVideo>
-				);
+				return <EditVideo action={action} ref={ref => (this.editEle = ref)}></EditVideo>;
 			}
 		};
 		return hotSpotTypeActions["type" + hotSpotType]();

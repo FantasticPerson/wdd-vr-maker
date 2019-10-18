@@ -41,8 +41,8 @@ class VrContainer extends Component {
 			vrContextItem: data,
 			contextPosData: { posX: e.clientX, posY: e.clientY }
 		});
-    }
-    
+	}
+
 	hideVrContext() {
 		this.setState({ showVrContextMenu: false });
 	}
@@ -106,12 +106,7 @@ class VrContainer extends Component {
 		return (
 			<div className={styles.container}>
 				<div className={styles.header}>
-					<div
-						style={{ paddingLeft: "10px" }}
-						onClick={() => {
-							this.onAddClick();
-						}}
-					>
+					<div style={{ paddingLeft: "10px" }} onClick={() => this.onAddClick()}>
 						<i className={"fa fa-plus " + styles.plusIcon} />
 						<FlatButton color="primary" className={styles.createBtn}>
 							创建全景
@@ -130,7 +125,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		...bindActionCreators(vrActions, dispatch),
 		...bindActionCreators(sceneActions, dispatch),
-		...bindActionCreators(groupActions, dispatch),
+		...bindActionCreators(groupActions, dispatch)
 	};
 }
 

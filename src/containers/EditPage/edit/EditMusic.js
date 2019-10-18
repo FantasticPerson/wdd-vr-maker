@@ -95,12 +95,7 @@ class EditMusic extends Component {
 			return (
 				<div>
 					{url}
-					<FlatButton
-						color="primary"
-						onClick={() => {
-							this.onRemoveMusic1();
-						}}
-					>
+					<FlatButton color="primary" onClick={() => this.onRemoveMusic1()}>
 						删除
 					</FlatButton>
 				</div>
@@ -118,12 +113,7 @@ class EditMusic extends Component {
 			return (
 				<div>
 					{url2}
-					<FlatButton
-						color="primary"
-						onClick={() => {
-							this.onRemoveMusic2();
-						}}
-					>
+					<FlatButton color="primary" onClick={() => this.onRemoveMusic2()}>
 						删除
 					</FlatButton>
 				</div>
@@ -163,20 +153,10 @@ class EditMusic extends Component {
 					<div>
 						<span>选择一首音乐</span>
 						<div>
-							<FlatButton
-								color="primary"
-								onClick={() => {
-									this.onAddMusicLocal(1);
-								}}
-							>
+							<FlatButton color="primary" onClick={() => this.onAddMusicLocal(1)}>
 								本地添加
 							</FlatButton>
-							<FlatButton
-								color="primary"
-								onClick={() => {
-									this.onAddMusic2(1);
-								}}
-							>
+							<FlatButton color="primary" onClick={() => this.onAddMusic2(1)}>
 								音乐库添加
 							</FlatButton>
 						</div>
@@ -187,20 +167,10 @@ class EditMusic extends Component {
 					<div>
 						<span>选择一首音乐</span>
 						<div>
-							<FlatButton
-								color="primary"
-								onClick={() => {
-									this.onAddMusicLocal(2);
-								}}
-							>
+							<FlatButton color="primary" onClick={() => this.onAddMusicLocal(2)}>
 								本地添加
 							</FlatButton>
-							<FlatButton
-								color="primary"
-								onClick={() => {
-									this.onAddMusic2(2);
-								}}
-							>
+							<FlatButton color="primary" onClick={() => this.onAddMusic2(2)}>
 								音乐库添加
 							</FlatButton>
 						</div>

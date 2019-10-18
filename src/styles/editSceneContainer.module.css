@@ -1,66 +1,66 @@
-.container{
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
 }
 
-.header{
+.header {
     flex: 0 0 35px;
     order: 1;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: rgba(200,200, 200, 0.5);
-    border-bottom: 1px solid rgba(0,0,0,0.18);
+    background-color: rgba(200, 200, 200, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
     position: relative;
     overflow: hidden;
 }
 
-.content{
+.content {
     flex: 1;
     order: 2;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.sceneContainer{
+.sceneContainer {
     width: 100px;
     height: 111px;
     /* padding-top: 23px; */
     display: inline-block;
     box-sizing: border-box;
-    padding-left:5px;
-    padding-right:5px; 
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-.sceneContainer span{
+.sceneContainer span {
     display: none;
 }
 
-.sceneContainer span:hover{
+.sceneContainer span:hover {
     cursor: move
 }
 
-.sceneContainer:hover span{
+.sceneContainer:hover span {
     display: block;
 }
 
-.scene{
+.scene {
     width: 100%;
     height: 90px;
     overflow: hidden;
     border: 5px;
 }
 
-.scene:hover{
+.scene:hover {
     border: 3px solid blanchedalmond
 }
 
-.selected{
+.selected {
     border: 3px solid blanchedalmond
 }
 
-.name{
+.name {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -68,12 +68,12 @@
     text-align: center;
 }
 
-.addScene{
+.addScene {
     text-align: center;
     font-size: 15px;
 }
 
-.addBtnContainer{
+.addBtnContainer {
     width: 80px;
     height: 80px;
     overflow: hidden;
@@ -86,7 +86,7 @@
     cursor: pointer;
 }
 
-.normal-btn-style{
+.normal-btn-style {
     display: inline-block;
     padding: 0px 5px;
     min-width: 50px;
@@ -99,7 +99,7 @@
     cursor: pointer;
 }
 
-.add-btn-style{
+.add-btn-style {
     display: inline-block;
     min-width: 30px;
     text-align: center;

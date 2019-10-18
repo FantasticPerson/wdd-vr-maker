@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button, Select as SelectField, MenuItem } from "@material-ui/core";
-
-import Hashid from "../../../utils/generateHashId";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Select as SelectField, MenuItem } from "@material-ui/core";
 
 export default class SceneMoveModal extends Component {
 	constructor() {

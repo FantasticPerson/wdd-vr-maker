@@ -153,9 +153,7 @@ class EditSceneContainer extends Component {
 	renderGroup() {
 		const { groupList, groupSelectId } = this.props;
 		if (groupList.length > 0) {
-			let item = groupList.find(item => {
-				return item.id == groupSelectId;
-			});
+			let item = groupList.find(item => item.id == groupSelectId);
 			if (!item) {
 				this.props.updateGroupSelected(groupList[0].id);
 			}
@@ -166,17 +164,7 @@ class EditSceneContainer extends Component {
 				styleObj = { backgroundColor: "#eee" };
 			}
 			return (
-				<div
-					className={styles["normal-btn-style"] + " group"}
-					onContextMenu={e => {
-						this.onGroupContext(e, item);
-					}}
-					onClick={() => {
-						this.onGroupClick(item.id);
-					}}
-					key={item.title}
-					style={styleObj}
-				>
+				<div className={styles["normal-btn-style"] + " group"} onContextMenu={e => this.onGroupContext(e, item)} onClick={() => this.onGroupClick(item.id)} key={item.title} style={styleObj}>
 					{item.title}
 				</div>
 			);
@@ -206,7 +194,6 @@ class EditSceneContainer extends Component {
 		}
 		let item = sceneList.find(item => item.id === beforeId);
 		let item2 = sceneList.find(item => item.id === afterId);
-		let dragItem = sceneList.find(item => item.id === dargId);
 
 		if ((item, item2)) {
 			let beforeIndex = sceneList.indexOf(item);
@@ -245,7 +232,7 @@ class EditSceneContainer extends Component {
 		const { sceneList, sceneSelected } = this.props;
 		const cWidth = sceneList.length * 105 + 90 + "px";
 
-		let sceneItemList = sceneList.map((item, index) => (
+		let sceneItemList = sceneList.map(item => (
 			<SceneItem
 				onSceneContext={this.onSceneContext.bind(this)}
 				sceneClickHandler={this.sceneClickHandler.bind(this)}

@@ -97,13 +97,13 @@ export default class CreateVrModal extends Component {
 				<DialogTitle>{title}</DialogTitle>
 				<DialogContent style={{ width: "500px" }}>
 					<div style={{ display: "inline-block", width: "50%", height: "160px" }}>
-						<TextField label="请输入作品名称" placeholder="请输入作品名称" margin="normal" inputRef={input => (this.titleRef = input)} defaultValue={defaultName} />
+						<TextField label="作品名称" placeholder="请输入作品名称" margin="normal" inputRef={input => (this.titleRef = input)} defaultValue={defaultName} />
 						<br />
-						<TextField label="请输入作品简介" placeholder="请输入作品简介" margin="normal" inputRef={input => (this.summaryRef = input)} defaultValue={defaultBrief} multiline rows={2} rowsMax={4} />
+						<TextField label="入作品简介" placeholder="请输入作品简介" margin="normal" inputRef={input => (this.summaryRef = input)} defaultValue={defaultBrief} multiline rows={2} rowsMax={4} />
 					</div>
 					<div style={{ display: "inline-block", width: "50%", height: "260px", verticalAlign: "top" }}>
 						<Button color="primary" style={{ marginLeft: "47px" }} onClick={this.addPoster.bind(this)}>
-							{"添加封面"}
+							添加封面
 						</Button>
 						{this.renderUploadPic()}
 					</div>

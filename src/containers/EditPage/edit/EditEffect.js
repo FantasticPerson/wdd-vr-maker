@@ -28,7 +28,6 @@ class EditEffect extends Component {
 			let sunlight = sceneSelectedItem.sunlight;
 			if (sunlight.length > 0) {
 				let sunObj = JSON.parse(sunlight);
-
 				AddSunlight(sunObj);
 			}
 		}

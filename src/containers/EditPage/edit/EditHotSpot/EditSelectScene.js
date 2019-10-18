@@ -65,13 +65,7 @@ export default class EditSelectScene extends Component {
 			}
 
 			return (
-				<div
-					onClick={() => {
-						this.onItemClick(item.id);
-					}}
-					style={itemStyle}
-					key={item.id}
-				>
+				<div onClick={() => this.onItemClick(item.id)} style={itemStyle} key={item.id}>
 					<div style={{ height: "80px", width: "80px", overflow: "hidden" }}>
 						<img style={{ height: "80px", width: "80px" }} src={getHeadImgUrl(item.id)} />
 					</div>

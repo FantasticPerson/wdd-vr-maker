@@ -35,15 +35,7 @@ export default class CreateFolderModal extends Component {
 			<Dialog open={true} onClose={this.onCancelClick.bind(this)} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
 				<DialogTitle id="alert-dialog-title">{title}</DialogTitle>
 				<DialogContent>
-					<TextField
-						label="请输入文件夹名称"
-						placeholder="请输入文件夹名称"
-						margin="normal"
-						inputRef={input => {
-							this.titleRef = input;
-						}}
-						defaultValue={data ? data.title : ""}
-					/>
+					<TextField label="文件夹名称" placeholder="请输入文件夹名称" margin="normal" inputRef={input => (this.titleRef = input)} defaultValue={data ? data.title : ""} />
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={this.onCancelClick.bind(this)}>取消</Button>

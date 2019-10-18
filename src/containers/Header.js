@@ -81,27 +81,9 @@ class Header extends Component {
 				<div>
 					<MenuIcon aria-owns={anchor ? "simple-menu" : null} aria-haspopup="true" onClick={this.onMenuClick.bind(this)} />
 					<Menu id="simple-menu" anchorEl={anchor} open={Boolean(anchor)} onClose={this.onMenuClose.bind(this)}>
-						<MenuItem
-							onClick={() => {
-								this.onMenuItemClick(APP_SHOW_TYPE_VR);
-							}}
-						>
-							全景库
-						</MenuItem>
-						<MenuItem
-							onClick={() => {
-								this.onMenuItemClick(APP_SHOW_TYPE_PIC);
-							}}
-						>
-							图片库
-						</MenuItem>
-						<MenuItem
-							onClick={() => {
-								this.onMenuItemClick(APP_SHOW_TYPE_AUDIO);
-							}}
-						>
-							音频库
-						</MenuItem>
+						<MenuItem onClick={() => this.onMenuItemClick(APP_SHOW_TYPE_VR)}>全景库</MenuItem>
+						<MenuItem onClick={() => this.onMenuItemClick(APP_SHOW_TYPE_PIC)}>图片库</MenuItem>
+						<MenuItem onClick={() => this.onMenuItemClick(APP_SHOW_TYPE_AUDIO)}>音频库</MenuItem>
 					</Menu>
 				</div>
 			);

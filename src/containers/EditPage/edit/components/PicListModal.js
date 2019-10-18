@@ -57,13 +57,7 @@ class PicListModal extends Component {
 			}
 			return (
 				<div style={{ display: "inline-block", margin: 5 }}>
-					<div
-						onClick={() => {
-							this.onPicClick(item);
-						}}
-						key={item.id}
-						style={style}
-					>
+					<div onClick={() => this.onPicClick(item)} key={item.id} style={style}>
 						<img style={{ width: "100%" }} src={getPathOfImage(false, `${item.id}.${item.extension}`)} />
 					</div>
 					<div title={item.showName} style={titleStyle}>

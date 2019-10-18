@@ -56,7 +56,6 @@ export default class EditLink extends Component {
 		return (
 			<div>
 				<FormControlLabel control={<Checkbox checked={this.state.check} onChange={this.updateCheck.bind(this)} value="在新窗口中打开" color="primary" />} label="在全景中显示" />
-
 				<TextField id="with-placeholder" label="请输入标题" placeholder="标题" margin="normal" defaultValue={defaultTitle} inputRef={input => (this.titleRef = input)} />
 				<br />
 				<TextField id="with-placeholder" label="链接地址" placeholder="链接地址" margin="normal" defaultValue={defaultUrl} inputRef={input => (this.urlRef = input)} />

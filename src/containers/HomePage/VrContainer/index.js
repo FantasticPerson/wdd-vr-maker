@@ -11,7 +11,6 @@ import CreateFolderModal from "./CreateFolderModal";
 import VrEdit from "./VrEdit";
 import FolderContextMenu from "./FolderContextMenu";
 import { getSelector } from "../../../store/getStore";
-
 import styles from "../../../styles/Home.module.css";
 
 class VrContainer extends React.Component {
@@ -95,18 +94,21 @@ class VrContainer extends React.Component {
 
 	renderFolderList() {
 		const { folderList, folderSelectedId } = this.props;
-		let listItems = folderList.map(item => {
-			let iconClassName = item.id === folderSelectedId ? "fa fa-folder-open" : "fa fa-folder";
-			return (
-				<ListItem style={{ padding: "5px" }} button key={item.id} onClick={_ => this.onFolderItemClick(item)} onContextMenu={e => this.onFolderContext(e, item)}>
-					<ListItemIcon>
-						<i className={iconClassName} style={{ top: "4px" }} aria-hidden="true" />
-					</ListItemIcon>
-					<ListItemText primary={item.title} />
-				</ListItem>
-			);
-		});
-		return <List component="nav">{listItems}</List>;
+		return (
+			<List component="nav">
+				{folderList.map(item => {
+					let iconClassName = item.id === folderSelectedId ? "fa fa-folder-open" : "fa fa-folder";
+					return (
+						<ListItem style={{ padding: "5px" }} button key={item.id} onClick={_ => this.onFolderItemClick(item)} onContextMenu={e => this.onFolderContext(e, item)}>
+							<ListItemIcon>
+								<i className={iconClassName} style={{ top: "4px" }} aria-hidden="true" />
+							</ListItemIcon>
+							<ListItemText primary={item.title} />
+						</ListItem>
+					);
+				})}
+			</List>
+		);
 	}
 
 	renderCreateFolderModal() {

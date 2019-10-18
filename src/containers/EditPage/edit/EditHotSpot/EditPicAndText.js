@@ -117,13 +117,7 @@ export default class EditPicAndText extends Component {
 
 			return (
 				<div style={{ display: "inline-block", margin: 5 }} key={item.pic.name}>
-					<div
-						onClick={() => {
-							this.onPicClick(item);
-						}}
-						style={styleObj}
-						key={item.pic.name}
-					>
+					<div onClick={() => this.onPicClick(item)} style={styleObj} key={item.pic.name}>
 						<i onClick={() => this.onRemoveClick(item)} className="fa fa-times pictureCloseBtn" aria-hidden="true"></i>
 						<img style={{ width: "100%" }} src={getPathOfImage(false, item.pic.name)} />
 					</div>
