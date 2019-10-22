@@ -26,7 +26,7 @@ class EditEffect extends Component {
 		}
 		if (sceneSelectedItem.hasOwnProperty("sunlight")) {
 			let sunlight = sceneSelectedItem.sunlight;
-			if (sunlight.length > 0) {
+			if (sunlight && sunlight.length > 0) {
 				let sunObj = JSON.parse(sunlight);
 				AddSunlight(sunObj);
 			}
@@ -103,6 +103,17 @@ class EditEffect extends Component {
 	}
 
 	render() {
+		let titleStyle = {
+			marginBottom: 10,
+			paddingBottom: 10,
+			marginTop: 10
+		};
+		let conStyle = {
+			border: "2px solid #eee",
+			padding: 5,
+			marginBottom: 10,
+			borderRadius: 5
+		};
 		let rainTypes = ["关闭", "小雨", "中雨", "大雨"];
 		let snowTypes = ["关闭", "小雪", "中雪", "大雪"];
 
@@ -119,30 +130,30 @@ class EditEffect extends Component {
 
 		return (
 			<div style={{ padding: "5px" }}>
-				<div style={{ borderBottom: "1px solid #eee" }}>
+				<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>
 					<span>
 						<i className="fa fa-magic"></i>
 						<span style={{ marginLeft: "5px" }}>特效编辑</span>
 					</span>
 				</div>
-				<div>
-					<FlatButton variant="contained" color="primary" style={btnStyle} onClick={this.addSunlight.bind(this)}>
+				<div style={conStyle}>
+					<FlatButton variant="contained" color="primary" onClick={this.addSunlight.bind(this)}>
 						添加阳光
 					</FlatButton>
-					<FlatButton style={btnStyle} onClick={this.removeSunlight.bind(this)}>
+					<FlatButton color="secondary" variant="contained" style={btnStyle} onClick={this.removeSunlight.bind(this)}>
 						删除
 					</FlatButton>
-					<div>下雨</div>
+					<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>下雨</div>
 					<RadioButtonGroup name="rain" value={rainType} onChange={this.onChooseSpecislShowChange.bind(this)}>
 						{rainFormControls}
 					</RadioButtonGroup>
 
-					<div>下雪</div>
+					<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>下雪</div>
 					<RadioButtonGroup name="snow" value={snowType} onChange={this.onChooseSpecislShowChange.bind(this)}>
 						{snowFormControls}
 					</RadioButtonGroup>
 				</div>
-				<FlatButton onClick={this.onSelectEffectConfirm.bind(this)} color="primary" style={{ marginLeft: "130px" }}>
+				<FlatButton variant="contained" color="primary" onClick={this.onSelectEffectConfirm.bind(this)} color="primary" style={{ marginLeft: "155px" }}>
 					确定
 				</FlatButton>
 			</div>

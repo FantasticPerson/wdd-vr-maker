@@ -56,9 +56,7 @@ function createWindow() {
 	window = new BrowserWindow({
 		width: 1240,
 		height: 728,
-		webPreferences: {
-			nodeIntegration: true
-		}
+		webPreferences: { nodeIntegration: true, webSecurity: false }
 	});
 
 	const devUrl = "http://localhost:3000";
@@ -67,9 +65,7 @@ function createWindow() {
 
 	window.loadURL(appUrl);
 	window.webContents.openDevTools();
-	window.on("closed", () => {
-		window = null;
-	});
+	window.on("closed", () => (window = null));
 }
 
 const initConfig = async () => {
@@ -89,7 +85,7 @@ const initConfig = async () => {
 	global.electron_app_scene_path = path.resolve(global.electron_app_assets_path, "./scene");
 	global.electron_app_tmp_path = path.resolve(global.electron_app_assets_path, "./tmp");
 	global.electron_app_vr_path = path.resolve(global.electron_app_assets_path, "./vr");
-	global.electron_app_krp_path = path.resolve(global.electron_app_root_path, "../krp");
+	global.electron_app_krp_path = path.resolve(global.electron_app_root_path, "../public/krp");
 	global.electron_app_krpano_path = path.resolve(global.electron_app_root_path, "../../krpano");
 	global.electron_app_pic_path = path.resolve(global.electron_app_assets_path, "./pic");
 	global.electron_app_pic_tmp = path.resolve(global.electron_app_assets_path, "./picTmp");
@@ -136,13 +132,9 @@ app.on("ready", async () => {
 });
 
 app.on("window-all-closed", () => {
-	if (process.platform !== "darwin") {
-		app.quit();
-	}
+	if (process.platform !== "darwin") app.quit();
 });
 
 app.on("activate", () => {
-	if (window === null) {
-		createWindow();
-	}
+	if (window === null) createWindow();
 });

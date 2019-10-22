@@ -112,7 +112,7 @@ class EditHotSpot extends Component {
 
 	onEditDeleteClick() {
 		const { delHotspot, hotpotSelected, updateHotspotSelect } = this.props;
-		delHotspot(hotpotSelected);
+		delHotspot(hotpotSelected.id);
 		this.handleCloseEditHotspot();
 	}
 

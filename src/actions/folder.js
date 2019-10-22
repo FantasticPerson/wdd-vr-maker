@@ -11,6 +11,7 @@ const baseList = [{ id: 0, title: "默认文件夹" }];
 export function updateFolderFromLocal() {
 	return dispatch => {
 		Modals.Folder.findAll().then(list => {
+			list = list.sort((item1, item2) => item1.timestamp - item2.timestamp);
 			dispatch(dUpdateAllFolder(baseList.concat(list)));
 			dispatch(updateVrByFolderId(0));
 		});
@@ -29,6 +30,7 @@ export function addFolder(title) {
 		Modals.Folder.add({ title: title, id: `f_${new Hashid().encode()}` })
 			.then(() => Modals.Folder.findAll())
 			.then(list => {
+				list = list.sort((item1, item2) => item1.timestamp - item2.timestamp);
 				dispatch(dUpdateAllFolder(baseList.concat(list)));
 			});
 	};
@@ -40,6 +42,7 @@ export function deleteFolder(obj) {
 		Modals.Folder.delete(obj.id)
 			.then(() => Modals.Folder.findAll())
 			.then(list => {
+				list = list.sort((item1, item2) => item1.timestamp - item2.timestamp);
 				dispatch(dUpdateAllFolder(baseList.concat(list)));
 				if (selectId == obj.id) {
 					dispatch(dUpdateFolderSelected(0));
@@ -53,6 +56,7 @@ export function updateFolder(obj) {
 		Modals.Folder.update(obj)
 			.then(() => Modals.Folder.findAll())
 			.then(list => {
+				list = list.sort((item1, item2) => item1.timestamp - item2.timestamp);
 				dispatch(dUpdateAllFolder(baseList.concat(list)));
 			});
 	};

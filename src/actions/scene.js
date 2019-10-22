@@ -57,14 +57,6 @@ export function updateInitViewPort(sceneId) {
 	};
 }
 
-export function sortSceneItems(items) {
-	return (dispatch, getState) => {
-		Modals.Scene.updateAllScene(items).then(() => {
-			dispatch(updateDAllScene());
-		});
-	};
-}
-
 export function updateViewRange(id, fov, fovmax, fovmin, vlookatmin, vlookatmax) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;

@@ -39,7 +39,7 @@ class Sceneitemspe extends Component {
 			msg = null;
 		}
 
-		if (msg.id && msg.id != this.props.item.id) {
+		if (msg && msg.id && msg.id != this.props.item.id) {
 			const { onSceneMove } = this.props;
 			let thisDom = findDOMNode(this);
 			let thisPos = thisDom.getBoundingClientRect();
@@ -75,7 +75,7 @@ class Sceneitemspe extends Component {
 		return (
 			<div
 				id={`scene-to-drag-${item.id}`}
-				style={{ opacity: hover && isDragging ? 0.5 : 1 }}
+				style={{ opacity: hover && isDragging ? 0.5 : 1, overflow: "hidden" }}
 				draggable
 				onDrop={this.onDrop.bind(this)}
 				onDragLeave={this.onDragLeave.bind(this)}
@@ -87,8 +87,8 @@ class Sceneitemspe extends Component {
 				onContextMenu={e => onSceneContext(e, item)}
 				onClick={() => sceneClickHandler(item.id)}
 			>
-				<div className={className}>
-					<img style={{ height: "100%" }} src={getHeadImgUrl(item.id)}></img>
+				<div className={className} style={{ overflow: "hidden" }}>
+					<img style={{ width: "100%", height: "100%", display: "block" }} src={getHeadImgUrl(item.id)}></img>
 				</div>
 				<div className={styles.name}>{item.name}</div>
 			</div>

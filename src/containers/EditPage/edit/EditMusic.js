@@ -140,16 +140,26 @@ class EditMusic extends Component {
 	}
 
 	render() {
+		let titleStyle = {
+			marginBottom: 10,
+			paddingBottom: 10
+		};
+		let conStyle = {
+			border: "2px solid #eee",
+			padding: 5,
+			marginBottom: 10,
+			borderRadius: 5
+		};
 		return (
 			<div style={{ padding: "5px" }}>
-				<div style={{ borderBottom: "1px solid #eee" }}>
+				<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>
 					<span>
 						<i className="fa fa-music"></i>
 						<span style={{ marginLeft: "5px" }}>音乐</span>
 					</span>
 				</div>
-				<div>
-					<div style={{ marginTop: "10px", borderBottom: "1px solid #eee" }}>背景音乐设置</div>
+				<div style={conStyle}>
+					<div style={{ marginTop: "10px", borderBottom: "1px solid #eee", ...titleStyle, marginTop: 10 }}>背景音乐设置</div>
 					<div>
 						<span>选择一首音乐</span>
 						<div>
@@ -163,7 +173,7 @@ class EditMusic extends Component {
 						{this.renderMusic()}
 					</div>
 
-					<div style={{ marginTop: "10px", borderBottom: "1px solid #eee" }}>解说音乐设置</div>
+					<div style={{ marginTop: "10px", borderBottom: "1px solid #eee", ...titleStyle }}>解说音乐设置</div>
 					<div>
 						<span>选择一首音乐</span>
 						<div>
@@ -177,10 +187,10 @@ class EditMusic extends Component {
 						{this.renderMusic2()}
 					</div>
 				</div>
-				<FlatButton color="primary" onClick={this.onConfirmClick.bind(this)}>
+				<FlatButton color="primary" variant="contained" onClick={this.onConfirmClick.bind(this)}>
 					确定
 				</FlatButton>
-				<FlatButton color="primary" onClick={this.onAllConfirmClick.bind(this)}>
+				<FlatButton color="primary" variant="contained" style={{ float: "right" }} onClick={this.onAllConfirmClick.bind(this)}>
 					应用到全部分组
 				</FlatButton>
 				{this.renderUploadModal()}

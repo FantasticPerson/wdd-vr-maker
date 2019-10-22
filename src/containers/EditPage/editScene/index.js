@@ -188,7 +188,7 @@ class EditSceneContainer extends Component {
 	}
 
 	onSceneMove(beforeId, afterId, dargId) {
-		const { sceneList, sortSceneItems } = this.props;
+		const { sceneList, groupSelectItem, updateGroup } = this.props;
 		for (let i = 0; i < sceneList.length; i++) {
 			sceneList[i].index = i;
 		}
@@ -224,7 +224,8 @@ class EditSceneContainer extends Component {
 					item2.index = beforeIndex;
 				}
 			}
-			sortSceneItems(sceneList);
+			groupSelectItem.sceneListIds = sceneList.sort((a, b) => a.index - b.index).map(item => item.id);
+			updateGroup(groupSelectItem);
 		}
 	}
 

@@ -136,8 +136,13 @@ function filterScene(list, pathname, groupId, groupList) {
 	let groupItem = getGroupSelectItem(groupList, groupId);
 	if (groupItem) {
 		let ids = groupItem.sceneListIds || [];
-		return list.filter(item => {
+		let filterList = list.filter(item => {
 			return item.vrid == vrId && ids.indexOf(item.id) >= 0;
+		});
+		return filterList.sort((a, b) => {
+			let index1 = ids.indexOf(a.id);
+			let index2 = ids.indexOf(b.id);
+			return index1 - index2;
 		});
 	}
 	return [];

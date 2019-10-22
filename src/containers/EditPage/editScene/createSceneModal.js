@@ -29,7 +29,6 @@ export default class CreateVrModal extends Component {
 
 	async onConfirmClick() {
 		const { tmpImgStatus } = this.state;
-		const { onCancel, addScene, updateGroup } = this.props.functions;
 		const { groupItem } = this.props;
 
 		const title = this.titleRef.value.trim();

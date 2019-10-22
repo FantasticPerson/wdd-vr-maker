@@ -63,7 +63,7 @@ class Header extends Component {
 					<IconButton style={{ marginLeft: -12, marginRight: 20 }} color="inherit" aria-label="Menu">
 						{this.renderLeftIcon()}
 					</IconButton>
-					<Typography variant="title" color="inherit" style={{ flex: 1 }}>
+					<Typography color="inherit" style={{ flex: 1 }}>
 						{title}
 					</Typography>
 					{this.renderBtns()}

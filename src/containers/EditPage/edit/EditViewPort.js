@@ -164,7 +164,22 @@ class EditViewPort extends Component {
 
 	render() {
 		const { max, min, start, max1, min1, tip } = this.state;
-		let SliderStyle = { width: 145, verticalAlign: "-11px", marginLeft: 16, display: "inline-block" };
+		let SliderStyle = { width: 130, verticalAlign: "-11px", marginLeft: 16, display: "inline-block" };
+		let titleStyle = {
+			borderBottom: "1px solid rgb(238, 238, 238)",
+			marginBottom: 10,
+			paddingBottom: 10,
+			marginTop: 10,
+			display: "block"
+		};
+		let conStyle = {
+			border: "2px solid #eee",
+			padding: 5,
+			marginBottom: 10,
+			borderRadius: 5,
+			marginTop: 10,
+			marginBottom: 10
+		};
 		return (
 			<div style={{ padding: "5px" }}>
 				<div
@@ -184,55 +199,57 @@ class EditViewPort extends Component {
 						</span>
 					</span>
 				</div>
-				<div style={{ margin: "5px" }}>
-					<span>视角范围设置</span>
-					<div>
-						<Typography style={{ display: "inline-block" }} id="label">
-							最小值
-						</Typography>
-						<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMinChange.bind(this)} value={min}></Slider>
+				<div style={conStyle}>
+					<div style={{ margin: "5px" }}>
+						<span style={titleStyle}>视角范围设置</span>
+						<div>
+							<Typography style={{ display: "inline-block" }} id="label">
+								最小值
+							</Typography>
+							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMinChange.bind(this)} value={min}></Slider>
+						</div>
+						<div>
+							<Typography style={{ display: "inline-block" }} id="label">
+								最大值
+							</Typography>
+							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMaxChange.bind(this)} value={max}></Slider>
+						</div>
+						<div>
+							<Typography style={{ display: "inline-block" }} id="label">
+								初始值
+							</Typography>
+							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onStartChange.bind(this)} value={start}></Slider>
+						</div>
+					</div>
+					<div style={{ margin: "5px" }}>
+						<span style={titleStyle}>垂直视角限制</span>
+						<div>
+							<Typography style={{ display: "inline-block" }} id="label">
+								最小值
+							</Typography>
+							<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMin1Change.bind(this)} value={min1}></Slider>
+						</div>
+						<div>
+							<Typography style={{ display: "inline-block" }} id="label">
+								最大值
+							</Typography>
+							<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMax1Change.bind(this)} value={max1}></Slider>
+						</div>
 					</div>
 					<div>
-						<Typography style={{ display: "inline-block" }} id="label">
-							最大值
-						</Typography>
-						<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMaxChange.bind(this)} value={max}></Slider>
+						<Button color="primary" variant="contained" onClick={this.onApplyToKarpano.bind(this)}>
+							应用查看效果
+						</Button>
 					</div>
 					<div>
-						<Typography style={{ display: "inline-block" }} id="label">
-							初始值
-						</Typography>
-						<Slider style={SliderStyle} max={155} min={-5} onChange={this.onStartChange.bind(this)} value={start}></Slider>
+						<Button color="primary" variant="contained" onClick={this.setViewPort.bind(this)} style={{ marginTop: "10px", width: "100%" }}>
+							将当前视角设置为初始视角
+						</Button>
 					</div>
 				</div>
-				<div style={{ margin: "5px" }}>
-					<span>垂直视角限制</span>
-					<div>
-						<Typography style={{ display: "inline-block" }} id="label">
-							最小值
-						</Typography>
-						<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMin1Change.bind(this)} value={min1}></Slider>
-					</div>
-					<div>
-						<Typography style={{ display: "inline-block" }} id="label">
-							最大值
-						</Typography>
-						<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMax1Change.bind(this)} value={max1}></Slider>
-					</div>
-				</div>
-				<div>
-					<Button color="primary" variant="contained" onClick={this.onApplyToKarpano.bind(this)}>
-						应用查看效果
-					</Button>
-					<Button color="primary" variant="contained" style={{ float: "right" }} onClick={this.onConfirmToKrpano.bind(this)}>
-						保存
-					</Button>
-				</div>
-				<div>
-					<Button color="primary" variant="contained" onClick={this.setViewPort.bind(this)} style={{ marginTop: "10px", width: "100%" }}>
-						将当前视角设置为初始视角
-					</Button>
-				</div>
+				<Button color="primary" variant="contained" style={{ float: "right" }} onClick={this.onConfirmToKrpano.bind(this)}>
+					保存
+				</Button>
 				<Snackbar anchorOrigin={{ vertical: "top", horizontal: "center" }} open={tip.open} message={tip.message} />
 			</div>
 		);
