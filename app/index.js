@@ -4,10 +4,11 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
+console.log(process.env.NODE_ENV);
 const isDev = process.env.NODE_ENV == "development";
 
 let window;
-
+console.log(isDev);
 isDev && require("electron-debug")({ enabled: true, showDevTools: false });
 
 function createDevTools() {
@@ -16,43 +17,6 @@ function createDevTools() {
 	devtronExtension.install();
 	installExtension(REACT_DEVELOPER_TOOLS);
 	installExtension(REDUX_DEVTOOLS);
-}
-
-function copyFolder(src, dst) {
-	let fs = require("fs");
-	let stat = fs.stat;
-
-	let copy = function(src, dst) {
-		fs.readdir(src, function(err, paths) {
-			if (err) throw err;
-			paths.forEach(function(path) {
-				let _src = src + "/" + path;
-				let _dst = dst + "/" + path;
-				let readable, writable;
-				stat(_src, function(err, st) {
-					if (err) throw err;
-					if (st.isFile()) {
-						readable = fs.createReadStream(_src);
-						writable = fs.createWriteStream(_dst);
-						readable.pipe(writable);
-					} else if (st.isDirectory()) {
-						exists(_src, _dst, copy);
-					}
-				});
-			});
-		});
-	};
-	let exists = function(src, dst, callback) {
-		fs.exists(dst, function(exists) {
-			if (exists) callback(src, dst);
-			else {
-				fs.mkdir(dst, function() {
-					callback(src, dst);
-				});
-			}
-		});
-	};
-	exists(src, dst, copy);
 }
 
 function createWindow() {
@@ -106,6 +70,49 @@ const initConfig = async () => {
 	global.electron_app_cpano_path = path.resolve(global.electron_app_root_path, "./cpano");
 };
 
+const copyFolder = (src, dst) => {
+	let fs = require("fs");
+	let stat = fs.stat;
+
+	let copy = function(src, dst) {
+		fs.readdir(src, function(err, paths) {
+			if (err) {
+				throw err;
+			}
+			paths.forEach(function(path) {
+				var _src = src + "/" + path;
+				var _dst = dst + "/" + path;
+				var readable;
+				var writable;
+				stat(_src, function(err, st) {
+					if (err) {
+						throw err;
+					}
+					if (st.isFile()) {
+						readable = fs.createReadStream(_src);
+						writable = fs.createWriteStream(_dst);
+						readable.pipe(writable);
+					} else if (st.isDirectory()) {
+						exists(_src, _dst, copy);
+					}
+				});
+			});
+		});
+	};
+	let exists = function(src, dst, callback) {
+		fs.exists(dst, function(exists) {
+			if (exists) {
+				callback(src, dst);
+			} else {
+				fs.mkdir(dst, function() {
+					callback(src, dst);
+				});
+			}
+		});
+	};
+	exists(src, dst, copy);
+};
+
 const initDir = async () => {
 	const checkAndMakeDir = dir => {
 		if (!fs.existsSync(dir)) {
@@ -126,12 +133,12 @@ const initDir = async () => {
 	checkAndMakeDir(global.electron_app_audio_tmp);
 	checkAndMakeDir(global.electron_app_cpano_path);
 
-	// if (global.NODE_ENV !== "dev" && !fs.exists(path.resolve(global.electron_app_root_path, "./tools"))) {
-	// 	let src = path.resolve(global.electron_app_root_path, "./app.asar/tools");
-	// 	let dst = path.resolve(global.electron_app_root_path, "./tools");
+	if (!isDev && !fs.existsSync(path.resolve(global.electron_app_path, "../tools"))) {
+		let src = path.resolve(global.electron_app_path, "./build/tools");
+		let dst = path.resolve(global.electron_app_path, "../tools");
 
-	// 	copyFolder(src, dst);
-	// }
+		copyFolder(src, dst);
+	}
 };
 
 app.on("ready", async () => {
