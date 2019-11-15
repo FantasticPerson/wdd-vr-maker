@@ -1,7 +1,10 @@
+const initServer = require("./server");
+
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
-const isDev = require("electron-is-dev");
+
+const isDev = process.env.NODE_ENV == "development";
 
 let window;
 
@@ -72,21 +75,28 @@ const initConfig = async () => {
 	global.__ELECTRON__ == true;
 	global.electron = require("electron");
 	global.electron_app = global.electron.app;
+
 	global.electron_app_path = electron_app.getAppPath();
+
+	console.log(global.electron_app_path);
 	if (isDev) {
 		global.electron_app_root_path = path.resolve(electron_app.getPath("exe"), "../../../../dist");
 		global.NODE_ENV = "dev";
+		global.electron_app_public_path = path.resolve(global.electron_app_root_path, "../public");
 	} else {
-		global.electron_app_root_path = path.resolve(global.electron_app_path, "..");
+		global.electron_app_root_path = path.resolve(global.electron_app_path, "../public");
 		global.NODE_ENV = "prod";
+		global.electron_app_public_path = path.resolve(global.electron_app_path, "./build");
 	}
+	console.log(global.electron_app_root_path);
+	global.electron_app_assets_path = path.resolve(global.electron_app_root_path, "./assets");
 	global.electron_app_assets_path = path.resolve(global.electron_app_root_path, "./assets");
 	global.electron_app_krpano_path = path.resolve(global.electron_app_assets_path, "./krpano");
 	global.electron_app_scene_path = path.resolve(global.electron_app_assets_path, "./scene");
 	global.electron_app_tmp_path = path.resolve(global.electron_app_assets_path, "./tmp");
 	global.electron_app_vr_path = path.resolve(global.electron_app_assets_path, "./vr");
-	global.electron_app_krp_path = path.resolve(global.electron_app_root_path, "../public/krp");
-	global.electron_app_krpano_path = path.resolve(global.electron_app_root_path, "../../krpano");
+	global.electron_app_krp_path = path.resolve(global.electron_app_public_path, "./krp");
+	global.electron_app_krpano_path = path.resolve(global.electron_app_public_path, "./krpano");
 	global.electron_app_pic_path = path.resolve(global.electron_app_assets_path, "./pic");
 	global.electron_app_pic_tmp = path.resolve(global.electron_app_assets_path, "./picTmp");
 	global.electron_app_audio_path = path.resolve(global.electron_app_assets_path, "./audio");
@@ -116,17 +126,18 @@ const initDir = async () => {
 	checkAndMakeDir(global.electron_app_audio_tmp);
 	checkAndMakeDir(global.electron_app_cpano_path);
 
-	if (global.NODE_ENV !== "dev" && !fs.exists(path.resolve(global.electron_app_root_path, "./tools"))) {
-		let src = path.resolve(global.electron_app_root_path, "./app.asar/tools");
-		let dst = path.resolve(global.electron_app_root_path, "./tools");
+	// if (global.NODE_ENV !== "dev" && !fs.exists(path.resolve(global.electron_app_root_path, "./tools"))) {
+	// 	let src = path.resolve(global.electron_app_root_path, "./app.asar/tools");
+	// 	let dst = path.resolve(global.electron_app_root_path, "./tools");
 
-		copyFolder(src, dst);
-	}
+	// 	copyFolder(src, dst);
+	// }
 };
 
 app.on("ready", async () => {
 	await initConfig();
 	await initDir();
+	await initServer(global.electron_app_root_path, global);
 	createWindow();
 	isDev && createDevTools();
 });

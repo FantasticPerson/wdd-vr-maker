@@ -6,6 +6,8 @@ import { getSelector } from "../../../store/getStore";
 import * as krpanoActions from "../../../actions/krpano";
 import * as sceneActions from "../../../actions/scene";
 
+import styles from "../../../styles/editStyle.module.css";
+
 class EditEffect extends Component {
 	constructor() {
 		super();
@@ -130,25 +132,24 @@ class EditEffect extends Component {
 
 		return (
 			<div style={{ padding: "5px" }}>
-				<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>
+				<div className={styles.titleStyle}>
 					<span>
 						<i className="fa fa-magic"></i>
 						<span style={{ marginLeft: "5px" }}>特效编辑</span>
 					</span>
 				</div>
-				<div style={conStyle}>
+				<div className={styles.conStyle}>
 					<FlatButton variant="contained" color="primary" onClick={this.addSunlight.bind(this)}>
 						添加阳光
 					</FlatButton>
 					<FlatButton color="secondary" variant="contained" style={btnStyle} onClick={this.removeSunlight.bind(this)}>
 						删除
 					</FlatButton>
-					<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>下雨</div>
+					<div className={styles.titleStyle}>下雨</div>
 					<RadioButtonGroup name="rain" value={rainType} onChange={this.onChooseSpecislShowChange.bind(this)}>
 						{rainFormControls}
 					</RadioButtonGroup>
-
-					<div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>下雪</div>
+					<div className={styles.titleStyle}>下雪</div>
 					<RadioButtonGroup name="snow" value={snowType} onChange={this.onChooseSpecislShowChange.bind(this)}>
 						{snowFormControls}
 					</RadioButtonGroup>

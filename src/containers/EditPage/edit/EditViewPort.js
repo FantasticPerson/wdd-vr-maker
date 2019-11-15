@@ -124,7 +124,6 @@ class EditViewPort extends Component {
 	onApplyToKarpano() {
 		const { max, min, start, min1, max1 } = this.state;
 		const { krpano } = this.props;
-
 		if (krpano) {
 			if (min > krpano.get("view.fov")) {
 				krpano.set("view.fov", min);
@@ -132,13 +131,11 @@ class EditViewPort extends Component {
 			if (max < krpano.get("view.fov")) {
 				krpano.set("view.fov", max);
 			}
-
 			krpano.set("view.fov", start);
 			krpano.set("view.fovmin", min);
 			krpano.set("view.fovmax", max);
 			krpano.set("view.vlookatmin", min1);
 			krpano.set("view.vlookatmax", max1);
-
 			if (min1 > krpano.get("view.vlookat")) {
 				krpano.set("view.vlookat", min1);
 			}
@@ -151,9 +148,7 @@ class EditViewPort extends Component {
 	onConfirmToKrpano() {
 		const { updateViewRange, sceneSelected } = this.props;
 		const { max, min, start, max1, min1 } = this.state;
-
 		updateViewRange(sceneSelected, start, max, min, min1, max1);
-
 		this.showTip("视角设置保存成功");
 	}
 
@@ -182,21 +177,10 @@ class EditViewPort extends Component {
 		};
 		return (
 			<div style={{ padding: "5px" }}>
-				<div
-					style={{
-						borderBottom: "1px solid #eee",
-						paddingBottom: "10px"
-					}}
-				>
+				<div style={{ borderBottom: "1px solid #eee", paddingBottom: "10px" }}>
 					<span>
 						<i className="fa fa-eye"></i>
-						<span
-							style={{
-								marginLeft: "5px"
-							}}
-						>
-							视角
-						</span>
+						<span style={{ marginLeft: "5px" }}>视角</span>
 					</span>
 				</div>
 				<div style={conStyle}>

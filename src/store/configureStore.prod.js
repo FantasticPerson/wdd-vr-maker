@@ -1,24 +1,23 @@
-// @flow
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { createHashHistory } from 'history';
-import { routerMiddleware } from 'react-router-redux';
-import { connectRouter } from 'connected-react-router'
-import rootReducer from '../reducers';
-// import type { counterStateType } from '../reducers/counter';
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import { createHashHistory } from "history";
+import { routerActions } from "react-router-redux";
+import rootReducer from "../reducers";
 
 const history = createHashHistory();
-
-// const createRootReducer = (history) => combineReducers({
-//   router: connectRouter(history),
-//   // rest of your reducers
-// })
-
-// const router = routerMiddleware(createRootReducer(history));
-const enhancer = applyMiddleware(thunk, router);
+const actionCreators = {
+	...routerActions
+};
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+	? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+			actionCreators
+	  })
+	: compose;
+const enhancers = [applyMiddleware(thunk)];
+const enhancer = composeEnhancers(...enhancers);
 
 function configureStore(initialState) {
-  return createStore(rootReducer(history), initialState);
+	return createStore(rootReducer(history), initialState, enhancer);
 }
 
 export default { configureStore, history };

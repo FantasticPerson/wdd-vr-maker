@@ -105,12 +105,14 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
 
 		// fse.copySync(srcPath, destPath);
 	}
-
-	const template = swig.compileFile(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/html/pano.html" : "../html/pano.html"));
+    
+    console.log(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/html/pano.html" : "../public/pano.html"))
+    const template = swig.compileFile(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/html/pano.html" : "../public/pano.html"));
+    
 
 	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title }));
 
-    fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/api_export_jiemi2.xml" : "../krpano/api_export_jiemi2.xml")).pipe(fs.createWriteStream(path.resolve(vrPath, "./api_export.xml")));
+    fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/api_export_jiemi2.xml" : "../public/krpano/api_export_jiemi2.xml")).pipe(fs.createWriteStream(path.resolve(vrPath, "./api_export.xml")));
     
 
     // await copyPath()
@@ -119,15 +121,15 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
     
     // await copyPath()
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/offline.js" : "../krp/offline.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./offline.js")));
+	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/offline.js" : "../public/krp/offline.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./offline.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/viewer.js" : "../krp/viewer.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./viewer.js")));
+	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/viewer.js" : "../public/krp/viewer.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./viewer.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.js" : "../krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.js")));
+	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.js" : "../public/krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.swf" : "../krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.swf")));
+	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.swf" : "../public/krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.swf")));
 
-	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp" : "../krp"), path.resolve(vrPath, "./krp"));
+	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp" : "../public/krp"), path.resolve(vrPath, "./krp"));
 
-	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/hotspotIcons" : "../krp/hotspotIcons"), path.resolve(vrPath, "./hotspots"));
+	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/hotspotIcons" : "../public/krp/hotspotIcons"), path.resolve(vrPath, "./hotspots"));
 }

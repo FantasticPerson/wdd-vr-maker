@@ -37,6 +37,7 @@ class Header extends Component {
 	}
 
 	onPreviewClick() {
+        console.log(getPreviewUrl(this.props.vrId))
 		window.open(getPreviewUrl(this.props.vrId), "预览");
 	}
 

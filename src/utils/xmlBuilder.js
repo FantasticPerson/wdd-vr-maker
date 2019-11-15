@@ -176,7 +176,7 @@ function thumbsXmlData(productData, config, krpano) {
 			panoElement.att("thumb", `./scene_${pano.scene.id}/thumb.jpg`);
 			panoElement.att("pano_id", pano.scene.id);
 
-			if (pano.scene.hasOwnProperty("sunlight") && pano.scene.sunlight.length > 0) {
+			if (pano.scene.hasOwnProperty("sunlight") && pano.scene.sunlight && pano.scene.sunlight.length > 0) {
 				useSunlight = true;
 			}
 		});
@@ -328,7 +328,7 @@ function panosXmlData(productData, config) {
 				}
 			}
 			if (pano.scene.hasOwnProperty("sunlight")) {
-				if (pano.scene.sunlight.length > 0) {
+				if (pano.scene.sunlight && pano.scene.sunlight.length > 0) {
 					let sunlightObj = JSON.parse(pano.scene.sunlight);
 					const sunlight = panoElement.ele("sun");
 

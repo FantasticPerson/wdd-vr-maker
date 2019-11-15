@@ -2,8 +2,8 @@ import Timer from "./timer";
 const fs = require("fs");
 const Path = require("path");
 
-function copyPath(path) {
-	copy(path);
+function copyPath(path, dest) {
+	copy(path, dest);
 	return new Promise(resolve => {
 		Timer(200).then(() => {
 			resolve();

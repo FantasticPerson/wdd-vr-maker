@@ -11,12 +11,14 @@ export const dUpdateSceneSelected = createAction("update_scene_selected");
 export function updateDAllScene(id) {
 	return (dispatch, getState) => {
 		let gId = id ? id : getState().group.selectId;
-		Modals.Scene.findAllSceneByGroupId(gId).then(list => {
-			list.sort((item1, item2) => {
-				return item1.index > item2.index;
+		if (gId) {
+			Modals.Scene.findAllSceneByGroupId(gId).then(list => {
+				list.sort((item1, item2) => {
+					return item1.index > item2.index;
+				});
+				dispatch(updateAllScene(list));
 			});
-			dispatch(updateAllScene(list));
-		});
+		}
 	};
 }
 
