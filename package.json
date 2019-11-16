@@ -64,6 +64,7 @@
         "express": "^4.17.1",
         "font-awesome": "^4.7.0",
         "fs-extra": "^8.1.0",
+        "fse": "^4.0.1",
         "get-pixels": "^3.3.2",
         "gm": "^1.23.1",
         "graceful-fs": "4.1.11",

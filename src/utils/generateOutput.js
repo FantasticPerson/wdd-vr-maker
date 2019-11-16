@@ -3,17 +3,15 @@ import { IMG_NAME_ARR } from "../constants.js";
 import { getProductionXml } from "./xmlBuilder";
 
 import copyFolder from "../native/copyFolder";
-import copyPath from "../utils/copyPath";
-import cleanPath from "../utils/cleanPath";
 
-const { native_require, electron_app_output_path, electron_app_scene_path, electron_app_pic_path, electron_app_audio_path, electron_app_vr_path, electron_app_root_path } = window;
+const { native_require, electron_app_output_path, electron_app_scene_path, electron_app_pic_path, electron_app_audio_path, electron_app_vr_path, electron_app_root_path, electron_app_krpano_path, electron_app_krp_assets_path } = window;
 
-// const fse = native_require("fs-extra");
+const fse = require("fs-extra");
 const fs = native_require("fs");
 const path = native_require("path");
 const swig = require("swig");
 
-export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allSceneList) {
+export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allSceneList) {
 	let config = {};
 	let vrPath = path.resolve(electron_app_output_path, `./vr-${vrItem.id}`);
 
@@ -55,7 +53,7 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
 	}
 
 	if (fs.existsSync(vrPath)) {
-		cleanPath(vrPath);
+		fse.removeSync(vrPath);
 	}
 
 	if (!fs.existsSync(vrPath)) {
@@ -71,15 +69,15 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
 		}
 		for (let j = 0; j < IMG_NAME_ARR.length; j++) {
 			if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
-				copyPath(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
-				// fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
+				fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
 			} else {
-				copyPath(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
-				// fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
+				fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
 			}
-			copyPath(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
-			// fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
-			// fse.moveSync()
+			fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
+		}
+		if (scene.music1) {
+			audioArr.push(scene.music1);
+			audioArr = [...new Set(audioArr)];
 		}
 	}
 
@@ -90,8 +88,7 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
 	for (let i = 0; i < picArr.length; i++) {
 		let srcPath = path.resolve(electron_app_pic_path, `./${picArr[i]}`);
 		let destPath = path.resolve(picPath, `./${picArr[i]}`);
-		copyPath(srcPath, destPath);
-		// fse.copySync(srcPath, destPath);
+		fse.copySync(srcPath, destPath);
 	}
 
 	if (!fs.existsSync(audioPath)) {
@@ -101,35 +98,26 @@ export async function GenerateOutput(vrItem, sceneList, hotpotList, groupList, a
 	for (let i = 0; i < audioArr.length; i++) {
 		let srcPath = path.resolve(electron_app_audio_path, `./${audioArr[i]}`);
 		let destPath = path.resolve(audioPath, `./${audioArr[i]}`);
-		copyPath(srcPath, destPath);
-
-		// fse.copySync(srcPath, destPath);
+		fse.copySync(srcPath, destPath);
 	}
-    
-    console.log(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/html/pano.html" : "../public/pano.html"))
-    const template = swig.compileFile(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/html/pano.html" : "../public/pano.html"));
-    
+
+	const template = swig.compileFile(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "../app.asar/build/pano.html" : "../public/pano.html"));
 
 	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title }));
 
-    fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/api_export_jiemi2.xml" : "../public/krpano/api_export_jiemi2.xml")).pipe(fs.createWriteStream(path.resolve(vrPath, "./api_export.xml")));
-    
+	fs.createReadStream(path.resolve(electron_app_krpano_path, "./api_export_jiemi2.xml")).pipe(fs.createWriteStream(path.resolve(vrPath, "./api_export.xml")));
 
-    // await copyPath()
+	fs.writeFileSync(path.resolve(vrPath, "./data.xml"), getProductionXml(vrItem, sceneList, hotpotList, groupList, allSceneList));
 
-    fs.writeFileSync(path.resolve(vrPath, "./data.xml"), getProductionXml(vrItem, sceneList, hotpotList, groupList, allSceneList));
-    
-    // await copyPath()
+	fs.createReadStream(path.resolve(electron_app_krp_assets_path, "./offline.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./offline.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/offline.js" : "../public/krp/offline.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./offline.js")));
+	fs.createReadStream(path.resolve(electron_app_krp_assets_path, "./viewer.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./viewer.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/viewer.js" : "../public/krp/viewer.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./viewer.js")));
+	fs.createReadStream(path.resolve(electron_app_krpano_path, "./krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.js")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.js" : "../public/krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.js")));
+	fs.createReadStream(path.resolve(electron_app_krpano_path, "./krpano.swf")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.swf")));
 
-	fs.createReadStream(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krpano/krpano.swf" : "../public/krpano/krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.swf")));
+	copyFolder(electron_app_krp_assets_path, path.resolve(vrPath, "./krp"));
 
-	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp" : "../public/krp"), path.resolve(vrPath, "./krp"));
-
-	copyFolder(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "./app.asar/krp/hotspotIcons" : "../public/krp/hotspotIcons"), path.resolve(vrPath, "./hotspots"));
+	copyFolder(path.resolve(electron_app_krp_assets_path, "./hotspotIcons"), path.resolve(vrPath, "./hotspots"));
 }
