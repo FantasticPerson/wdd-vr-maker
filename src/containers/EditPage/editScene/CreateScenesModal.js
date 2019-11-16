@@ -72,7 +72,7 @@ export default class CreateScenes extends Component {
 
 	onCancelClick() {
 		const { onCancel } = this.props.functions;
-		onCancel();
+		onCancel(true);
 	}
 
 	render() {
@@ -81,7 +81,7 @@ export default class CreateScenes extends Component {
 				<DialogTitle id="alert-dialog-title">{"批量创建场景"}</DialogTitle>
 				<DialogContent style={{ width: "500px" }}>{this.renderContent()}</DialogContent>
 				<DialogActions>
-					<Button onClick={this.onCancelClick.bind(this)}>取消</Button>,
+					<Button onClick={this.onCancelClick.bind(this)}>取消</Button>
 				</DialogActions>
 			</Dialog>
 		);

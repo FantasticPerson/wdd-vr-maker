@@ -81,7 +81,6 @@ function krpanoData(vrItem, sceneList, hotpotList, groupList, allSceneList) {
 			for (let j = 0; j < sArr.length; j++) {
 				let hotspots = getHotspotList(hotpotList, sArr[j].id);
 				result.push({ scene: sArr[j], hotspots: hotspots });
-				console.log(hotspots);
 			}
 			outPut.push({ group: groupList[i], scene: result });
 		}

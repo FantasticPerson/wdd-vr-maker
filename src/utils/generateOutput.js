@@ -105,17 +105,17 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
 	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title }));
 
-	fs.createReadStream(path.resolve(electron_app_krpano_path, "./api_export_jiemi2.xml")).pipe(fs.createWriteStream(path.resolve(vrPath, "./api_export.xml")));
+	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./api_export_jiemi2.xml"), path.resolve(vrPath, "./api_export.xml"));
 
 	fs.writeFileSync(path.resolve(vrPath, "./data.xml"), getProductionXml(vrItem, sceneList, hotpotList, groupList, allSceneList));
 
-	fs.createReadStream(path.resolve(electron_app_krp_assets_path, "./offline.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./offline.js")));
+	fs.copyFileSync(path.resolve(electron_app_krp_assets_path, "./offline.js"), path.resolve(vrPath, "./offline.js"));
 
-	fs.createReadStream(path.resolve(electron_app_krp_assets_path, "./viewer.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./viewer.js")));
+	fs.copyFileSync(path.resolve(electron_app_krp_assets_path, "./viewer.js"), path.resolve(vrPath, "./viewer.js"));
 
-	fs.createReadStream(path.resolve(electron_app_krpano_path, "./krpano.js")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.js")));
+	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./krpano.js"), path.resolve(vrPath, "./krpano.js"));
 
-	fs.createReadStream(path.resolve(electron_app_krpano_path, "./krpano.swf")).pipe(fs.createWriteStream(path.resolve(vrPath, "./krpano.swf")));
+	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./krpano.swf"), path.resolve(vrPath, "./krpano.swf"));
 
 	copyFolder(electron_app_krp_assets_path, path.resolve(vrPath, "./krp"));
 

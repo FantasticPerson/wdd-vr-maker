@@ -17,6 +17,7 @@ class EditEffect extends Component {
 	componentDidMount() {
 		const { sceneSelectedItem, AddEffect, AddSunlight } = this.props;
 
+		if (!sceneSelectedItem) return;
 		if (sceneSelectedItem.hasOwnProperty("effectType") && sceneSelectedItem.hasOwnProperty("effectLevel")) {
 			if (sceneSelectedItem.effectType == "rain") {
 				this.setState({ rainType: sceneSelectedItem.effectLevel });
@@ -105,17 +106,6 @@ class EditEffect extends Component {
 	}
 
 	render() {
-		let titleStyle = {
-			marginBottom: 10,
-			paddingBottom: 10,
-			marginTop: 10
-		};
-		let conStyle = {
-			border: "2px solid #eee",
-			padding: 5,
-			marginBottom: 10,
-			borderRadius: 5
-		};
 		let rainTypes = ["关闭", "小雨", "中雨", "大雨"];
 		let snowTypes = ["关闭", "小雪", "中雪", "大雪"];
 

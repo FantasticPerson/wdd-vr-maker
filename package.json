@@ -34,7 +34,7 @@
         ]
     },
     "build": {
-        "productName": "Electron-React-Test",
+        "productName": "vr-maker",
         "extends": null,
         "files": [
             "build/**/*"

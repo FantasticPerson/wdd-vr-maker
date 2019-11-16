@@ -4,11 +4,10 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
-console.log(process.env.NODE_ENV);
 const isDev = process.env.NODE_ENV == "development";
 
 let window;
-console.log(isDev);
+
 isDev && require("electron-debug")({ enabled: true, showDevTools: false });
 
 function createDevTools() {
@@ -29,11 +28,20 @@ function createWindow() {
 	const devUrl = "http://localhost:3000";
 	const localUrl = `file://${path.resolve(__dirname, "../../app.asar/build")}/index.html`;
 	const appUrl = isDev ? devUrl : localUrl;
+    if(!isDev){
+        window.setMenu(null)
+    }
+    window.loadURL(appUrl);
+    if(isDev){
+        window.webContents.openDevTools();
+    }
+    window.on("closed", () => (window = null));
+    
+    const { globalShortcut } = require('electron')
 
-	window.loadURL(appUrl);
-	window.webContents.openDevTools();
-	window.on("closed", () => (window = null));
 }
+
+const register
 
 const initConfig = async () => {
 	global.__ELECTRON__ == true;
@@ -44,7 +52,7 @@ const initConfig = async () => {
 
 	console.log(global.electron_app_path);
 	if (isDev) {
-		global.electron_app_root_path = path.resolve(electron_app.getPath("exe"), "../../../../dist");
+		global.electron_app_root_path = path.resolve(electron_app.getPath("exe"), "../../../../dev");
 		global.NODE_ENV = "dev";
 		global.electron_app_public_path = path.resolve(global.electron_app_root_path, "../public");
 	} else {
@@ -52,7 +60,6 @@ const initConfig = async () => {
 		global.NODE_ENV = "prod";
 		global.electron_app_public_path = path.resolve(global.electron_app_path, "./build");
 	}
-	console.log(global.electron_app_root_path);
 	global.electron_app_assets_path = path.resolve(global.electron_app_root_path, "./assets");
 	global.electron_app_assets_path = path.resolve(global.electron_app_root_path, "./assets");
 	global.electron_app_krpano_path = path.resolve(global.electron_app_assets_path, "./krpano");
@@ -141,13 +148,42 @@ const initDir = async () => {
 	}
 };
 
+const {globalShortcut} = require('electron')
+
+const registerShortCuts = ()=>{
+    globalShortcut.register('Ctrl+F1', () => {
+        if(window){
+            window.webContents.openDevTools()
+        }
+    })
+}
+
+const unRegisterShortCuts = ()=>{
+    globalShortcut.unregisterAll()
+}
+
 app.on("ready", async () => {
 	await initConfig();
 	await initDir();
 	await initServer(global.electron_app_root_path, global);
 	createWindow();
-	isDev && createDevTools();
+    isDev && createDevTools();
+    registerShortCuts()
+
+    if(window && !isDev){
+        window.on('blur', function() {
+            let win = BrowserWindow.getFocusedWindow();
+            if(win) return;
+            unRegisterShortCuts()
+        });
+    
+        window.on('focus', function() {
+            registerShortCuts();
+        });
+    }
 });
+
+
 
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit();
