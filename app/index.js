@@ -22,26 +22,27 @@ function createWindow() {
 	window = new BrowserWindow({
 		width: 1240,
 		height: 728,
-		webPreferences: { nodeIntegration: true, webSecurity: false }
+		webPreferences: { nodeIntegration: true, webSecurity: false },
 	});
 
 	const devUrl = "http://localhost:3000";
 	const localUrl = `file://${path.resolve(__dirname, "../../app.asar/build")}/index.html`;
 	const appUrl = isDev ? devUrl : localUrl;
-    if(!isDev){
-        window.setMenu(null)
-    }
-    window.loadURL(appUrl);
-    if(isDev){
-        window.webContents.openDevTools();
-    }
-    window.on("closed", () => (window = null));
-    
-    const { globalShortcut } = require('electron')
+	if (!isDev) {
+		window.setMenu(null);
+	}
+	window.loadURL(appUrl);
+	if (isDev) {
+		window.webContents.openDevTools();
+	}
+	window.on("closed", () => (window = null));
 
+	const { globalShortcut } = require("electron");
+
+	globalShortcut.register("ctrl+m", () => {
+		console.log("CommandOrControl+X is pressed");
+	});
 }
-
-const register
 
 const initConfig = async () => {
 	global.__ELECTRON__ == true;
@@ -81,17 +82,17 @@ const copyFolder = (src, dst) => {
 	let fs = require("fs");
 	let stat = fs.stat;
 
-	let copy = function(src, dst) {
-		fs.readdir(src, function(err, paths) {
+	let copy = function (src, dst) {
+		fs.readdir(src, function (err, paths) {
 			if (err) {
 				throw err;
 			}
-			paths.forEach(function(path) {
+			paths.forEach(function (path) {
 				var _src = src + "/" + path;
 				var _dst = dst + "/" + path;
 				var readable;
 				var writable;
-				stat(_src, function(err, st) {
+				stat(_src, function (err, st) {
 					if (err) {
 						throw err;
 					}
@@ -106,12 +107,12 @@ const copyFolder = (src, dst) => {
 			});
 		});
 	};
-	let exists = function(src, dst, callback) {
-		fs.exists(dst, function(exists) {
+	let exists = function (src, dst, callback) {
+		fs.exists(dst, function (exists) {
 			if (exists) {
 				callback(src, dst);
 			} else {
-				fs.mkdir(dst, function() {
+				fs.mkdir(dst, function () {
 					callback(src, dst);
 				});
 			}
@@ -121,7 +122,7 @@ const copyFolder = (src, dst) => {
 };
 
 const initDir = async () => {
-	const checkAndMakeDir = dir => {
+	const checkAndMakeDir = (dir) => {
 		if (!fs.existsSync(dir)) {
 			fs.mkdirSync(dir);
 		}
@@ -148,42 +149,40 @@ const initDir = async () => {
 	}
 };
 
-const {globalShortcut} = require('electron')
+const { globalShortcut } = require("electron");
 
-const registerShortCuts = ()=>{
-    globalShortcut.register('Ctrl+F1', () => {
-        if(window){
-            window.webContents.openDevTools()
-        }
-    })
-}
+const registerShortCuts = () => {
+	globalShortcut.register("Ctrl+F1", () => {
+		if (window) {
+			window.webContents.openDevTools();
+		}
+	});
+};
 
-const unRegisterShortCuts = ()=>{
-    globalShortcut.unregisterAll()
-}
+const unRegisterShortCuts = () => {
+	globalShortcut.unregisterAll();
+};
 
 app.on("ready", async () => {
 	await initConfig();
 	await initDir();
 	await initServer(global.electron_app_root_path, global);
 	createWindow();
-    isDev && createDevTools();
-    registerShortCuts()
+	isDev && createDevTools();
+	registerShortCuts();
 
-    if(window && !isDev){
-        window.on('blur', function() {
-            let win = BrowserWindow.getFocusedWindow();
-            if(win) return;
-            unRegisterShortCuts()
-        });
-    
-        window.on('focus', function() {
-            registerShortCuts();
-        });
-    }
+	if (window && !isDev) {
+		window.on("blur", function () {
+			let win = BrowserWindow.getFocusedWindow();
+			if (win) return;
+			unRegisterShortCuts();
+		});
+
+		window.on("focus", function () {
+			registerShortCuts();
+		});
+	}
 });
-
-
 
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit();

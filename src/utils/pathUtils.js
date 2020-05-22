@@ -63,7 +63,7 @@ export function getHotspotIconPath(id) {
 
 	if (window.NODE_ENV == "prod") {
 		let appRootPath = window.electron_app_root_path;
-		iconPath = path.resolve(appRootPath, `./app.asar/krp/hotspotIcons/new_spotd${id}.png`);
+		iconPath = `.\\krp/hotspotIcons\\new_spotd${id}.png`;
 	}
 
 	return iconPath;
@@ -75,7 +75,8 @@ export function getHotspotPath(icon) {
 	if (window.NODE_ENV == "dev") {
 		return path.resolve(krpPath, `./hotspotIcons/new_spotd${iconRes}_gif.png`);
 	} else {
-		let appRootPath = window.electron_app_root_path;
-		return path.resolve(appRootPath, `./app.asar/krp/hotspotIcons/new_spotd${iconRes}_gif.png`);
+        let appRootPath = window.electron_app_root_path;
+        return `.\\krp/hotspotIcons/new_spotd${iconRes}_gif.png`
+		// return path.resolve(appRootPath, `./app.asar/krp/hotspotIcons/new_spotd${iconRes}_gif.png`);
 	}
 }
