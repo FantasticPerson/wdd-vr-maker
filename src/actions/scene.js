@@ -10,15 +10,33 @@ export const dUpdateSceneSelected = createAction("update_scene_selected");
 
 export function updateDAllScene(id) {
 	return (dispatch, getState) => {
-		let gId = id ? id : getState().group.selectId;
-		if (gId) {
-			Modals.Scene.findAllSceneByGroupId(gId).then(list => {
-				list.sort((item1, item2) => {
-					return item1.index > item2.index;
-				});
-				dispatch(updateAllScene(list));
+		// let gId = id ? id : getState().group.selectId;
+		let pathname = getState().router.location.pathname;
+		let vrId = pathname.split("/")[2];
+		if (vrId) {
+			Modals.Vr.findAll().then((items) => {
+				var vrItem = items.find((item) => item.id == vrId);
+				console.log("------------");
+				console.log(vrItem);
+				console.log("------------");
+				if (vrItem) {
+					Modals.Scene.findAllSceneById(vrItem.id).then((list) => {
+						list.sort((item1, item2) => {
+							return item1.index > item2.index;
+						});
+						dispatch(updateAllScene(list));
+					});
+				}
 			});
 		}
+		// if (gId) {
+		// 	Modals.Scene.findAllSceneByGroupId(gId).then((list) => {
+		// 		list.sort((item1, item2) => {
+		// 			return item1.index > item2.index;
+		// 		});
+		// 		dispatch(updateAllScene(list));
+		// 	});
+		// }
 	};
 }
 
@@ -29,7 +47,7 @@ export function updateSceneSelected(id) {
 			let scenePath = getScenePath(id);
 			if (krpano) {
 				const xml = getPanoXml({
-					scenePath: scenePath
+					scenePath: scenePath,
 				});
 				krpano.call(`load_pano_by_multils(${xml})`);
 			}
@@ -43,7 +61,7 @@ export function updateInitViewPort(sceneId) {
 	return (dispatch, getState) => {
 		let krpano = getState().krpano.obj;
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == sceneId);
+		let sceneItem = sceneList.find((item) => item.id == sceneId);
 
 		if (krpano && sceneItem) {
 			var hAov = krpano.get("view.hlookat");
@@ -62,7 +80,7 @@ export function updateInitViewPort(sceneId) {
 export function updateViewRange(id, fov, fovmax, fovmin, vlookatmin, vlookatmax) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == id);
+		let sceneItem = sceneList.find((item) => item.id == id);
 
 		if (sceneItem) {
 			sceneItem.fov = fov;
@@ -81,7 +99,7 @@ export function updateViewRange(id, fov, fovmax, fovmin, vlookatmin, vlookatmax)
 export function updateEffect(id, type, level) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == id);
+		let sceneItem = sceneList.find((item) => item.id == id);
 
 		if (sceneItem) {
 			sceneItem.effectType = type;
@@ -97,7 +115,7 @@ export function updateEffect(id, type, level) {
 export function addSunlight(id) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == id);
+		let sceneItem = sceneList.find((item) => item.id == id);
 
 		var krpano = getState().krpano.obj;
 
@@ -119,7 +137,7 @@ export function addSunlight(id) {
 export function updateSunlight(id, ath, atv) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == id);
+		let sceneItem = sceneList.find((item) => item.id == id);
 
 		var krpano = getState().krpano.obj;
 
@@ -136,7 +154,7 @@ export function updateSunlight(id, ath, atv) {
 export function removeSunlight(id) {
 	return (dispatch, getState) => {
 		let sceneList = getState().scene.list;
-		let sceneItem = sceneList.find(item => item.id == id);
+		let sceneItem = sceneList.find((item) => item.id == id);
 
 		var krpano = getState().krpano.obj;
 
@@ -151,7 +169,7 @@ export function removeSunlight(id) {
 }
 
 export function updateAllSceneFromLocal() {
-	return dispatch => {
+	return (dispatch) => {
 		dispatch(updateDAllScene());
 	};
 }
@@ -165,9 +183,9 @@ export function addScene(obj) {
 		hlookat: 0,
 		vlookat: 0,
 		vlookatmax: 90,
-		vlookatmin: -90
+		vlookatmin: -90,
 	};
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Scene.add(sceneObj).then(() => {
 			dispatch(updateDAllScene());
 		});
@@ -175,7 +193,7 @@ export function addScene(obj) {
 }
 
 export function delScene(obj) {
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Scene.delete(obj.id).then(() => {
 			dispatch(updateDAllScene());
 		});
@@ -183,7 +201,7 @@ export function delScene(obj) {
 }
 
 export function modifyScene(obj) {
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Scene.update(obj).then(() => {
 			dispatch(updateDAllScene());
 		});
@@ -191,10 +209,10 @@ export function modifyScene(obj) {
 }
 
 export function updateAllMusic(arr, music1, music2) {
-	let objArr = arr.map(item => {
+	let objArr = arr.map((item) => {
 		return { ...item, music1, music2 };
 	});
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Scene.updateAllScene(objArr).then(() => {
 			dispatch(updateDAllScene());
 		});
@@ -202,7 +220,7 @@ export function updateAllMusic(arr, music1, music2) {
 }
 
 export function updateSceneMusic(obj, music1, music2) {
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Scene.update({ ...obj, music1, music2 }).then(() => {
 			dispatch(updateDAllScene());
 		});

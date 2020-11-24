@@ -41,7 +41,7 @@ class EditPage extends Component {
 				this.props.updateAudioFromLocal();
 				this.props.updateAppShowBack(true);
 				this.props.updateGroupByVrid();
-				this.props.updateFolderFromLocal();
+				// this.props.updateFolderFromLocal();
 				setTimeout(() => {
 					this.props.updateAllSceneFromLocal();
 				}, 100);

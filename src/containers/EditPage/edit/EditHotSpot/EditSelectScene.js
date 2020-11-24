@@ -44,32 +44,68 @@ export default class EditSelectScene extends Component {
 
 	render() {
 		const { selectId } = this.state;
-		const { sceneList, folderId, vrId, sceneSelected } = this.props;
-
+		const { sceneList, folderId, vrId, sceneSelected, allSceneList } = this.props;
+		console.log(allSceneList);
 		let sceneItemStyle = {
 			margin: "5px",
 			height: "80px",
 			width: "80px",
 			display: "inline-block",
-			overflow: "hidden"
+			overflow: "hidden",
 		};
 
-		let sceneArrRes = sceneList.filter(item => {
+		let sceneArrRes = allSceneList.filter((item) => {
 			return item.id != sceneSelected;
 		});
-
-		let sceneArr = sceneArrRes.map(item => {
-			let itemStyle = sceneItemStyle;
-			if (selectId == item.id) {
-				itemStyle = { ...itemStyle, border: "3px solid blanchedalmond" };
+		let sceneGroups = {};
+		sceneArrRes.map((item) => {
+			if (!sceneGroups[item.groupId]) {
+				sceneGroups[item.groupId] = [];
 			}
+			sceneGroups[item.groupId].push(item);
+		});
 
-			return (
-				<div onClick={() => this.onItemClick(item.id)} style={itemStyle} key={item.id}>
-					<div style={{ height: "80px", width: "80px", overflow: "hidden" }}>
-						<img style={{ height: "80px", width: "80px" }} src={getHeadImgUrl(item.id)} />
+		// let sceneArr = sceneArrRes.map((item) => {
+		// 	let itemStyle = sceneItemStyle;
+		// 	if (selectId == item.id) {
+		// 		itemStyle = { ...itemStyle, border: "3px solid blanchedalmond" };
+		// 	}
+
+		// 	return (
+		// 		<div onClick={() => this.onItemClick(item.id)} style={itemStyle} key={item.id}>
+		// 			<div style={{ height: "80px", width: "80px", overflow: "hidden" }}>
+		// 				<img style={{ height: "80px", width: "80px" }} src={getHeadImgUrl(item.id)} />
+		// 			</div>
+		// 		</div>
+		// 	);
+		// });
+
+		let sceneArr = [];
+		let showLine = true;
+		if (sceneGroups.length <= 1) {
+			showLine = false;
+		}
+		sceneArr = Object.keys(sceneGroups).map((item) => {
+			let list = sceneGroups[item];
+			let arr = list.map((item) => {
+				let itemStyle = sceneItemStyle;
+				if (selectId == item.id) {
+					itemStyle = { ...itemStyle, border: "3px solid blanchedalmond" };
+				}
+
+				return (
+					<div onClick={() => this.onItemClick(item.id)} style={itemStyle} key={item.id}>
+						<div style={{ height: "80px", width: "80px", overflow: "hidden" }}>
+							<img style={{ height: "80px", width: "80px" }} src={getHeadImgUrl(item.id)} />
+						</div>
 					</div>
-				</div>
+				);
+			});
+			return (
+				<React.Fragment>
+					<div style={{ display: showLine ? "block" : "none" }}>-------------------------</div>
+					{arr}
+				</React.Fragment>
 			);
 		});
 		let switchTypes = ["淡入淡出", "缩放过渡", "黑场过渡", "白场过渡", "从右至左", "对角线", "原型展开", "水平展开", "椭圆缩放"];
