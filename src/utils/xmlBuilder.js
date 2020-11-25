@@ -150,7 +150,7 @@ function featureXmlData(productData, configXmlNode) {
     const feature = configXmlNode.ele("feature");
 
     // feature.att('enable_gyro', 1)
-    // feature.att('enable_littleplanet', 1)
+    // feature.att("enable_littleplanet", 1);
     // feature.att('enable_autorotate', 1)
 }
 
@@ -300,31 +300,18 @@ function panosXmlData(productData, config) {
                             mixIndex++;
                         });
                         break;
-                    case "viewer":
-                        // const embeds = panoElement.ele("embeds");
-                        // const embed = embeds.ele("embed");
-                        // embed.att("name", `embed_${embedIndex}`);
-                        // embedIndex++;
+                    case "viewImage":
+                        console.log(actionObj);
 
-                        // embed.att("embed_type", 2);
-                        // embed.att("play_type", actionObj.playType == "CLICK" ? 1 : 0);
-                        // embed.att("scale",actionObj.scale);
-                        // embed.att("interval", actionObj.interval);
-                        // let imageIndex = 0;
-                        // if (actionObj.images) {
-                        //     actionObj.images.map((imageURL) => {
-                        //         const embedElement = embed.ele("image");
-                        //         embedElement.att("name", `image_${imageIndex}`);
-                        //         if (isExport) {
-                        //             embedElement.att("url", parseMediaPath(memberWorkPath, allMedias, productData.rootPath, imageURL, false));
-                        //         } else {
-                        //             embedElement.att("url", `${parseMediaPath(memberWorkPath, allMedias, productData.rootPath, imageURL, true)}`);
-                        //         }
-                        //         imageIndex++;
-                        //     });
-                        // }
-                        // embed.att("ath", embedData.ath);
-                        // embed.att("atv", embedData.atv);
+                        hotspot.att("type", 7);
+                        hotspot.att("url", actionObj.moreInfo);
+                        hotspot.att("title", actionObj.title);
+                        hotspot.att("text", actionObj.summary);
+                        hotspot.att("is_blank", actionObj.openInNewWindow ? 1 : 0);
+                        const imageElement = hotspot.ele("image");
+                        imageElement.att("imagePath", actionObj.mediaId);
+                        imageElement.att("ext", '.'+actionObj.ext);
+                        imageElement.att("size", actionObj.size);
                         break;
                     default:
                         break;

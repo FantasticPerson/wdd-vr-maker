@@ -9,7 +9,8 @@ export function updateVrByFolderId(fId = null) {
 	return (dispatch, getState) => {
 		let id = fId == null ? getState().folder.selectId : fId;
 		Modals.Vr.findByFolderId(id).then(list => {
-			list.sort((item1, item2) => item1.timestamp > item2.timestamp);
+            list.sort((item1, item2) => item1.timestamp > item2.timestamp);
+            console.log(list)
 			dispatch(dUpdateAllVr(list));
 		});
 	};

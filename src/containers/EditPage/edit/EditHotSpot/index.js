@@ -30,7 +30,7 @@ const typeObj = {
     link: "链接",
     audio: "音频",
     video: "视频",
-    view: "序列图",
+    viewImage: "序列图",
 };
 class EditHotSpot extends Component {
     constructor() {

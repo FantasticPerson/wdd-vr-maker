@@ -1,0 +1,27 @@
+const nativeRequire = window.native_require;
+const { dialog } = nativeRequire("electron");
+
+export default function openFolder() {
+    return new Promise((resolve, reject) => {
+        try {
+            dialog.showOpenDialog(
+                {
+                    properties: ["multiSelections"],
+                    filters: [
+                        {
+                            name: "Images",
+                            extensions: ["jpg", "png", "gif", "jpeg"],
+                        },
+                    ],
+                },
+                (res) => {
+                    // console.log(res)
+
+                    resolve(res);
+                }
+            );
+        } catch (e) {
+            reject(e);
+        }
+    });
+}

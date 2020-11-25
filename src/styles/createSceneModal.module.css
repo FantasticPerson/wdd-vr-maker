@@ -1,4 +1,4 @@
-.imgContainer{
+.imgContainer {
     width: 200px;
     height: 200px;
     border: 2px dashed #ccc;
@@ -11,7 +11,33 @@
     overflow: hidden;
 }
 
-.thumb{
-    height:100%;
+.thumb {
+    height: 100%;
     vertical-align: top;
+}
+
+.imgContainer2 {
+    display: flex;
+    margin-top: 20px;
+}
+
+.thumbContainer {
+    width: 112px;
+}
+
+.thumbContainer+.thumbContainer {
+    margin-left: 10px;
+}
+
+.thumbContainer .thumbTilte {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.thumb2 {
+    width: 112px;
+    height: 112px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
