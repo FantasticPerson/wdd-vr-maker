@@ -25,8 +25,11 @@ class Header extends Component {
     }
 
     onOutputClick() {
+        this.save();
         const { vrId } = this.props;
-        packageKrpano(vrId);
+        setTimeout(() => {
+            packageKrpano(vrId);
+        }, 500);
     }
 
     onSaveClick() {
@@ -44,7 +47,10 @@ class Header extends Component {
     }
 
     onPreviewClick() {
-        window.open(getPreviewUrl(this.props.vrId), "预览");
+        this.save();
+        setTimeout(() => {
+            window.open(getPreviewUrl(this.props.vrId), "预览");
+        }, 500);
     }
 
     onMenuClick(e) {
@@ -101,9 +107,9 @@ class Header extends Component {
         if (this.props.showBack) {
             return (
                 <div>
-                    <Button onClick={this.onSaveClick.bind(this)} style={{ color: "#FFF" }}>
+                    {/* <Button onClick={this.onSaveClick.bind(this)} style={{ color: "#FFF" }}>
                         保存
-                    </Button>
+                    </Button> */}
                     <Button onClick={this.onPreviewClick.bind(this)} style={{ color: "#FFF" }}>
                         预览
                     </Button>

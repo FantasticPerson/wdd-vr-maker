@@ -190,7 +190,6 @@ function thumbsXmlData(productData, config, krpano) {
 
 function panosXmlData(productData, config) {
     const panos = config.ele("panos");
-    let embedIndex = 0;
     productData.groups.map((group) => {
         group.scene.map((pano) => {
             const panoElement = panos.ele("pano");
@@ -242,7 +241,7 @@ function panosXmlData(productData, config) {
                     case "switch":
                         hotspot.att("type", 0);
                         hotspot.att("title", actionObj.title || "123");
-                        hotspot.att("url", actionObj.toId);
+                        hotspot.att("url", actionObj.toItem.id);
                         hotspot.att("blend", actionObj.switchType);
                         break;
                     case "link":

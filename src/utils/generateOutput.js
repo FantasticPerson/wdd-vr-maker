@@ -4,16 +4,14 @@ import { getProductionXml } from "./xmlBuilder";
 
 import copyFolder from "../native/copyFolder";
 
-const { native_require, electron_app_output_path, electron_app_scene_path, electron_app_pic_path, electron_app_audio_path, electron_app_vr_path, electron_app_root_path, electron_app_krpano_path, electron_app_krp_assets_path } = window;
+const { native_require, electron_app_output_path, electron_app_pic_path, electron_app_audio_path, electron_app_root_path, electron_app_krpano_path, electron_app_krp_assets_path } = window;
 
 const fse = require("fs-extra");
 const fs = native_require("fs");
 const path = native_require("path");
 const swig = require("swig");
 
-export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allSceneList) {
-    let config = {};
-    debugger;
+export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allSceneList, cb) {
     let vrPath = path.resolve(electron_app_output_path, `./vr-${vrItem.id}`);
 
     let picPath = path.resolve(vrPath, "./picture");
@@ -120,8 +118,8 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
     }
 
     for (let i = 0; i < audioArr.length; i++) {
-        let srcPath = path.resolve(electron_app_audio_path, `./${audioArr[i]}`);
-        let destPath = path.resolve(audioPath, `./${audioArr[i]}`);
+        let srcPath = path.resolve(electron_app_audio_path, `./${audioArr[i].url}`);
+        let destPath = path.resolve(audioPath, `./${audioArr[i].url}`);
         fse.copySync(srcPath, destPath);
     }
 
@@ -142,10 +140,9 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
     fs.copyFileSync(path.resolve(electron_app_krpano_path, "./krpano.swf"), path.resolve(vrPath, "./krpano.swf"));
 
     copyFolder(electron_app_krp_assets_path, path.resolve(vrPath, "./krp"));
-
     copyFolder(path.resolve(electron_app_krp_assets_path, "./hotspotIcons"), path.resolve(vrPath, "./hotspots"));
 
     setTimeout(() => {
-        // alert("保存成功");
-    }, 1000);
+        if (cb) cb();
+    }, 500);
 }
