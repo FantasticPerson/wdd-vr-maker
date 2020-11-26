@@ -6,7 +6,6 @@ export function builder(data) {
 
     const include = krpano.ele("include");
     include.att("url", "default");
-    // include。att
     const skinSetting = krpano.ele("skin_settings");
     const settingData = data.setting;
 
@@ -303,7 +302,6 @@ function panosXmlData(productData, config) {
                         });
                         break;
                     case "viewImage":
-
                         hotspot.att("type", 7);
                         hotspot.att("url", actionObj.moreInfo);
                         hotspot.att("title", actionObj.title);
