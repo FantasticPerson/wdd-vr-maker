@@ -151,8 +151,7 @@ function featureXmlData(productData, configXmlNode) {
     // feature.att('enable_gyro', 1)
     // feature.att("enable_littleplanet", 1);
     // feature.att('enable_autorotate', 1)
-    feature.att('enable_vr', 1)
-    
+    feature.att("enable_vr", 1);
 }
 
 function thumbsXmlData(productData, config, krpano) {
@@ -309,7 +308,7 @@ function panosXmlData(productData, config) {
                         hotspot.att("is_blank", actionObj.openInNewWindow ? 1 : 0);
                         const imageElement = hotspot.ele("image");
                         imageElement.att("imagePath", actionObj.mediaId);
-                        imageElement.att("ext", '.'+actionObj.ext);
+                        imageElement.att("ext", "." + actionObj.ext);
                         imageElement.att("size", actionObj.size);
                         break;
                     default:
@@ -318,12 +317,12 @@ function panosXmlData(productData, config) {
             });
             if (pano.scene.music1) {
                 const sound = panoElement.ele("sound");
-                sound.att("url", `./audio/${pano.scene.music1}`);
+                sound.att("url", `./audio/${pano.scene.music1.url}`);
             }
 
             if (pano.scene.music2) {
                 const voice = panoElement.ele("voice");
-                voice.att("url", `./audio/${pano.scene.music2}`);
+                voice.att("url", `./audio/${pano.scene.music2.url}`);
             }
 
             if (pano.scene.hasOwnProperty("effectLevel") && pano.scene.hasOwnProperty("effectType")) {

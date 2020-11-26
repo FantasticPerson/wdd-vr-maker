@@ -18,7 +18,7 @@ class PictureContainer extends Component {
 						<div className={styles.pic}>
 							<img src={url} style={{ width: "200px" }} />
 						</div>
-						<span className={styles.span}>{item.id + "." + item.extension}</span>
+						<span className={styles.span}>{item.showName}</span>
 					</div>
 				);
 			})

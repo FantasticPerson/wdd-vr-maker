@@ -98,9 +98,12 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
         }
         if (scene.music1) {
             audioArr.push(scene.music1);
-            audioArr = [...new Set(audioArr)];
+        }
+        if (scene.music2) {
+            audioArr.push(scene.music2);
         }
     }
+    audioArr = [...new Set(audioArr)];
 
     if (!fs.existsSync(picPath)) {
         fs.mkdirSync(picPath);
@@ -143,6 +146,6 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
     copyFolder(path.resolve(electron_app_krp_assets_path, "./hotspotIcons"), path.resolve(vrPath, "./hotspots"));
 
     setTimeout(() => {
-        alert("保存成功");
+        // alert("保存成功");
     }, 1000);
 }

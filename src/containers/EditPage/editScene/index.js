@@ -45,14 +45,14 @@ class EditSceneContainer extends Component {
 	componentDidMount() {
 		this._isMounted = true;
 		setTimeout(() => {
-			const { sceneList, updateSceneSelected, groupList, updateGroupSelected } = this.props;
+            const { sceneList, updateSceneSelected, groupList, updateGroupSelected } = this.props;
 			if (sceneList.length > 0) {
 				updateSceneSelected(sceneList[0].id);
 			}
 			if (groupList.length > 0) {
 				updateGroupSelected(groupList[0].id);
 			}
-		}, 50);
+		}, 500);
 		const containerWidth = window.innerWidth - 280;
 		this.setState({ containerWidth: containerWidth });
 		window.onresize = () => {

@@ -42,9 +42,6 @@ export default class CreateScenes extends Component {
 		if (Array.isArray(res) && res.length > 0) {
 			this.setState({ isLoading: true, totalNum: res.length });
 			for (let i = 0; i < res.length; i++) {
-				let err = await createPano(res[i]);
-				// console.log(err)
-				// if (!err) {
 				this.setState({ completeNum: i + 1 });
 				let sceneId = `scene_${new Hashid().encode()}`;
 				await copyImageToScene(getScenePath(sceneId));
@@ -54,11 +51,6 @@ export default class CreateScenes extends Component {
 				selectIds.push(sceneId);
 				let newGroupItem = { ...groupItem, sceneListIds: selectIds };
 				updateGroup(newGroupItem);
-				// } else {
-				// 	alert("上传失败");
-				// 	this.onCancelClick();
-				// 	return;
-				// }
 			}
 			alert("上传完成");
 			this.onCancelClick(true);

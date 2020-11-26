@@ -1,5 +1,4 @@
 let fs = window.native_require("fs");
-let stat = fs.stat;
 
 let copy = async (src, dst) => {
     let paths = fs.readdirSync(src)

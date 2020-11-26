@@ -1,7 +1,7 @@
 import { createAction } from "redux-act";
 
 import Modals from "../modals";
-import { addHotspotToKrpano, selectHotspotInKrpano, removeHotspotFromKrpano, updateHotspotIcon } from "../utils/krpanoFunctions";
+import { addHotspotToKrpano, selectHotspotInKrpano, removeHotspotFromKrpano, updateHotspotIcon,updateHotspotText } from "../utils/krpanoFunctions";
 import { getHotspotPath } from "../utils/pathUtils";
 import Hashid from "../utils/generateHashId";
 
@@ -50,7 +50,11 @@ export function addHotspots(sId = null) {
 				Modals.Hotpot.findBySceneId(sceneSelected).then(list => {
 					list.map(item => {
 						let icon = getHotspotPath(item.icon);
-						addHotspotToKrpano(krpano, { ...item, _id: item.id, icon: icon }, false);
+                        addHotspotToKrpano(krpano, { ...item, _id: item.id, icon: icon }, false);
+                        setTimeout(()=>{
+                            let title = JSON.parse(item.action).title
+                            updateHotspotText(krpano,item._id,title);
+                        },50)
 					});
 				});
 				dispatch(updateAllHotspot(sceneSelected));
@@ -79,7 +83,11 @@ export function addHotspot(actionData, icon) {
 				let icon = getHotspotPath(data.icon);
 				dispatch(updateAllHotspot());
 
-				addHotspotToKrpano(krpano, { ...data, icon: icon }, false);
+                addHotspotToKrpano(krpano, { ...data, icon: icon }, false);
+                setTimeout(()=>{
+                    let title = JSON.parse(data.action).title
+                    updateHotspotText(krpano,data._id,title);
+                },50)
 				updateHotspotSelect(data.id);
 			});
 		}
@@ -110,8 +118,9 @@ export function modifyHotspot(obj, updateIcon) {
 				})
 				.then(list => {
 					let icon = getHotspotPath(obj.icon);
-					dispatch(updateAllHotspot());
-
+                    dispatch(updateAllHotspot());
+                    let title = JSON.parse(obj.action).title
+                    updateHotspotText(krpano,obj.id,title);
 					updateHotspotIcon(krpano, obj.id, icon, true);
 				});
 		}

@@ -11,112 +11,109 @@ import * as hotspotActions from "../../actions/hotpot";
 import * as sceneActions from "../../actions/scene";
 
 class PanoContainer extends Component {
-	constructor() {
-		super();
-		this.state = { updateObj: null, updateSunlightObj: null };
-		this._mounted = false;
-	}
+    constructor() {
+        super();
+        this.state = { updateObj: null, updateSunlightObj: null };
+        this._mounted = false;
+    }
 
-	componentWillUpdate(prop, state) {
-		setTimeout(() => {
-			if (this._mounted && state.updateObj) {
-				this.props.updateHotspotPosition(state.updateObj);
-				this.setState({ updateObj: null });
-			}
+    componentWillUpdate(prop, state) {
+        setTimeout(() => {
+            if (this._mounted && state.updateObj) {
+                this.props.updateHotspotPosition(state.updateObj);
+                this.setState({ updateObj: null });
+            }
 
-			if (this._mounted && state.updateSunlightObj) {
-				const { id, ath, atv } = state.updateSunlightObj;
-				this.props.updateSunlight(id, ath, atv);
-				this.setState({ updateSunlightObj: null });
-			}
-		}, 20);
-	}
+            if (this._mounted && state.updateSunlightObj) {
+                const { id, ath, atv } = state.updateSunlightObj;
+                this.props.updateSunlight(id, ath, atv);
+                this.setState({ updateSunlightObj: null });
+            }
+        }, 20);
+    }
 
-	componentWillReceiveProps(obj) {
-		let selectIdNew = obj.sceneSelected;
-		let selectIdOld = this.props.sceneSelected;
+    componentWillReceiveProps(obj) {
+        let selectIdNew = obj.sceneSelected;
+        let selectIdOld = this.props.sceneSelected;
 
-		if (selectIdNew != selectIdOld && selectIdNew != null) {
-			this.props.updateHotspotSelect(selectIdNew);
-			this.props.showEditHotpot();
-		}
-	}
+        if (selectIdNew != selectIdOld && selectIdNew != null) {
+            this.props.updateHotspotSelect(selectIdNew);
+            this.props.showEditHotpot();
+        }
+    }
 
-	updateHotSpot(hotspotId, ath, atv) {
-		const { updateHotspotPosition } = this.props;
-		const { hotpotList } = this.props;
-		let item = hotpotList.find(item => item.id == hotspotId);
-		if (item) {
-			if (ath != item.ath || atv != item.atv) {
-				this.setState({ updateObj: { ...item, ath, atv } });
-			}
-		}
-	}
+    updateHotSpot(hotspotId, ath, atv) {
+        const { updateHotspotPosition } = this.props;
+        const { hotpotList } = this.props;
+        let item = hotpotList.find((item) => item.id == hotspotId);
+        if (item) {
+            if (ath != item.ath || atv != item.atv) {
+                this.setState({ updateObj: { ...item, ath, atv } });
+            }
+        }
+    }
 
-	updateSunlight(ath, atv) {
-		const { sceneSelectedItem } = this.props;
-		if (sceneSelectedItem) {
-			let sunlightObj = sceneSelectedItem.sunlight && sceneSelectedItem.sunlight.length > 0 ? JSON.parse(sceneSelectedItem.sunlight) : null;
+    updateSunlight(ath, atv) {
+        const { sceneSelectedItem } = this.props;
+        if (sceneSelectedItem) {
+            let sunlightObj = sceneSelectedItem.sunlight && sceneSelectedItem.sunlight.length > 0 ? JSON.parse(sceneSelectedItem.sunlight) : null;
 
-			if (sunlightObj) {
-				if (sunlightObj.ath == ath || sunlightObj.atv == atv) {
-					return;
-				}
-			}
+            if (sunlightObj) {
+                if (sunlightObj.ath == ath || sunlightObj.atv == atv) {
+                    return;
+                }
+            }
 
-			this.setState({ updateSunlightObj: { id: sceneSelectedItem.id, ath, atv } });
-		}
-	}
+            this.setState({ updateSunlightObj: { id: sceneSelectedItem.id, ath, atv } });
+        }
+    }
 
-	componentDidMount() {
-		this._mounted = true;
-		window.embedpano({
-			target: "pano",
-			...Common.KR_EMBED,
-			onready: krpano => {
-				const { updateKrpano } = this.props;
-				updateKrpano(krpano);
-			}
-		});
+    componentDidMount() {
+        this._mounted = true;
+        window.embedpano({
+            target: "pano",
+            ...Common.KR_EMBED,
+            onready: (krpano) => {
+                const { updateKrpano } = this.props;
+                updateKrpano(krpano);
+            },
+        });
 
-		window.onKrpHotspotMoveEnd = this.updateHotSpot.bind(this);
-		window.onKrpHotspotClick = hotspotId => {
-			const { hotpotList } = this.props;
-			let item = hotpotList.find(item => item.id == hotspotId);
-			if ((item, this._mounted)) {
-				this.props.updateHotspotSelect(hotspotId);
-				this.props.showEditHotpot();
-			}
-		};
+        window.onKrpHotspotMoveEnd = this.updateHotSpot.bind(this);
+        window.onKrpHotspotClick = (hotspotId) => {
+            const { hotpotList } = this.props;
+            let item = hotpotList.find((item) => item.id == hotspotId);
+            if ((item, this._mounted)) {
+                this.props.updateHotspotSelect(hotspotId);
+                this.props.showEditHotpot();
+            }
+        };
 
-		window.onKrpSunHotspotMoveEnd = this.updateSunlight.bind(this);
-	}
+        window.onKrpSunHotspotMoveEnd = this.updateSunlight.bind(this);
+    }
 
-	componentWillUnmount() {
-		delete window.onKrpHotspotMoveEnd;
-		delete window.onKrpHotspotClick;
+    componentWillUnmount() {
+        delete window.onKrpHotspotMoveEnd;
+        delete window.onKrpHotspotClick;
 
-		this._mounted = false;
-	}
+        this._mounted = false;
+    }
 
-	render() {
-		return (
-			<div className={styles.container}>
-				<div id="pano" className={styles.container}></div>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div className={styles.container}>
+                <div id='pano' className={styles.container}></div>
+            </div>
+        );
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-	return {
-		...bindActionCreators(actions, dispatch),
-		...bindActionCreators(hotspotActions, dispatch),
-		...bindActionCreators(sceneActions, dispatch)
-	};
+    return {
+        ...bindActionCreators(actions, dispatch),
+        ...bindActionCreators(hotspotActions, dispatch),
+        ...bindActionCreators(sceneActions, dispatch),
+    };
 }
 
-export default connect(
-	getSelector(panoConfig),
-	mapDispatchToProps
-)(PanoContainer);
+export default connect(getSelector(panoConfig), mapDispatchToProps)(PanoContainer);
