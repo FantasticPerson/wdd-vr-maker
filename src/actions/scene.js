@@ -16,9 +16,7 @@ export function updateDAllScene(id) {
 		if (vrId) {
 			Modals.Vr.findAll().then((items) => {
 				var vrItem = items.find((item) => item.id == vrId);
-				console.log("------------");
-				console.log(vrItem);
-				console.log("------------");
+				
 				if (vrItem) {
 					Modals.Scene.findAllSceneById(vrItem.id).then((list) => {
 						list.sort((item1, item2) => {

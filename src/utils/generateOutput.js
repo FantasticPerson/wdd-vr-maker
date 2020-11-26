@@ -13,7 +13,7 @@ const swig = require("swig");
 
 export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allSceneList) {
     let config = {};
-    debugger
+    debugger;
     let vrPath = path.resolve(electron_app_output_path, `./vr-${vrItem.id}`);
 
     let picPath = path.resolve(vrPath, "./picture");
@@ -141,4 +141,8 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
     copyFolder(electron_app_krp_assets_path, path.resolve(vrPath, "./krp"));
 
     copyFolder(path.resolve(electron_app_krp_assets_path, "./hotspotIcons"), path.resolve(vrPath, "./hotspots"));
+
+    setTimeout(() => {
+        alert("保存成功");
+    }, 1000);
 }

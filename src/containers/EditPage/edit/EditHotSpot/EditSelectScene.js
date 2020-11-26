@@ -45,7 +45,6 @@ export default class EditSelectScene extends Component {
 	render() {
 		const { selectId } = this.state;
 		const { sceneList, folderId, vrId, sceneSelected, allSceneList } = this.props;
-		console.log(allSceneList);
 		let sceneItemStyle = {
 			margin: "5px",
 			height: "80px",

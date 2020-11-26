@@ -3,7 +3,6 @@ const fs = require("fs");
 
 let cssPath = path.resolve(__dirname, "./build/static/css");
 
-console.log(cssPath);
 
 let dirs = fs.readdirSync(cssPath);
 let cssP = dirs.filter((item) => item.indexOf(".map") < 0);

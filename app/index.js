@@ -51,7 +51,6 @@ const initConfig = async () => {
 
 	global.electron_app_path = electron_app.getAppPath();
 
-	console.log(global.electron_app_path);
 	if (isDev) {
 		global.electron_app_root_path = path.resolve(electron_app.getPath("exe"), "../../../../dev");
 		global.NODE_ENV = "dev";

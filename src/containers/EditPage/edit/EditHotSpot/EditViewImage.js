@@ -152,7 +152,6 @@ export default class EditViewImage extends Component {
 
     async onUploadConfirm(images, showName) {
         const { addPicture } = this.props;
-        console.log(images);
         let result = [];
         for (let i = 0; i < images.length; i++) {
             let item = images[i];

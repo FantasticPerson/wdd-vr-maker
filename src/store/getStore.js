@@ -50,7 +50,6 @@ export function getSelector(config) {
 		(state) => state.audio.list,
 
 		(title, showBack, vrList, hotpotList, sceneList, pathname, folderList, folderSelectedId, hotpotSelectId, sceneSelected, krpano, groupList, groupSelectId, showType, picList, audioList) => {
-			console.log(sceneList);
 			let result = {};
 			if (config.title) result.title = title;
 			if (config.showBack) result.showBack = showBack;
@@ -125,7 +124,6 @@ function filterHotSpot(list, sceneSelected) {
 
 function findVrItem(vrList, pathname) {
 	let vrId = pathname.split("/")[2];
-	console.log(vrId);
 	return vrList.find((item) => {
 		return item.id == vrId;
 	});

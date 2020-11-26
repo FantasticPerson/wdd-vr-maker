@@ -152,6 +152,8 @@ function featureXmlData(productData, configXmlNode) {
     // feature.att('enable_gyro', 1)
     // feature.att("enable_littleplanet", 1);
     // feature.att('enable_autorotate', 1)
+    feature.att('enable_vr', 1)
+    
 }
 
 function thumbsXmlData(productData, config, krpano) {
@@ -301,7 +303,6 @@ function panosXmlData(productData, config) {
                         });
                         break;
                     case "viewImage":
-                        console.log(actionObj);
 
                         hotspot.att("type", 7);
                         hotspot.att("url", actionObj.moreInfo);

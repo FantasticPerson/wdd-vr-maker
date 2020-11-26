@@ -10,7 +10,6 @@ const defaultState = {
 const vr = createReducer(
 	{
 		[actions.dUpdateAllVr]: (state, list) => {
-			console.log(list);
 			return { ...state, list: list };
 		},
 	},

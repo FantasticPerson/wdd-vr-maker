@@ -24,7 +24,6 @@ export function getTmpImagePath(name) {
 export function getPanoTool() {
 	let toolPath = window.NODE_ENV == "prod" ? path.resolve(window.electron_app_path, "../tools/krpano-1.19") : path.resolve(window.electron_app_root_path, "../public/tools/krpano-1.19");
 
-	console.log(toolPath);
 	const platform = os.platform();
 	const arch = os.arch();
 
