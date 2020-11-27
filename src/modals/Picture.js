@@ -1,7 +1,15 @@
-export default class Picture { }
+export default class Picture {}
 
-Picture.store = null
+Picture.store = null;
 
-Picture.findAll = ()=> Picture.store.toArray();
-Picture.add = (obj)=> Picture.store.put({...obj,timestamp:(new Date().valueOf())})
-Picture.delete = (id) => Picture.store.delete(id)
+Picture.findAll = () => Picture.store.toArray();
+Picture.add = (obj) => Picture.store.put({ ...obj, timestamp: new Date().valueOf() });
+Picture.update = (obj) => {
+    return Picture.store
+        .where("id")
+        .equals(obj.id)
+        .modify({
+            ...obj,
+        });
+};
+Picture.delete = (id) => Picture.store.delete(id);

@@ -141,8 +141,4 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
     copyFolder(electron_app_krp_assets_path, path.resolve(vrPath, "./krp"));
     copyFolder(path.resolve(electron_app_krp_assets_path, "./hotspotIcons"), path.resolve(vrPath, "./hotspots"));
-
-    setTimeout(() => {
-        if (cb) cb();
-    }, 500);
 }

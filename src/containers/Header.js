@@ -33,15 +33,12 @@ class Header extends Component {
     }
 
     onSaveClick() {
-        Hotpot.findAll().then((list) => {
-            const { vrItem, sceneList, hotpotList, groupList, allSceneList } = this.props;
-            GenerateOutput(vrItem, sceneList, list, groupList, allSceneList);
-        });
+        this.save();
     }
 
     save() {
         Hotpot.findAll().then((list) => {
-            const { vrItem, sceneList, hotpotList, groupList, allSceneList } = this.props;
+            const { vrItem, sceneList, groupList, allSceneList } = this.props;
             GenerateOutput(vrItem, sceneList, list, groupList, allSceneList);
         });
     }

@@ -179,7 +179,7 @@ class EditHotSpot extends Component {
 
             return (
                 <div key={item} onClick={() => this.onHotspotIconClick(item)} className={className}>
-                    <img style={{ width: "30px", height: "30px" }} src={getHotspotIconPath(id)} />
+                    <img style={{ width: "30px", height: "30px" }} alt='' src={getHotspotIconPath(id)} />
                 </div>
             );
         });
