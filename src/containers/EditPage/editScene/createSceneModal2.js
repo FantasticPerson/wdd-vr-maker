@@ -3,8 +3,8 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } 
 
 import openFolder from "../../../native/openFolder";
 import createPano from "../../../utils/createPano";
-import { getScenePath, getHeadImgUrl, getTmpPreviewPath } from "../../../utils/pathUtils";
-import copyImageToScene from "../../../native/copyImageToScene";
+import { getScenePath, getTmpPreviewPath, getHeadImgUrl } from "../../../utils/pathUtils";
+import copyImageToScene from "../../../native/copyImageToScene2";
 import Hashid from "../../../utils/generateHashId";
 import Timer from "../../../utils/timer";
 import styles from "../../../styles/createSceneModal.module.css";
@@ -12,7 +12,7 @@ import styles from "../../../styles/createSceneModal.module.css";
 export default class CreateVrModal extends Component {
     constructor() {
         super();
-        this.state = { tmpImgStatus: "empty" };
+        this.state = { tmpImgStatus: "ready" };
         this.previewImg = getTmpPreviewPath();
         this.titleRef = React.createRef();
     }
@@ -27,23 +27,28 @@ export default class CreateVrModal extends Component {
         showAddScenes();
     }
 
+    componentDidMount() {
+        const { originData } = this.props;
+        setTimeout(() => {
+            this.titleRef.value = originData.name;
+        });
+        this.previewImg = getHeadImgUrl(originData.id);
+    }
+
     async onConfirmClick() {
         const { tmpImgStatus } = this.state;
-        const { groupItem } = this.props;
+        const { originData } = this.props;
 
         const title = this.titleRef.value.trim();
 
         if (title.length > 0 && tmpImgStatus == "ready") {
-            let sceneId = `scene_${new Hashid().encode()}`;
-            const { vrId, groupId } = this.props;
-            const { onCancel, addScene, updateGroup } = this.props.functions;
+            let sceneId = originData.id;
+            const { onCancel,modifyScene } = this.props.functions;
 
             let err = await copyImageToScene(getScenePath(sceneId));
+            let sceneItem = { ...originData, t2: new Date().valueOf(), name: title };
             if (!err) {
-                let selectIds = (groupItem.sceneListIds || []).concat([sceneId]);
-                let newGroupItem = { ...groupItem, sceneListIds: selectIds };
-                await addScene({ id: sceneId, vrid: vrId, name: title, groupId });
-                await updateGroup(newGroupItem);
+                modifyScene(sceneItem);
             }
             onCancel();
         }
@@ -56,8 +61,8 @@ export default class CreateVrModal extends Component {
             await createPano(res[0]);
             await Timer(800);
             this.setState({ tmpImgStatus: "ready" });
+            this.previewImg = getTmpPreviewPath();
         } else if (res != undefined && res != null) {
-            console.log(res);
             alert("上传图片失败!请重试");
         }
     }
@@ -69,7 +74,7 @@ export default class CreateVrModal extends Component {
         } else {
             return (
                 <div className={styles.imgContainer}>
-                    <img className={styles.thumb} src={this.previewImg} />
+                    <img className={styles.thumb} alt='' src={this.previewImg} />
                 </div>
             );
         }
@@ -78,7 +83,7 @@ export default class CreateVrModal extends Component {
     render() {
         return (
             <Dialog open={true}>
-                <DialogTitle id='alert-dialog-title'>{"创建场景"}</DialogTitle>
+                <DialogTitle id='alert-dialog-title'>{"替换场景"}</DialogTitle>
                 <DialogContent style={{ width: "500px" }}>
                     <div style={{ display: "inline-block", width: "50%", height: "160px" }}>
                         <TextField placeholder='Placeholder' margin='normal' inputRef={(input) => (this.titleRef = input)} />
@@ -87,10 +92,7 @@ export default class CreateVrModal extends Component {
                     <div style={{ display: "inline-block", width: "50%", height: "260px", verticalAlign: "top" }}>
                         <div style={{ textAlign: "right" }}>
                             <Button variant='contained' color='primary' onClick={this.onOpenFileClick.bind(this)}>
-                                {"添加全景"}
-                            </Button>
-                            <Button variant='contained' color='primary' style={{ marginLeft: 10 }} onClick={this.onUploadMoreClick.bind(this)}>
-                                {"批量上传"}
+                                {"替换全景"}
                             </Button>
                         </div>
                         {this.renderUploadPic()}

@@ -3,48 +3,62 @@ import styles from "../../../styles/SceneContextMenu.module.css";
 import ContextModal from "../../components/ContextModal";
 
 export default class SceneContextModal extends Component {
-	onDeleteClick() {
-		this.props.functions.delScene(this.props.sceneData);
-		this.props.functions.onHide();
-	}
+    onDeleteClick() {
+        this.props.functions.delScene(this.props.sceneData);
+        this.props.functions.onHide();
+    }
 
-	onModifyClick() {
-		this.props.functions.showEdit(this.props.sceneData);
-		this.props.functions.onHide();
-	}
+    onModifyClick() {
+        this.props.functions.showEdit(this.props.sceneData);
+        this.props.functions.onHide();
+    }
 
-	onMoveClick() {
-		this.props.functions.moveScene(this.props.sceneData);
-		this.props.functions.onHide();
-	}
+    onMoveClick() {
+        this.props.functions.moveScene(this.props.sceneData);
+        this.props.functions.onHide();
+    }
 
-	render() {
-		const { onHide } = this.props.functions;
-		const { posData } = this.props;
+    onReplaceClick() {
+        this.props.functions.showReplace(this.props.sceneData);
+        this.props.functions.onHide();
+    }
 
-		return (
-			<ContextModal bgClick={onHide} data={posData}>
-				<ul>
-					<li>
-						<div onClick={this.onDeleteClick.bind(this)}>
-							<i className="fa fa-edit"></i>
-							<span>{`删除`}</span>
-						</div>
-					</li>
-					<li>
-						<div onClick={this.onModifyClick.bind(this)}>
-							<i className="fa fa-trash"></i>
-							<span>{`编辑`}</span>
-						</div>
-					</li>
-					<li>
-						<div onClick={this.onMoveClick.bind(this)}>
-							<i className="fa fa-trash"></i>
-							<span>{`移动`}</span>
-						</div>
-					</li>
-				</ul>
-			</ContextModal>
-		);
-	}
+    render() {
+        const { onHide } = this.props.functions;
+        const { posData, sceneSelected, sceneData } = this.props;
+        let isSelected = sceneData.id == sceneSelected;
+
+        return (
+            <ContextModal bgClick={onHide} data={posData}>
+                <ul>
+                    <li>
+                        <div onClick={this.onDeleteClick.bind(this)}>
+                            <i className='fa fa-edit'></i>
+                            <span>{`删除`}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div onClick={this.onModifyClick.bind(this)}>
+                            <i className='fa fa-trash'></i>
+                            <span>{`编辑`}</span>
+                        </div>
+                    </li>
+                    {isSelected ? null : (
+                        <li>
+                            <div onClick={this.onReplaceClick.bind(this)}>
+                                <i className='fa fa-trash'></i>
+                                <span>{`替换素材`}</span>
+                            </div>
+                        </li>
+                    )}
+                    <li>
+                        <div onClick={this.onMoveClick.bind(this)}>
+                            <i className='fa fa-trash'></i>
+                            <span>{`移动`}</span>
+                        </div>
+                    </li>
+                </ul>
+            </ContextModal>
+        );
+    }
 }
