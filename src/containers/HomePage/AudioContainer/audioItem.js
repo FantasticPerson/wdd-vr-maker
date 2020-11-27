@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getAudioPath } from "../../../utils/pathUtils";
 import styles from "../../../styles/AudioContainer.module.css";
-import UploadPicModal from "./UploadPicModal";
 
 export default class AudioItem extends Component {
     constructor() {
@@ -10,34 +9,48 @@ export default class AudioItem extends Component {
         this.state = { playing: false, showAdd: false };
     }
 
+    onContext(e, data) {
+        // if (this.state.playing) {
+        //     alert("请先关闭音频");
+        //     return;
+        // }
+        if (this.props.onContext) {
+            this.props.onContext(e, data);
+        }
+    }
+
     render() {
         const { data } = this.props;
         let source = getAudioPath(data.id + "." + data.extension);
         return (
-            <div style={{ margin: "5px" }}>
+            <div
+                style={{ margin: "5px" }}
+                onContextMenu={(e) => {
+                    this.onContext(e, data);
+                }}>
                 <div className={styles["audio-item"]}>
                     {this.renderIcon()}
-                    <audio className={styles.audio} ref={(audio) => (this.audioObj = audio)} src={source} loop></audio>
+                    <audio className={styles.audio} ref={(audio) => (this.audioObj = audio)} src={source + "?t=" + data.timestamp + "" + data.t2} loop></audio>
+                    <div>{source + "?t=" + data.timestamp + "" + data.t2}</div>
                 </div>
                 <div className={styles.title} title={data.showName}>
                     {data.showName}
                 </div>
-                <UploadPicModal originData={data}></UploadPicModal>
             </div>
         );
     }
 
     play() {
         if (this.audioObj) {
-            this.audioObj.play();
-            this.setState({ playing: true });
+            // this.audioObj.play();
+            // this.setState({ playing: true });
         }
     }
 
     pause() {
         if (this.audioObj) {
-            this.audioObj.pause();
-            this.setState({ playing: false });
+            // this.audioObj.pause();
+            // this.setState({ playing: false });
         }
     }
 
