@@ -132,10 +132,10 @@ class EditMusic extends Component {
     }
 
     onAllConfirmClick() {
-        const { onfinish, updateAllMusic, sceneList } = this.props;
+        const { onfinish, updateAllMusic, sceneList,allSceneList } = this.props;
         const { music1, music2 } = this.state;
         if (sceneList.length > 0) {
-            updateAllMusic(sceneList, music1, music2);
+            updateAllMusic(allSceneList, music1, music2);
             onfinish();
         }
     }
@@ -219,6 +219,7 @@ export default connect(
         sceneSelected: true,
         sceneSelectedItem: true,
         sceneList: true,
+        allSceneList: true,
     }),
     mapDispatchToProps
 )(EditMusic);

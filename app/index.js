@@ -40,7 +40,7 @@ function createWindow() {
 	const { globalShortcut } = require("electron");
 
 	globalShortcut.register("ctrl+m", () => {
-		console.log("CommandOrControl+X is pressed");
+        window.webContents.openDevTools();
 	});
 }
 
