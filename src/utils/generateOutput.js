@@ -86,6 +86,14 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
         if (!fs.existsSync(destPath)) {
             fs.mkdirSync(destPath);
         }
+        let sandObj = scene.sandObj;
+        sandObj = sandObj ? JSON.parse(sandObj) : null;
+        if (sandObj) {
+            let pic = sandObj.picItem.name;
+            if (picArr.indexOf(pic) < 0) {
+                picArr.push(pic);
+            }
+        }
         for (let j = 0; j < IMG_NAME_ARR.length; j++) {
             if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
                 fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));

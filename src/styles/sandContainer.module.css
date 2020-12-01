@@ -1,0 +1,73 @@
+.sandContainer {
+    border: 10px solid #333;
+    position: absolute;
+    top: 0px;
+    left: -500px;
+    width: 500px;
+    height: 500px;
+}
+
+.marksContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.markItem {
+    position: relative;
+}
+
+.bigImg {
+    width: 480px;
+}
+
+.markItemPoint {
+    position: absolute;
+    z-index: 5000;
+    width: 15px;
+    height: 15px;
+    background-color: #286efa;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.markItemPoint2 {
+    width: 49px;
+    height: 49px;
+    background-image: url('./imgs/sand-table-icon-active.png');
+    background-size: 49px 49px;
+    position: relative;
+}
+
+.centerPoint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 17px;
+    height: 17px;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.topPoint {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    cursor: ew-resize;
+}

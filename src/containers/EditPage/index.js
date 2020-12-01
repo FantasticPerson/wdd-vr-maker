@@ -23,6 +23,9 @@ import EditHotSpot from "./edit/EditHotSpot";
 import EditEffect from "./edit/EditEffect";
 import EditMusic from "./edit/EditMusic";
 import EditScene from "./editScene";
+import EditSand from "./edit/EditSand/index";
+
+import SandContainer from "./edit/EditSand/sandContainer";
 
 class EditPage extends Component {
     constructor() {
@@ -72,6 +75,7 @@ class EditPage extends Component {
                 <div className={styles.content}>
                     <div className={styles.panoContainer}>
                         <PanoContainer showEditHotpot={this.showHotspotEdit.bind(this)}></PanoContainer>
+                        {this.renderSands()}
                     </div>
                     <div className={styles.sceneContainer}>
                         <EditScene></EditScene>
@@ -82,6 +86,7 @@ class EditPage extends Component {
                     {this.renderEditSpecialShow()}
                     {this.renderEditMusic()}
                     {this.renderEditViewPort()}
+                    {this.renderEditSand()}
                 </div>
             </div>
         );
@@ -111,12 +116,20 @@ class EditPage extends Component {
         }
     }
 
+    renderEditSand() {
+        if (this.state.editType == 4) {
+            const { addPicture } = this.props;
+            return <EditSand onfinish={this.showHotspotEdit.bind(this)} addPicture={addPicture}></EditSand>;
+        }
+    }
+
     renderLeftBtns() {
         let btnProps = [
             { class: "fa fa-eye", name: "视角" },
             { class: "fa fa-dot-circle-o", name: "热点" },
             { class: "fa fa-music", name: "音乐" },
             { class: "fa fa-magic", name: "特效" },
+            { class: "fa fa-magic", name: "沙盘" },
         ];
         return (
             <div className={styles.leftBar}>
@@ -124,7 +137,7 @@ class EditPage extends Component {
                     let btnClassName = this.state.editType == index ? `${styles.btn} ${styles.btnSelected}` : `${styles.btn}`;
                     return (
                         <div
-                            key={item.class}
+                            key={item.class + item.name}
                             className={btnClassName}
                             onClick={() => {
                                 this.onEditClick(index);
@@ -136,6 +149,13 @@ class EditPage extends Component {
                 })}
             </div>
         );
+    }
+
+    renderSands() {
+        if (this.state.editType == 4) {
+            const { sceneSelected } = this.props;
+            return <SandContainer sceneSelected={sceneSelected}></SandContainer>;
+        }
     }
 }
 
@@ -153,4 +173,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(getSelector({ vrList: true, vrId: true }), mapDispatchToProps)(EditPage);
+export default connect(getSelector({ vrList: true, vrId: true, sceneSelected: true }), mapDispatchToProps)(EditPage);
