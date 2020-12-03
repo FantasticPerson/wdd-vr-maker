@@ -145,9 +145,6 @@ export function updateSand(oldObj, newObj, sceneId) {
             if (oItem) {
                 Modals.Scene.add({ ...oItem, sandObj: null });
             }
-            setTimeout(() => {
-                dispatch(updateDAllScene());
-            }, 100);
         } else {
             let oldIds = [];
             if (sandObj) {
@@ -169,10 +166,16 @@ export function updateSand(oldObj, newObj, sceneId) {
                     Modals.Scene.add({ ...sItem, sandObj: JSON.stringify(newObj) });
                 }
             });
-            setTimeout(() => {
-                dispatch(updateDAllScene());
-            }, 100);
+            if (newIds.length == 0 || newIds.indexOf(sceneId) < 0) {
+                let cItem = sceneList.find((item) => item.id == sceneId);
+                if(cItem){
+                    Modals.Scene.add({ ...cItem, sandObj: JSON.stringify(newObj) });
+                }
+            }
         }
+        setTimeout(() => {
+            dispatch(updateDAllScene());
+        }, 100);
     };
 }
 

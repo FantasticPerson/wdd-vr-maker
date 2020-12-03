@@ -76,6 +76,12 @@ function krpanoData(vrItem, sceneList, hotpotList, groupList, allSceneList) {
         let sArr = allSceneList.filter((item) => {
             return item.groupId == groupList[i].id;
         });
+        let ids = groupList[i].sceneListIds || [];
+        sArr.sort((a, b) => {
+            let index1 = ids.indexOf(a.id);
+            let index2 = ids.indexOf(b.id);
+            return index1 - index2;
+        });
         if (sArr.length > 0) {
             for (let j = 0; j < sArr.length; j++) {
                 let hotspots = getHotspotList(hotpotList, sArr[j].id);
@@ -352,12 +358,14 @@ function panosXmlData(productData, config) {
                 const sandTable = panoElement.ele("radar");
                 sandTable.att("enabled", 1);
                 sandTable.att("opened", 1);
-                let mark = sand.marks.find((item) => item.id == pano.scene.id);
                 let imgSrc = sand.picItem.name;
                 sandTable.att("map_url", `./picture/${imgSrc}`);
-                sandTable.att("x", mark.x);
-                sandTable.att("y", mark.y);
-                sandTable.att("heading_offset", mark.rotate);
+                let mark = sand.marks.find((item) => item.id == pano.scene.id);
+                if (mark) {
+                    sandTable.att("x", mark.x);
+                    sandTable.att("y", mark.y);
+                    sandTable.att("heading_offset", mark.rotate);
+                }
                 let marks = sand.marks.filter((item) => item.id !== pano.scene.id) || [];
                 marks.map((item) => {
                     const sandTableSpot = sandTable.ele("radarspot");

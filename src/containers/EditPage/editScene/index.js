@@ -94,6 +94,39 @@ class EditSceneContainer extends Component {
         }
     }
 
+    groupPrevGo(id) {
+        let groupList = this.props.groupList;
+        let item = groupList.find((item) => item.id == id);
+        if (!item) return;
+        let index = groupList.indexOf(item);
+        if (index == 0) return;
+        let preItem = groupList[index - 1];
+        let tempTimeStamp = preItem.timestamp;
+        preItem = { ...preItem, timestamp: item.timestamp };
+        item = { ...item, timestamp: tempTimeStamp };
+        let newGroupArr = [ ...groupList ];
+        newGroupArr[index] = item;
+        newGroupArr[index - 1] = preItem;
+        const { updateGroupArr } = this.props;
+        updateGroupArr(newGroupArr);
+    }
+    groupAfterGo(id) {
+        let groupList = this.props.groupList;
+        let item = groupList.find((item) => item.id == id);
+        if (!item) return;
+        let index = groupList.indexOf(item);
+        if (index == groupList.length - 1) return;
+        let afterItem = groupList[index + 1];
+        let tempTimeStamp = afterItem.timestamp;
+        afterItem = { ...afterItem, timestamp: item.timestamp };
+        item = { ...item, timestamp: tempTimeStamp };
+        let newGroupArr = [ ...groupList ];
+        newGroupArr[index] = item;
+        newGroupArr[index + 1] = afterItem;
+        const { updateGroupArr } = this.props;
+        updateGroupArr(newGroupArr);
+    }
+
     showCreateGroupModal() {
         this.setState({ showCreateGroup: true });
     }
@@ -138,6 +171,8 @@ class EditSceneContainer extends Component {
             let functions = {
                 onHide: this.hideGroupContext.bind(this),
                 showEdit: this.showCreateGroupModal.bind(this),
+                prevGo: this.groupPrevGo.bind(this),
+                afterGo: this.groupAfterGo.bind(this),
                 deleteGroup,
                 updateSceneSelected,
             };

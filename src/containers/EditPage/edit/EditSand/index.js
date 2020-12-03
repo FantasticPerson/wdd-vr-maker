@@ -113,19 +113,20 @@ class EditSand extends Component {
     }
     onRemoveClick() {
         this.setState({ picItem: null });
-        this.updateSceneItem();
+        // this.updateSandObj()
+        // this.updateSceneItem();
     }
 
     updateSceneItem() {
-        setTimeout(() => {
-            const { picItem, marks } = this.state;
-            const { updateSand, sceneSelectedItem } = this.props;
-            let sandObj = null;
-            if (picItem) {
-                sandObj = { picItem: picItem, marks };
-            }
-            updateSand(sandObj);
-        }, 100);
+        // setTimeout(() => {
+        //     const { picItem, marks } = this.state;
+        //     const { updateSand, sceneSelectedItem } = this.props;
+        //     let sandObj = null;
+        //     if (picItem) {
+        //         sandObj = { picItem: picItem, marks };
+        //     }
+        //     updateSand(sandObj);
+        // }, 100);
     }
 
     renderSandPic() {
@@ -221,7 +222,7 @@ class EditSand extends Component {
             });
             let sceneItemStyle = {
                 margin: "5px",
-                height: "80px",
+                height: "120px",
                 width: "80px",
                 display: "inline-block",
                 overflow: "hidden",
@@ -244,8 +245,9 @@ class EditSand extends Component {
                     let itemStyle = sceneItemStyle;
                     return (
                         <div onClick={() => this.onSceneSelect(item)} style={itemStyle} key={item.id}>
-                            <div style={{ height: "80px", width: "100%", overflow: "hidden" }}>
+                            <div style={{ height: "120px", width: "100%", overflow: "hidden" }}>
                                 <img style={{ height: "80px", width: "80px" }} alt='' src={getHeadImgUrl(item.id)} />
+                                <div style={{ textAlign: "center" }}>{item.name}</div>
                             </div>
                         </div>
                     );
@@ -266,7 +268,14 @@ class EditSand extends Component {
                 );
             });
             return (
-                <div className={styles.sceneContainer}>
+                <div
+                    className={styles.sceneContainer}
+                    style={{
+                        position: "absolute",
+                        bottom: 50,
+                        top: 295,
+                        overflow: "auto",
+                    }}>
                     {showSceneList ? (
                         <div>
                             <div>选择场景</div>
@@ -292,7 +301,7 @@ class EditSand extends Component {
             paddingBottom: 10,
         };
         return (
-            <div style={{ padding: "5px", position: "relative" }}>
+            <div style={{ padding: "5px", position: "relative", height: "100%" }}>
                 <div style={{ borderBottom: "1px solid #eee", ...titleStyle }}>
                     <span>
                         <i className='fa fa-music'></i>
@@ -314,7 +323,7 @@ class EditSand extends Component {
                 {this.renderPicListModal()}
                 {this.renderEditMark()}
                 {this.renderSandContainer()}
-                <FlatButton color='primary' style={{ marginTop: 30 }} variant='contained' onClick={this.onConfirmClick.bind(this)}>
+                <FlatButton color='primary' style={{ marginTop: 30, position: "absolute", bottom: 5 }} variant='contained' onClick={this.onConfirmClick.bind(this)}>
                     确定
                 </FlatButton>
             </div>

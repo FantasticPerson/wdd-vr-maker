@@ -47,7 +47,7 @@ export default class EditSelectScene extends Component {
         const { sceneSelected, allSceneList } = this.props;
         let sceneItemStyle = {
             margin: "5px",
-            height: "80px",
+            height: "120px",
             width: "80px",
             display: "inline-block",
             overflow: "hidden",
@@ -79,8 +79,9 @@ export default class EditSelectScene extends Component {
 
                 return (
                     <div onClick={() => this.onItemClick(item)} style={itemStyle} key={item.id}>
-                        <div style={{ height: "80px", width: "80px", overflow: "hidden" }}>
-                            <img style={{ height: "80px", width: "80px" }} src={getHeadImgUrl(item.id)} />
+                        <div style={{ height: "120px", width: "80px", overflow: "hidden" }}>
+                            <img style={{ height: "80px", width: "80px" }} alt='' src={getHeadImgUrl(item.id)} />
+                            <div style={{ textAlign: "center" }}>{item.name}</div>
                         </div>
                     </div>
                 );
