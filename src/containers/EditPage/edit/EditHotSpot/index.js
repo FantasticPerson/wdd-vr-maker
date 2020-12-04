@@ -142,7 +142,7 @@ class EditHotSpot extends Component {
                 var typeText = typeObj[type];
                 return (
                     <div className={styles["hotPot-item"]} key={item.id} onClick={() => this.selectHotspot(item.id)}>
-                        {`${typeText} ${item.id}`}
+                        {`${typeText} ${JSON.parse(item.action).title}`}
                     </div>
                 );
             });

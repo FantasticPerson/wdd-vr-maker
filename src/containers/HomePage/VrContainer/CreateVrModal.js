@@ -39,17 +39,17 @@ export default class CreateVrModal extends Component {
             let picItem = { id: arr[0], extension: arr[1] };
             previewImg = imgName;
             await copyImageTmpToImage(imgName);
-            await addPicture(picItem);
+            addPicture(picItem);
         }
         if (data) {
             previewImg = previewImg ? previewImg : data.headImg;
-            await modifyVr({ ...data, title: title, brief: brief, headImg: previewImg });
+            modifyVr({ ...data, title: title, brief: brief, headImg: previewImg });
         } else {
             let id = `vr_${new Hashid().encode()}`;
             let groupId = `group_${new Hashid().encode()}`;
 
-            await addGroup("默认", id, groupId);
-            await addVr({ title, brief, headImgId: previewImg, music1: null, music2: null, id });
+            addGroup("默认", id, groupId);
+            addVr({ title, brief, headImgId: previewImg, music1: null, music2: null, id });
         }
         onCancel();
     }
@@ -58,6 +58,7 @@ export default class CreateVrModal extends Component {
         let res = await openFolder(["openFile"], [{ name: "Images", extensions: ["jpg", "png", "gif"] }]);
         if (res && res[0]) {
             let path = await checkVrCoverValid(res[0]);
+            console.log(copyImagaToTmpImage);
             let name = await copyImagaToTmpImage(path);
             this.setState({ tmpImgStatus: true, imgName: name });
         }

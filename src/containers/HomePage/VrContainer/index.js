@@ -7,6 +7,7 @@ import * as vrActions from "../../../actions/vr";
 import * as folderActions from "../../../actions/folder";
 import * as appActions from "../../../actions/app";
 import * as groupActions from "../../../actions/group";
+import * as pictureActions from '../../../actions/picture'
 import CreateFolderModal from "./CreateFolderModal";
 import VrEdit from "./VrEdit";
 import FolderContextMenu from "./FolderContextMenu";
@@ -113,10 +114,11 @@ class VrContainer extends React.Component {
 
 	renderCreateFolderModal() {
 		if (this.state.showCreateFolderItem) {
-			const { addFolder, updateFolder } = this.props;
+            const { addFolder, updateFolder,addPicture } = this.props;
 			const functions = {
 				addFolder,
-				updateFolder,
+                updateFolder,
+                addPicture,
 				hideCreateFolderModal: this.hideCreateFolderModal.bind(this)
 			};
 			const { contextFolderData } = this.state;
@@ -126,11 +128,12 @@ class VrContainer extends React.Component {
 
 	renderContextMenu() {
 		if (this.state.showFolderMenu) {
-			const { posData, contextFolderData } = this.state;
+			const { posData, contextFolderData,addPicture } = this.state;
 			const { deleteFolder } = this.props;
 			const functions = {
 				onHide: this.onFolderContextMenuHide.bind(this),
-				onModify: this.handleEditFolder.bind(this),
+                onModify: this.handleEditFolder.bind(this),
+                addPicture,
 				deleteFolder
 			};
 			return <FolderContextMenu posData={posData} folderData={contextFolderData} functions={functions}></FolderContextMenu>;
@@ -143,7 +146,9 @@ function mapDispatchToProps(dispatch) {
 		...bindActionCreators(vrActions, dispatch),
 		...bindActionCreators(folderActions, dispatch),
 		...bindActionCreators(appActions, dispatch),
-		...bindActionCreators(groupActions, dispatch)
+        ...bindActionCreators(groupActions, dispatch),
+		...bindActionCreators(pictureActions, dispatch)
+        
 	};
 }
 

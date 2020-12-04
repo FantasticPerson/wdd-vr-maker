@@ -25,6 +25,7 @@ Group.updateSort = (obj) => {
 };
 Group.update = (obj) => {
     return Group.store.where("id").equals(obj.id).modify({
+        ...obj,
         title: obj.title,
         folderId: obj.folderId,
         vrId: obj.vrId,

@@ -40,7 +40,7 @@ export default class CreateScenes extends Component {
         const { addScene, updateGroup } = this.props.functions;
         let res = await openFolder(["multiSelections"], [{ name: "Images", extensions: ["jpg"] }]);
         if (Array.isArray(res) && res.length > 0) {
-            let ids = []
+            let ids = [];
             this.setState({ isLoading: true, totalNum: res.length });
             for (let i = 0; i < res.length; i++) {
                 let err = await createPano(res[i]);
@@ -49,19 +49,22 @@ export default class CreateScenes extends Component {
                 //     alert("上传失败");
                 //     return;
                 // }
+                let sArr = res[i].split("\\");
+                let picName = sArr[sArr.length - 1];
+                let picNameArr = picName.split(".");
                 this.setState({ completeNum: i + 1 });
                 let sceneId = `scene_${new Hashid().encode()}`;
                 await copyImageToScene(getScenePath(sceneId));
                 await Timer(800);
-                await addScene({ id: sceneId, vrid: vrId, name: "默认", groupId });
+                await addScene({ id: sceneId, vrid: vrId, name: picNameArr[0] || "默认", groupId });
                 // let selectIds = groupItem.sceneListIds || [];
-                ids.push(sceneId)
+                ids.push(sceneId);
                 // selectIds.push(sceneId);
                 // let newGroupItem = { ...groupItem, sceneListIds: selectIds };
                 // updateGroup(newGroupItem);
             }
             let selectIds = groupItem.sceneListIds || [];
-            let newGroupItem = { ...groupItem, sceneListIds: [...selectIds,...ids] };
+            let newGroupItem = { ...groupItem, sceneListIds: [...selectIds, ...ids] };
             updateGroup(newGroupItem);
             alert("上传完成");
             this.onCancelClick(true);

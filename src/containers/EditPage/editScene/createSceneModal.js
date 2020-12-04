@@ -52,6 +52,12 @@ export default class CreateVrModal extends Component {
     async onOpenFileClick() {
         let res = await openFolder();
         if (Array.isArray(res) && res[0] && res[0].indexOf(".jpg") >= 0) {
+            console.log(res[0]);
+            let sArr = res[0].split("\\");
+            let picName = sArr[sArr.length - 1];
+            let picNameArr = picName.split('.')
+            this.titleRef.value = picNameArr[0]
+            console.log(picName)
             this.setState({ tmpImgStatus: "process" });
             await createPano(res[0]);
             await Timer(800);
