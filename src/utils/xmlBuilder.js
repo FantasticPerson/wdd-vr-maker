@@ -275,7 +275,7 @@ function panosXmlData(productData, config) {
 							const imageElement = hotspot.ele("image");
 							imageElement.att("name", `image_${imageIndex}`);
 							imageElement.att("title", "");
-							imageElement.att("url", `./picture/${item}`);
+							imageElement.att("url", `./picture/${item.name}`);
 							imageIndex++;
 						});
 						break;
@@ -308,8 +308,8 @@ function panosXmlData(productData, config) {
 						actionObj.picArr.map((item) => {
 							const imageElement = hotspot.ele("image");
 							imageElement.att("name", `image_${mixIndex}`);
-							imageElement.att("title", item.text);
-							imageElement.att("url", `./picture/${item.pic}`);
+							// imageElement.att("title", actionObj.title);
+							imageElement.att("url", `./picture/${item.pic.name}`);
 							imageElement.att("text", item.text);
 							mixIndex++;
 						});
