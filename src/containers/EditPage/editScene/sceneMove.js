@@ -26,8 +26,7 @@ export default class SceneMoveModal extends Component {
 		const { group } = this.state;
 		const { itemData } = this.props;
 
-		itemData.groupId = group;
-		this.props.functions.modify(itemData);
+		this.props.functions.modify(itemData,group);
 		this.props.functions.onHide();
 	}
 

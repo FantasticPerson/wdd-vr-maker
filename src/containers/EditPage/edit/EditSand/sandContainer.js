@@ -32,7 +32,7 @@ export default class extends React.Component {
     renderMarks() {
         const { markSelect, update, onMarkClick, sceneSelected } = this.props;
         const { marks } = this.state;
-        console.log(sceneSelected)
+        // console.log(sceneSelected)
         let marksDom = marks.map((item) => {
             let isSelected = false;
             if (item.id === sceneSelected) {

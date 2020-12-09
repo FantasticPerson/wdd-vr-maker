@@ -40,7 +40,7 @@ export default class CreateScenes extends Component {
         const { addScene, updateGroup } = this.props.functions;
         let res = await openFolder(["multiSelections"], [{ name: "Images", extensions: ["jpg"] }]);
         if (Array.isArray(res) && res.length > 0) {
-            let ids = [];
+            let ids = groupItem.sceneListIds || [];
             this.setState({ isLoading: true, totalNum: res.length });
             for (let i = 0; i < res.length; i++) {
                 let err = await createPano(res[i]);
@@ -57,21 +57,20 @@ export default class CreateScenes extends Component {
                 await copyImageToScene(getScenePath(sceneId));
                 await Timer(800);
                 await addScene({ id: sceneId, vrid: vrId, name: picNameArr[0] || "默认", groupId });
-                // let selectIds = groupItem.sceneListIds || [];
+                // ids.push(sceneId);
                 ids.push(sceneId);
-                // selectIds.push(sceneId);
-                // let newGroupItem = { ...groupItem, sceneListIds: selectIds };
-                // updateGroup(newGroupItem);
+                let newGroupItem = { ...groupItem, sceneListIds: ids };
+                updateGroup(newGroupItem);
             }
-            let selectIds = groupItem.sceneListIds || [];
-            let newGroupItem = { ...groupItem, sceneListIds: [...selectIds, ...ids] };
-            updateGroup(newGroupItem);
-            alert("上传完成");
+            // let selectIds = groupItem.sceneListIds || [];
+            // let newGroupItem = { ...groupItem, sceneListIds: [...selectIds, ...ids] };
+            // updateGroup(newGroupItem);
+            // alert("上传完成");
             this.onCancelClick(true);
         } else if (res == undefined) {
             this.onCancelClick();
         } else {
-            alert("上传失败");
+            // alert("上传失败");
             this.onCancelClick();
         }
     }

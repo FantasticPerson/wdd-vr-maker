@@ -19,476 +19,497 @@ import SceneItem from "./SceneItem";
 import styles from "../../../styles/editSceneContainer.module.css";
 
 class EditSceneContainer extends Component {
-    constructor() {
-        super();
-        this._isMounted = false;
-        this.state = {
-            containerWidth: "",
-            showSceneMenu: false,
-            posData: {},
-            contextSceneData: {},
-            showEditSceneModal: false,
-            showCreateScene: false,
-            showCreateScenes: false,
-            hasSelectedId: false,
-            contextGroupData: null,
-            showCreateGroup: false,
-            showGroupContext: false,
-            moveGroupList: [],
-            showSceneMove: false,
-            sceneToMove: null,
-            isDragging: false,
-            showReplaceModal: false,
-            replaceItem: null,
-        };
-        this.sceneListC = null;
-        this.showUpdate = false;
-    }
+	constructor() {
+		super();
+		this._isMounted = false;
+		this.state = {
+			containerWidth: "",
+			showSceneMenu: false,
+			posData: {},
+			contextSceneData: {},
+			showEditSceneModal: false,
+			showCreateScene: false,
+			showCreateScenes: false,
+			hasSelectedId: false,
+			contextGroupData: null,
+			showCreateGroup: false,
+			showGroupContext: false,
+			moveGroupList: [],
+			showSceneMove: false,
+			sceneToMove: null,
+			isDragging: false,
+			showReplaceModal: false,
+			replaceItem: null,
+		};
+		this.sceneListC = null;
+		this.showUpdate = false;
+	}
 
-    componentDidMount() {
-        this._isMounted = true;
-        setTimeout(() => {
-            const { sceneList, updateSceneSelected, groupList, updateGroupSelected } = this.props;
-            if (sceneList.length > 0) {
-                updateSceneSelected(sceneList[0].id);
-            }
-            if (groupList.length > 0) {
-                updateGroupSelected(groupList[0].id);
-            }
-        }, 500);
-        const containerWidth = window.innerWidth - 280;
-        this.setState({ containerWidth: containerWidth });
-        window.onresize = () => {
-            if (this._isMounted) {
-                const containerWidth = window.innerWidth - 280;
-                this.setState({ containerWidth: containerWidth });
-            }
-        };
-    }
+	componentDidMount() {
+		this._isMounted = true;
+		setTimeout(() => {
+			const { sceneList, updateSceneSelected, groupList, updateGroupSelected } = this.props;
+			if (sceneList.length > 0) {
+				updateSceneSelected(sceneList[0].id);
+			}
+			if (groupList.length > 0) {
+				updateGroupSelected(groupList[0].id);
+			}
+		}, 500);
+		const containerWidth = window.innerWidth - 280;
+		this.setState({ containerWidth: containerWidth });
+		window.onresize = () => {
+			if (this._isMounted) {
+				const containerWidth = window.innerWidth - 280;
+				this.setState({ containerWidth: containerWidth });
+			}
+		};
+	}
 
-    componentWillReceiveProps(props) {
-        if (props.groupSelectId != this.props.groupSelectId) {
-            this.showUpdate = true;
-        } else {
-            if (this.showUpdate) {
-                const { updateSceneSelected } = props;
-                if (props.sceneList.length > 0) {
-                    updateSceneSelected(props.sceneList[0].id);
-                } else {
-                    updateSceneSelected(null);
-                }
-            }
-            this.showUpdate = false;
-        }
-    }
+	componentWillReceiveProps(props) {
+		if (props.groupSelectId != this.props.groupSelectId) {
+			this.showUpdate = true;
+		} else {
+			if (this.showUpdate) {
+				const { updateSceneSelected } = props;
+				if (props.sceneList.length > 0) {
+					updateSceneSelected(props.sceneList[0].id);
+				} else {
+					updateSceneSelected(null);
+				}
+			}
+			this.showUpdate = false;
+		}
+	}
 
-    componentWillUnmount() {
-        this._isMounted = false;
-        window.onresize = null;
-    }
+	componentWillUnmount() {
+		this._isMounted = false;
+		window.onresize = null;
+	}
 
-    onGroupClick(id) {
-        const { groupSelectId } = this.props;
-        if (groupSelectId != id) {
-            this.props.updateGroupSelected(id);
-        }
-    }
+	onGroupClick(id) {
+		const { groupSelectId } = this.props;
+		if (groupSelectId != id) {
+			this.props.updateGroupSelected(id);
+		}
+	}
 
-    groupPrevGo(id) {
-        let groupList = this.props.groupList;
-        let item = groupList.find((item) => item.id == id);
-        if (!item) return;
-        let index = groupList.indexOf(item);
-        if (index == 0) return;
-        let preItem = groupList[index - 1];
-        let tempTimeStamp = preItem.timestamp;
-        preItem = { ...preItem, timestamp: item.timestamp };
-        item = { ...item, timestamp: tempTimeStamp };
-        let newGroupArr = [ ...groupList ];
-        newGroupArr[index] = item;
-        newGroupArr[index - 1] = preItem;
-        const { updateGroupArr } = this.props;
-        updateGroupArr(newGroupArr);
-    }
-    groupAfterGo(id) {
-        let groupList = this.props.groupList;
-        let item = groupList.find((item) => item.id == id);
-        if (!item) return;
-        let index = groupList.indexOf(item);
-        if (index == groupList.length - 1) return;
-        let afterItem = groupList[index + 1];
-        let tempTimeStamp = afterItem.timestamp;
-        afterItem = { ...afterItem, timestamp: item.timestamp };
-        item = { ...item, timestamp: tempTimeStamp };
-        let newGroupArr = [ ...groupList ];
-        newGroupArr[index] = item;
-        newGroupArr[index + 1] = afterItem;
-        const { updateGroupArr } = this.props;
-        updateGroupArr(newGroupArr);
-    }
+	groupPrevGo(id) {
+		let groupList = this.props.groupList;
+		let item = groupList.find((item) => item.id == id);
+		if (!item) return;
+		let index = groupList.indexOf(item);
+		if (index == 0) return;
+		let preItem = groupList[index - 1];
+		let tempTimeStamp = preItem.timestamp;
+		preItem = { ...preItem, timestamp: item.timestamp };
+		item = { ...item, timestamp: tempTimeStamp };
+		let newGroupArr = [...groupList];
+		newGroupArr[index] = item;
+		newGroupArr[index - 1] = preItem;
+		const { updateGroupArr } = this.props;
+		updateGroupArr(newGroupArr);
+	}
+	groupAfterGo(id) {
+		let groupList = this.props.groupList;
+		let item = groupList.find((item) => item.id == id);
+		if (!item) return;
+		let index = groupList.indexOf(item);
+		if (index == groupList.length - 1) return;
+		let afterItem = groupList[index + 1];
+		let tempTimeStamp = afterItem.timestamp;
+		afterItem = { ...afterItem, timestamp: item.timestamp };
+		item = { ...item, timestamp: tempTimeStamp };
+		let newGroupArr = [...groupList];
+		newGroupArr[index] = item;
+		newGroupArr[index + 1] = afterItem;
+		const { updateGroupArr } = this.props;
+		updateGroupArr(newGroupArr);
+	}
 
-    showCreateGroupModal() {
-        this.setState({ showCreateGroup: true });
-    }
+	showCreateGroupModal() {
+		this.setState({ showCreateGroup: true });
+	}
 
-    hideCreateGroupModal() {
-        this.setState({ showCreateGroup: false, contextGroupData: null });
-    }
+	hideCreateGroupModal() {
+		this.setState({ showCreateGroup: false, contextGroupData: null });
+	}
 
-    renderCreateGroupModal() {
-        if (this.state.showCreateGroup) {
-            const { addGroup, updateGroup, vrId } = this.props;
-            const { contextGroupData } = this.state;
-            let functions = {
-                addGroup,
-                updateGroup,
-                hideModal: this.hideCreateGroupModal.bind(this),
-            };
-            return <CreateGroupModal functions={functions} vrId={vrId} itemData={contextGroupData}></CreateGroupModal>;
-        }
-    }
+	renderCreateGroupModal() {
+		if (this.state.showCreateGroup) {
+			const { addGroup, updateGroup, vrId } = this.props;
+			const { contextGroupData } = this.state;
+			let functions = {
+				addGroup,
+				updateGroup,
+				hideModal: this.hideCreateGroupModal.bind(this),
+			};
+			return <CreateGroupModal functions={functions} vrId={vrId} itemData={contextGroupData}></CreateGroupModal>;
+		}
+	}
 
-    onGroupContext(e, item) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.setState({
-            showGroupContext: true,
-            posData: { posX: e.clientX, posY: e.clientY },
-            contextGroupData: item,
-        });
-    }
+	onGroupContext(e, item) {
+		e.preventDefault();
+		e.stopPropagation();
+		this.setState({
+			showGroupContext: true,
+			posData: { posX: e.clientX, posY: e.clientY },
+			contextGroupData: item,
+		});
+	}
 
-    hideGroupContext() {
-        this.setState({
-            showGroupContext: false,
-        });
-    }
+	hideGroupContext() {
+		this.setState({
+			showGroupContext: false,
+		});
+	}
 
-    renderGroupContext() {
-        if (this.state.showGroupContext) {
-            const { contextGroupData, posData } = this.state;
-            const { deleteGroup, updateSceneSelected } = this.props;
-            let functions = {
-                onHide: this.hideGroupContext.bind(this),
-                showEdit: this.showCreateGroupModal.bind(this),
-                prevGo: this.groupPrevGo.bind(this),
-                afterGo: this.groupAfterGo.bind(this),
-                deleteGroup,
-                updateSceneSelected,
-            };
-            const { groupList, allSceneList, groupSelectId } = this.props;
-            let groupSceneList = allSceneList.filter((item) => {
-                return item.groupId == contextGroupData.id;
-            });
-            let canDelete = groupSceneList.length > 0 ? false : true;
-            if (groupList.length <= 1) {
-                canDelete = false;
-            }
-            return <GroupContextModal groupSelectId={groupSelectId} groupList={groupList} canDelete={canDelete} posData={posData} functions={functions} itemData={contextGroupData} />;
-        }
-    }
+	renderGroupContext() {
+		if (this.state.showGroupContext) {
+			const { contextGroupData, posData } = this.state;
+			const { deleteGroup, updateSceneSelected } = this.props;
+			let functions = {
+				onHide: this.hideGroupContext.bind(this),
+				showEdit: this.showCreateGroupModal.bind(this),
+				prevGo: this.groupPrevGo.bind(this),
+				afterGo: this.groupAfterGo.bind(this),
+				deleteGroup,
+				updateSceneSelected,
+			};
+			const { groupList, allSceneList, groupSelectId } = this.props;
+			// let groupSceneList = allSceneList.filter((item) => {
+			//     return item.groupId == contextGroupData.id;
+			// });
+			// let canDelete = groupSceneList.length > 0 ? false : true;
+			console.log(contextGroupData);
+			let ids = contextGroupData.sceneListIds || [];
+			let canDelete = true;
+			console.log(ids);
+			if (ids.length > 0) {
+				canDelete = false;
+			}
+			return <GroupContextModal groupSelectId={groupSelectId} groupList={groupList} canDelete={canDelete} posData={posData} functions={functions} itemData={contextGroupData} />;
+		}
+	}
 
-    renderGroup() {
-        const { groupList, groupSelectId } = this.props;
-        if (groupList.length > 0) {
-            let item = groupList.find((item) => item.id == groupSelectId);
-            if (!item) {
-                this.props.updateGroupSelected(groupList[0].id);
-            }
-        }
-        let groupItems = groupList.map((item) => {
-            let styleObj = {};
-            if (item.id == groupSelectId) {
-                styleObj = { backgroundColor: "#eee" };
-            }
-            return (
-                <div className={styles["normal-btn-style"] + " group"} onContextMenu={(e) => this.onGroupContext(e, item)} onClick={() => this.onGroupClick(item.id)} key={item.title} style={styleObj}>
-                    {item.title}
-                </div>
-            );
-        });
-        return (
-            <div style={{ marginTop: "10px" }}>
-                {groupItems}
-                <div className={styles["add-btn-style"]} onClick={this.showCreateGroupModal.bind(this)}>
-                    +
-                </div>
-            </div>
-        );
-    }
+	renderGroup() {
+		const { groupList, groupSelectId } = this.props;
+		if (groupList.length > 0) {
+			let item = groupList.find((item) => item.id == groupSelectId);
+			if (!item) {
+				this.props.updateGroupSelected(groupList[0].id);
+			}
+		}
+		let groupItems = groupList.map((item) => {
+			let styleObj = {};
+			if (item.id == groupSelectId) {
+				styleObj = { backgroundColor: "#eee" };
+			}
+			return (
+				<div className={styles["normal-btn-style"] + " group"} onContextMenu={(e) => this.onGroupContext(e, item)} onClick={() => this.onGroupClick(item.id)} key={item.title} style={styleObj}>
+					{item.title}
+				</div>
+			);
+		});
+		return (
+			<div style={{ marginTop: "10px" }}>
+				{groupItems}
+				<div className={styles["add-btn-style"]} onClick={this.showCreateGroupModal.bind(this)}>
+					+
+				</div>
+			</div>
+		);
+	}
 
-    onDragEnd() {
-        this.setState({ isDragging: false });
-    }
+	onDragEnd() {
+		this.setState({ isDragging: false });
+	}
 
-    onDrag() {
-        this.setState({ isDragging: true });
-    }
+	onDrag() {
+		this.setState({ isDragging: true });
+	}
 
-    onSceneMove(beforeId, afterId, dargId) {
-        const { sceneList, groupSelectItem, updateGroup } = this.props;
-        for (let i = 0; i < sceneList.length; i++) {
-            sceneList[i].index = i;
-        }
-        let item = sceneList.find((item) => item.id === beforeId);
-        let item2 = sceneList.find((item) => item.id === afterId);
+	onSceneMove(beforeId, afterId, dargId) {
+		const { sceneList, groupSelectItem, updateGroup } = this.props;
+		for (let i = 0; i < sceneList.length; i++) {
+			sceneList[i].index = i;
+		}
+		let item = sceneList.find((item) => item.id === beforeId);
+		let item2 = sceneList.find((item) => item.id === afterId);
 
-        if ((item, item2)) {
-            let beforeIndex = sceneList.indexOf(item);
-            let afterIndex = sceneList.indexOf(item2);
+		if ((item, item2)) {
+			let beforeIndex = sceneList.indexOf(item);
+			let afterIndex = sceneList.indexOf(item2);
 
-            if (beforeIndex < afterIndex) {
-                if (beforeId == dargId) {
-                    for (let i = beforeIndex + 1; i < afterIndex; i++) {
-                        sceneList[i].index = i - 1;
-                    }
-                    item.index = afterIndex - 1;
-                } else {
-                    for (let i = beforeIndex + 1; i < afterIndex; i++) {
-                        sceneList[i].index = i + 1;
-                    }
-                    item2.index = beforeIndex + 1;
-                }
-            } else {
-                if (beforeId == dargId) {
-                    for (let i = afterIndex; i < beforeIndex; i++) {
-                        sceneList[i].index = i + 1;
-                    }
-                    item.index = afterIndex;
-                } else {
-                    for (let i = afterIndex + 1; i <= beforeIndex; i++) {
-                        sceneList[i].index = i - 1;
-                    }
-                    item2.index = beforeIndex;
-                }
-            }
-            groupSelectItem.sceneListIds = sceneList.sort((a, b) => a.index - b.index).map((item) => item.id);
-            updateGroup(groupSelectItem);
-        }
-    }
+			if (beforeIndex < afterIndex) {
+				if (beforeId == dargId) {
+					for (let i = beforeIndex + 1; i < afterIndex; i++) {
+						sceneList[i].index = i - 1;
+					}
+					item.index = afterIndex - 1;
+				} else {
+					for (let i = beforeIndex + 1; i < afterIndex; i++) {
+						sceneList[i].index = i + 1;
+					}
+					item2.index = beforeIndex + 1;
+				}
+			} else {
+				if (beforeId == dargId) {
+					for (let i = afterIndex; i < beforeIndex; i++) {
+						sceneList[i].index = i + 1;
+					}
+					item.index = afterIndex;
+				} else {
+					for (let i = afterIndex + 1; i <= beforeIndex; i++) {
+						sceneList[i].index = i - 1;
+					}
+					item2.index = beforeIndex;
+				}
+			}
+			groupSelectItem.sceneListIds = sceneList.sort((a, b) => a.index - b.index).map((item) => item.id);
+			updateGroup(groupSelectItem);
+		}
+	}
 
-    showReplace(item) {
-        this.setState({
-            showReplaceModal: true,
-            replaceItem: item,
-        });
-    }
+	showReplace(item) {
+		this.setState({
+			showReplaceModal: true,
+			replaceItem: item,
+		});
+	}
 
-    renderReplaceModal() {
-        const { showReplaceModal, replaceItem } = this.state;
-        const { modifyScene } = this.props;
-        // if (this.state.showCreateScene) {
-        //     const { addScene, vrId, groupSelectId, updateGroup, groupSelectItem } = this.props;
-        //     const functions = {
-        //         onCancel: this.onCancelCreateModal.bind(this),
-        //         showAddScenes: this.onShowUploadScenes.bind(this),
-        //         addScene,
-        //         updateGroup,
-        //     };
-        //     return <CreateSceneModal groupItem={groupSelectItem} functions={functions} groupId={groupSelectId} vrId={vrId} />;
-        // }
-        if (showReplaceModal) {
-            const functions = {
-                onCancel: () => {
-                    this.setState({
-                        showReplaceModal: false,
-                    });
-                },
-                modifyScene,
-            };
-            return <ReplaceSceneModal originData={replaceItem} functions={functions}></ReplaceSceneModal>;
-        }
-    }
+	renderReplaceModal() {
+		const { showReplaceModal, replaceItem } = this.state;
+		const { modifyScene } = this.props;
+		// if (this.state.showCreateScene) {
+		//     const { addScene, vrId, groupSelectId, updateGroup, groupSelectItem } = this.props;
+		//     const functions = {
+		//         onCancel: this.onCancelCreateModal.bind(this),
+		//         showAddScenes: this.onShowUploadScenes.bind(this),
+		//         addScene,
+		//         updateGroup,
+		//     };
+		//     return <CreateSceneModal groupItem={groupSelectItem} functions={functions} groupId={groupSelectId} vrId={vrId} />;
+		// }
+		if (showReplaceModal) {
+			const functions = {
+				onCancel: () => {
+					this.setState({
+						showReplaceModal: false,
+					});
+				},
+				modifyScene,
+			};
+			return <ReplaceSceneModal originData={replaceItem} functions={functions}></ReplaceSceneModal>;
+		}
+	}
 
-    renderSceneList() {
-        const { sceneList, sceneSelected } = this.props;
-        const cWidth = sceneList.length * 105 + 90 + "px";
+	renderSceneList() {
+		const { sceneList, sceneSelected } = this.props;
+		const cWidth = sceneList.length * 105 + 90 + "px";
 
-        let sceneItemList = sceneList.map((item) => (
-            <SceneItem
-                onSceneContext={this.onSceneContext.bind(this)}
-                sceneClickHandler={this.sceneClickHandler.bind(this)}
-                sceneSelected={sceneSelected}
-                item={item}
-                key={item.id}
-                onSceneMove={this.onSceneMove.bind(this)}
-                onDragEnd={this.onDragEnd.bind(this)}
-                onDrag={this.onDrag.bind(this)}
-                isDragging={this.state.isDragging}
-            />
-        ));
+		let sceneItemList = sceneList.map((item) => (
+			<SceneItem
+				onSceneContext={this.onSceneContext.bind(this)}
+				sceneClickHandler={this.sceneClickHandler.bind(this)}
+				sceneSelected={sceneSelected}
+				item={item}
+				key={item.id}
+				onSceneMove={this.onSceneMove.bind(this)}
+				onDragEnd={this.onDragEnd.bind(this)}
+				onDrag={this.onDrag.bind(this)}
+				isDragging={this.state.isDragging}
+			/>
+		));
 
-        return (
-            <div style={{ width: cWidth, height: "111px", overflow: "hidden", marginTop: "10px" }}>
-                {sceneItemList}
-                <div className={styles.addBtnContainer} onClick={this.onAddSceneClick.bind(this)}>
-                    <div className={`fa fa-plus`}></div>
-                    <div className={styles.addScene}>添加场景</div>
-                </div>
-            </div>
-        );
-    }
+		return (
+			<div style={{ width: cWidth, height: "111px", overflow: "hidden", marginTop: "10px" }}>
+				{sceneItemList}
+				<div className={styles.addBtnContainer} onClick={this.onAddSceneClick.bind(this)}>
+					<div className={`fa fa-plus`}></div>
+					<div className={styles.addScene}>添加场景</div>
+				</div>
+			</div>
+		);
+	}
 
-    sceneClickHandler(id) {
-        const { updateSceneSelected, sceneSelected } = this.props;
-        if (id != sceneSelected) {
-            updateSceneSelected(id);
-        }
-    }
+	sceneClickHandler(id) {
+		const { updateSceneSelected, sceneSelected } = this.props;
+		if (id != sceneSelected) {
+			updateSceneSelected(id);
+		}
+	}
 
-    onAddSceneClick() {
-        this.setState({ showCreateScene: true });
-    }
+	onAddSceneClick() {
+		this.setState({ showCreateScene: true });
+	}
 
-    onMoveScene(data) {
-        const { groupList, groupSelectId } = this.props;
+	onMoveScene(data) {
+		const { groupList, groupSelectId } = this.props;
 
-        let arr = groupList.filter((item) => item.id != data.id);
-        if (arr.length > 0) {
-            this.setState({ moveGroupList: arr, showSceneMove: true, sceneToMove: data });
-        }
-    }
+		let arr = groupList.filter((item) => item.id != data.id);
+		if (arr.length > 0) {
+			this.setState({ moveGroupList: arr, showSceneMove: true, sceneToMove: data });
+		}
+	}
 
-    onHideMove() {
-        this.setState({ showSceneMove: false });
-    }
+	onHideMove() {
+		this.setState({ showSceneMove: false });
+	}
 
-    renderSceneMove() {
-        if (this.state.showSceneMove) {
-            const { modifyScene } = this.props;
-            const { moveGroupList, sceneToMove } = this.state;
-            let functions = {
-                modify: modifyScene,
-                onHide: this.onHideMove.bind(this),
-            };
-            return <SceneMove functions={functions} groupList={moveGroupList} itemData={sceneToMove}></SceneMove>;
-        }
-    }
+	onModifyScene(itemData, groupId) {
+		const { groupSelectId, groupList, updateGroup } = this.props;
+		if (groupSelectId != groupId) {
+			let sceneId = itemData.id;
+			let currentGroup = groupList.find((item) => item.id == groupSelectId);
+			if (currentGroup) {
+				let ids = (currentGroup.sceneListIds || []).filter((item) => item != sceneId);
+				updateGroup({ ...currentGroup, sceneListIds: ids });
+			}
+			let toGroup = groupList.find((item) => item.id == groupId);
+			if (toGroup) {
+				let ids = [...(toGroup.sceneListIds || []), sceneId];
+				updateGroup({ ...toGroup, sceneListIds: ids });
+			}
+		}
+	}
 
-    onCancelCreateModal() {
-        this.setState({ showCreateScene: false });
-    }
+	renderSceneMove() {
+		if (this.state.showSceneMove) {
+			const { modifyScene } = this.props;
+			const { moveGroupList, sceneToMove } = this.state;
+			let functions = {
+				modify: this.onModifyScene.bind(this),
+				onHide: this.onHideMove.bind(this),
+			};
+			return <SceneMove functions={functions} groupList={moveGroupList} itemData={sceneToMove}></SceneMove>;
+		}
+	}
 
-    onShowUploadScenes() {
-        this.setState({ showCreateScene: false, showCreateScenes: true });
-    }
+	onCancelCreateModal() {
+		this.setState({ showCreateScene: false });
+	}
 
-    renderCreateModal() {
-        if (this.state.showCreateScene) {
-            const { addScene, vrId, groupSelectId, updateGroup, groupSelectItem } = this.props;
-            const functions = {
-                onCancel: this.onCancelCreateModal.bind(this),
-                showAddScenes: this.onShowUploadScenes.bind(this),
-                addScene,
-                updateGroup,
-            };
-            return <CreateSceneModal groupItem={groupSelectItem} functions={functions} groupId={groupSelectId} vrId={vrId} />;
-        }
-    }
+	onShowUploadScenes() {
+		this.setState({ showCreateScene: false, showCreateScenes: true });
+	}
 
-    onCancelCreateScenes(closeTop) {
-        if (closeTop) {
-            this.setState({ showCreateScenes: false, showCreateScene: false });
-        }
-        this.setState({ showCreateScenes: false, showCreateScene: true });
-    }
+	renderCreateModal() {
+		if (this.state.showCreateScene) {
+			const { addScene, vrId, groupSelectId, updateGroup, groupSelectItem } = this.props;
+			const functions = {
+				onCancel: this.onCancelCreateModal.bind(this),
+				showAddScenes: this.onShowUploadScenes.bind(this),
+				addScene,
+				updateGroup,
+			};
+			return <CreateSceneModal groupItem={groupSelectItem} functions={functions} groupId={groupSelectId} vrId={vrId} />;
+		}
+	}
 
-    renedrCreateScenes() {
-        if (this.state.showCreateScenes) {
-            const { addScene, vrId, groupSelectId, groupSelectItem, updateGroup } = this.props;
-            const functions = {
-                onCancel: this.onCancelCreateScenes.bind(this),
-                addScene,
-                updateGroup,
-            };
-            return <CreateScenesModal functions={functions} groupItem={groupSelectItem} groupId={groupSelectId} vrId={vrId} />;
-        }
-    }
+	onCancelCreateScenes(closeTop) {
+		if (closeTop) {
+			this.setState({ showCreateScenes: false, showCreateScene: false });
+		}
+		this.setState({ showCreateScenes: false, showCreateScene: true });
+	}
 
-    onEditSceneCancel() {
-        this.setState({ showEditSceneModal: false });
-    }
+	renedrCreateScenes() {
+		if (this.state.showCreateScenes) {
+			const { addScene, vrId, groupSelectId, groupSelectItem, updateGroup } = this.props;
+			const functions = {
+				onCancel: this.onCancelCreateScenes.bind(this),
+				addScene,
+				updateGroup,
+			};
+			return <CreateScenesModal functions={functions} groupItem={groupSelectItem} groupId={groupSelectId} vrId={vrId} />;
+		}
+	}
 
-    renderEditSceneModal() {
-        const { showEditSceneModal, contextSceneData } = this.state;
-        if (showEditSceneModal) {
-            const { modifyScene } = this.props;
-            return <EditSceneModal onCancel={this.onEditSceneCancel.bind(this)} onModify={modifyScene} itemData={contextSceneData}></EditSceneModal>;
-        }
-    }
+	onEditSceneCancel() {
+		this.setState({ showEditSceneModal: false });
+	}
 
-    onSceneContext(e, item) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.setState({
-            showSceneMenu: true,
-            posData: { posX: e.clientX, posY: e.clientY },
-            contextSceneData: item,
-        });
-    }
+	renderEditSceneModal() {
+		const { showEditSceneModal, contextSceneData } = this.state;
+		if (showEditSceneModal) {
+			const { modifyScene } = this.props;
+			return <EditSceneModal onCancel={this.onEditSceneCancel.bind(this)} onModify={modifyScene} itemData={contextSceneData}></EditSceneModal>;
+		}
+	}
 
-    onHideSceneContextMenu() {
-        this.setState({ showSceneMenu: false });
-    }
+	onSceneContext(e, item) {
+		e.preventDefault();
+		e.stopPropagation();
+		this.setState({
+			showSceneMenu: true,
+			posData: { posX: e.clientX, posY: e.clientY },
+			contextSceneData: item,
+		});
+	}
 
-    handleEditScene() {
-        this.setState({ showEditSceneModal: true });
-    }
+	onHideSceneContextMenu() {
+		this.setState({ showSceneMenu: false });
+	}
 
-    renderContextMenu() {
-        if (this.state.showSceneMenu) {
-            const { posData, contextSceneData } = this.state;
-            const { delScene, sceneSelected } = this.props;
-            const functions = {
-                delScene,
-                onHide: this.onHideSceneContextMenu.bind(this),
-                showEdit: this.handleEditScene.bind(this),
-                moveScene: this.onMoveScene.bind(this),
-                showReplace: this.showReplace.bind(this),
-            };
-            return <SceneContextMenu posData={posData} sceneSelected={sceneSelected} sceneData={contextSceneData} functions={functions} />;
-        }
-    }
+	handleEditScene() {
+		this.setState({ showEditSceneModal: true });
+	}
 
-    render() {
-        const { containerWidth } = this.state;
+	renderContextMenu() {
+		if (this.state.showSceneMenu) {
+			const { posData, contextSceneData } = this.state;
+			const { delScene, sceneSelected } = this.props;
+			const functions = {
+				delScene,
+				onHide: this.onHideSceneContextMenu.bind(this),
+				showEdit: this.handleEditScene.bind(this),
+				moveScene: this.onMoveScene.bind(this),
+				showReplace: this.showReplace.bind(this),
+			};
+			return <SceneContextMenu posData={posData} sceneSelected={sceneSelected} sceneData={contextSceneData} functions={functions} />;
+		}
+	}
 
-        return (
-            <div className={styles.container}>
-                <div className={styles.content} style={{ width: containerWidth + "px", overflowX: "auto", overflowY: "hidden" }}>
-                    {this.renderGroup()}
-                    {this.renderSceneList()}
-                    {this.renderContextMenu()}
-                    {this.renderEditSceneModal()}
-                    {this.renderCreateModal()}
-                    {this.renderCreateGroupModal()}
-                    {this.renderGroupContext()}
-                    {this.renderSceneMove()}
-                    {this.renedrCreateScenes()}
-                    {this.renderReplaceModal()}
-                </div>
-            </div>
-        );
-    }
+	render() {
+		const { containerWidth } = this.state;
+
+		return (
+			<div className={styles.container}>
+				<div className={styles.content} style={{ width: containerWidth + "px", overflowX: "auto", overflowY: "hidden" }}>
+					{this.renderGroup()}
+					{this.renderSceneList()}
+					{this.renderContextMenu()}
+					{this.renderEditSceneModal()}
+					{this.renderCreateModal()}
+					{this.renderCreateGroupModal()}
+					{this.renderGroupContext()}
+					{this.renderSceneMove()}
+					{this.renedrCreateScenes()}
+					{this.renderReplaceModal()}
+				</div>
+			</div>
+		);
+	}
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        ...bindActionCreators(sceneActions, dispatch),
-        ...bindActionCreators(groupActions, dispatch),
-    };
+	return {
+		...bindActionCreators(sceneActions, dispatch),
+		...bindActionCreators(groupActions, dispatch),
+	};
 }
 
 export default connect(
-    getSelector({
-        sceneList: true,
-        allSceneList: true,
-        vrList: true,
-        sceneSelected: true,
-        vrId: true,
-        groupList: true,
-        groupSelectId: true,
-        groupSelectItem: true,
-    }),
-    mapDispatchToProps
+	getSelector({
+		sceneList: true,
+		allSceneList: true,
+		vrList: true,
+		sceneSelected: true,
+		vrId: true,
+		groupList: true,
+		groupSelectId: true,
+		groupSelectItem: true,
+	}),
+	mapDispatchToProps
 )(EditSceneContainer);

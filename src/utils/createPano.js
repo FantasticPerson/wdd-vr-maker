@@ -41,6 +41,6 @@ function execCMD(cmd) {
 	return new Promise(resolve => {
 		cmd.on("close", _ => {
 			resolve();
-		});
+        });
 	});
 }

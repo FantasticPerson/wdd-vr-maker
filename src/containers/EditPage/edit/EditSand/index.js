@@ -45,7 +45,7 @@ class EditSand extends Component {
     }
 
     updateSandObj() {
-        console.log(this.props);
+        // console.log(this.props);
         const { picItem, marks } = this.state;
         const { updateSand, sceneSelectedItem, sceneSelected } = this.props;
         let sandObj = picItem ? { picItem, marks: marks || [] } : null;

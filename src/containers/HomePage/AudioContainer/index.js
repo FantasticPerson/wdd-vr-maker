@@ -77,7 +77,7 @@ class AudioContainer extends Component {
         );
     }
     renderModifyModal() {
-        console.log(this.state.showEdit);
+        // console.log(this.state.showEdit);
         if (this.state.showEdit) {
             const { currentItem } = this.state;
 

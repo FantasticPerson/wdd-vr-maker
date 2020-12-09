@@ -7,7 +7,7 @@ export default function checkSandPicValid(imgPath) {
                 reject("上传出错");
             }
             let shape = pixels.shape;
-            console.log(shape);
+            // console.log(shape);
             if (shape[0] != shape[1]) {
                 resolve(false);
             } else {
