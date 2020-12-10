@@ -21,5 +21,3 @@ for (let i = 0; i < paths.length; i++) {
 		}
 	}
 }
-
-images(1500, 1500);
