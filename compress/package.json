@@ -1,0 +1,17 @@
+{
+  "name": "compress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "grunt-contrib-imagemin": "^4.0.0",
+    "imagemin": "^7.0.1",
+    "images": "^3.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

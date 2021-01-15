@@ -14,8 +14,8 @@ for (let i = 0; i < paths.length; i++) {
 			for (let j = 0; j < files.length; j++) {
 				let inputPath = path.join(fPath, files[j]);
 				let outputPath = path.join(fPath, files[j]);
-				images(inputPath).size(3000).save(outputPath, {
-					quality: 70,
+				images(inputPath).size(2500).save(outputPath, {
+					quality: 55,
 				});
 			}
 		}
