@@ -1,5 +1,5 @@
 {
-    "name": "wdd-vr-maker",
+    "name": "wdd-vr-maker2",
     "version": "1.1.0",
     "private": true,
     "main": "app/index.js",
@@ -34,7 +34,7 @@
         ]
     },
     "build": {
-        "productName": "vr-maker",
+        "productName": "vr-maker2",
         "extends": null,
         "files": [
             "build/**/*"

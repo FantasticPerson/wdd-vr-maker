@@ -93,15 +93,16 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 			if (picArr.indexOf(pic) < 0) {
 				picArr.push(pic);
 			}
-		}
-		for (let j = 0; j < IMG_NAME_ARR.length; j++) {
-			if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
-				fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
-			} else {
-				fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
-			}
-			fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
-		}
+        }
+        fse.copySync(srcPath,destPath)
+		// for (let j = 0; j < IMG_NAME_ARR.length; j++) {
+		// 	if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
+		// 		fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
+		// 	} else {
+		// 		fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
+		// 	}
+		// 	fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
+		// }
 		if (scene.music1) {
 			audioArr.push(scene.music1);
 		}

@@ -33,9 +33,27 @@ export function getPanoXml(data) {
 
 	const image = scene.ele("image");
 	image.att("type", "CUBE");
+	image.att("multires", "true");
+	image.att("tilesize", "512");
 
-	const cube = image.ele("cube");
-	cube.attribute("url", `${data.scenePath}/mobile_%s.jpg`);
+    const level = image.ele('level')
+    level.att("tiledimagewidth", "3200");
+	level.att("tiledimageheight", "3200");
+	const cube = level.ele("cube");
+	cube.attribute("url", `${data.scenePath}/%s/l3/%v/l3_%s_%v_%h.jpg`);
+
+    const level1 = image.ele('level')
+	level1.att("tiledimagewidth", "1536");
+	level1.att("tiledimageheight", "1536");
+	const cube1 = level1.ele("cube");
+	cube1.attribute("url", `${data.scenePath}/%s/l2/%v/l2_%s_%v_%h.jpg`);
+
+
+    const level2 = image.ele('level')
+    level2.att("tiledimagewidth", "768");
+	level2.att("tiledimageheight", "768");
+	const cube2 = level2.ele("cube");
+	cube2.attribute("url", `${data.scenePath}/%s/l1/%v/l1_%s_%v_%h.jpg`);
 
 	return krpano.doc().end();
 }
@@ -120,18 +138,47 @@ function getSceneXmlData(pano, krpano) {
 	image.att("type", "CUBE");
 	image.att("multires", true);
 	image.att("tilesize", 512);
-	image.att("if", "!webvr.isenabled AND device.desktop");
 
-	const cube = image.ele("cube");
+    const level = image.ele('level')
+    level.att("tiledimagewidth", "3200");
+	level.att("tiledimageheight", "3200");
+	const cube = level.ele("cube");
+	cube.attribute("url", `./scene_${pano.scene.id}/%s/l3/%v/l3_%s_%v_%h.jpg`);
 
-	cube.att("url", `./scene_${pano.scene.id}/mobile_%s.jpg`);
+    const level1 = image.ele('level')
+	level1.att("tiledimagewidth", "1536");
+	level1.att("tiledimageheight", "1536");
+	const cube1 = level1.ele("cube");
+	cube1.attribute("url", `./scene_${pano.scene.id}/%s/l2/%v/l2_%s_%v_%h.jpg`);
 
-	const imageMobile = scene.ele("image");
-	imageMobile.att("if", "webvr.isenabled OR !device.desktop");
 
-	const mobile = imageMobile.ele("cube");
+    const level2 = image.ele('level')
+    level2.att("tiledimagewidth", "768");
+	level2.att("tiledimageheight", "768");
+	const cube2 = level2.ele("cube");
+	cube2.attribute("url", `./scene_${pano.scene.id}/%s/l1/%v/l1_%s_%v_%h.jpg`);
 
-	mobile.att("url", `./scene_${pano.scene.id}/mobile_%s.jpg`);
+	// const imageMobile = scene.ele("image");
+	// imageMobile.att("if", "webvr.isenabled OR !device.desktop");
+
+    // const mlevel = imageMobile.ele('level')
+    // mlevel.att("tiledimagewidth", "3200");
+	// mlevel.att("tiledimageheight", "3200");
+	// const mcube = mlevel.ele("cube");
+	// mcube.attribute("url", `./scene_${pano.scene.id}/%s/l3/%v/l3_%s_%v_%h.jpg`);
+
+    // const mlevel1 = imageMobile.ele('level')
+	// mlevel1.att("tiledimagewidth", "1536");
+	// mlevel1.att("tiledimageheight", "1536");
+	// const mcube1 = mlevel1.ele("cube");
+	// mcube1.attribute("url", `./scene_${pano.scene.id}/%s/l2/%v/l2_%s_%v_%h.jpg`);
+
+
+    // const mlevel2 = imageMobile.ele('level')
+    // mlevel2.att("tiledimagewidth", "768");
+	// mlevel2.att("tiledimageheight", "768");
+	// const mcube2 = mlevel2.ele("cube");
+	// mcube2.attribute("url", `./scene_${pano.scene.id}/%s/l1/%v/l1_%s_%v_%h.jpg`);
 
 	for (let i = 0; i < pano.hotspots.length; i++) {
 		const hotspot = scene.ele("hotspot");

@@ -4,6 +4,7 @@ const cPTmep = window.electron_app_cpano_path;
 
 var path = nativeRequire("path");
 var fs = nativeRequire("fs");
+var fse = nativeRequire("fs-extra");
 
 export default function copyImageToScene(dest) {
 	if (!fs.existsSync(dest)) {
@@ -11,14 +12,16 @@ export default function copyImageToScene(dest) {
 	}
 	return new Promise((resolve, reject) => {
 		try {
-			for (var i = 0; i < IMG_NAME_ARR.length; i++) {
-				let srcPath = path.resolve(cPTmep, `./${IMG_NAME_ARR[i]}`);
-				let destPath = path.resolve(dest, `./${IMG_NAME_ARR[i]}`);
-				if (IMG_NAME_ARR[i] == "origin_preview.jpg") {
-					destPath = path.resolve(dest, `./thumb.jpg`);
-				}
-				fs.createReadStream(srcPath).pipe(fs.createWriteStream(destPath));
-			}
+            fse.copySync(path.resolve(cPTmep,'./origin/origin.tiles'),dest)
+            fse.copySync(path.resolve(cPTmep, `./origin_preview.jpg`),path.resolve(dest, `./thumb.jpg`))
+			// for (var i = 0; i < IMG_NAME_ARR.length; i++) {
+			// 	let srcPath = path.resolve(cPTmep, `./${IMG_NAME_ARR[i]}`);
+			// 	let destPath = path.resolve(dest, `./${IMG_NAME_ARR[i]}`);
+			// 	if (IMG_NAME_ARR[i] == "origin_preview.jpg") {
+			// 		destPath = path.resolve(dest, `./thumb.jpg`);
+			// 	}
+			// 	fs.createReadStream(srcPath).pipe(fs.createWriteStream(destPath));
+			// }
 			resolve();
 		} catch (e) {
 			reject(e);
