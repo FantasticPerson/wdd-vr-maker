@@ -232,7 +232,7 @@ class EditSand extends Component {
 				if (!sceneGroups[item.groupId]) {
 					sceneGroups[item.groupId] = [];
 				}
-				if (!sceneGroups[item.groupId].find((item) => item.id)) {
+				if (!sceneGroups[item.groupId].find((item2) => item.id == item2.id)) {
 					sceneGroups[item.groupId].push(item);
 				}
 				return "";
