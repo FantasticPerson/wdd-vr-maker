@@ -6,7 +6,7 @@ export default function openFolder(){
         try{
             dialog.showOpenDialog({properties: ['openFile'],filters:[{
                 name:'Audio',
-                extensions:['mp3']
+                extensions:['mp3','wav','wmv']
             }]},(res)=>{
                 resolve(res)
             })
