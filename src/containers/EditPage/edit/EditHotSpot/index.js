@@ -6,6 +6,7 @@ import { Select as SelectField, MenuItem, Button as FlatButton } from "@material
 import * as hotpotActions from "../../../../actions/hotpot";
 import * as PicActions from "../../../../actions/picture";
 import * as AudioActions from "../../../../actions/audio";
+import * as VideoActions from "../../../../actions/video";
 
 import { getHotspotIconPath } from "../../../../utils/pathUtils";
 
@@ -259,7 +260,8 @@ class EditHotSpot extends Component {
 				return <EditAudio action={action} ref={(ref) => (this.editEle = ref)} addAudio={addAudio}></EditAudio>;
 			},
 			type7: () => {
-				return <EditVideo action={action} ref={(ref) => (this.editEle = ref)}></EditVideo>;
+				const { addVideo } = this.props;
+				return <EditVideo action={action} ref={(ref) => (this.editEle = ref)} addVideo={addVideo}></EditVideo>;
 			},
 			type8: () => {
 				const { addPicture } = this.props;
@@ -275,6 +277,7 @@ function mapDispatchToProps(dispatch) {
 		...bindActionCreators(hotpotActions, dispatch),
 		...bindActionCreators(PicActions, dispatch),
 		...bindActionCreators(AudioActions, dispatch),
+		...bindActionCreators(VideoActions, dispatch),
 	};
 }
 

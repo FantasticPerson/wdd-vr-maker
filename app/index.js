@@ -40,7 +40,7 @@ function createWindow() {
 	const { globalShortcut } = require("electron");
 
 	globalShortcut.register("ctrl+m", () => {
-        window.webContents.openDevTools();
+		window.webContents.openDevTools();
 	});
 }
 
@@ -70,6 +70,8 @@ const initConfig = async () => {
 	global.electron_app_krpano_path = path.resolve(global.electron_app_public_path, "./krpano");
 	global.electron_app_pic_path = path.resolve(global.electron_app_assets_path, "./pic");
 	global.electron_app_pic_tmp = path.resolve(global.electron_app_assets_path, "./picTmp");
+	global.electron_app_video_path = path.resolve(global.electron_app_assets_path, "./video");
+	global.electron_app_video_tmp = path.resolve(global.electron_app_assets_path, "./videoTmp");
 	global.electron_app_audio_path = path.resolve(global.electron_app_assets_path, "./audio");
 	global.electron_app_audio_tmp = path.resolve(global.electron_app_assets_path, "./audioTmp");
 	global.electron_app_output_path = path.resolve(global.electron_app_assets_path, "./output");
@@ -136,6 +138,8 @@ const initDir = async () => {
 	checkAndMakeDir(global.electron_app_vr_path);
 	checkAndMakeDir(global.electron_app_pic_path);
 	checkAndMakeDir(global.electron_app_pic_tmp);
+	checkAndMakeDir(global.electron_app_video_path);
+	checkAndMakeDir(global.electron_app_video_tmp);
 	checkAndMakeDir(global.electron_app_audio_path);
 	checkAndMakeDir(global.electron_app_audio_tmp);
 	checkAndMakeDir(global.electron_app_cpano_path);

@@ -4,7 +4,7 @@ import { getProductionXml } from "./xmlBuilder";
 
 import copyFolder from "../native/copyFolder";
 
-const { native_require, electron_app_output_path, electron_app_pic_path, electron_app_audio_path, electron_app_root_path, electron_app_krpano_path, electron_app_krp_assets_path } = window;
+const { native_require, electron_app_output_path, electron_app_pic_path, electron_app_audio_path, electron_app_root_path, electron_app_krpano_path, electron_app_krp_assets_path, electron_app_video_path } = window;
 
 const fse = require("fs-extra");
 const fs = native_require("fs");
@@ -16,10 +16,13 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
 	let picPath = path.resolve(vrPath, "./picture");
 	let audioPath = path.resolve(vrPath, "./audio");
+	let videoPath = path.resolve(vrPath, "./video");
+
 	let scenePathArr = [];
 	let hotspots = [];
 	let picArr = [];
 	let audioArr = [];
+	let videoArr = [];
 	let medias = [];
 	for (let i = 0; i < allSceneList.length; i++) {
 		scenePathArr.push(allSceneList[i].id);
@@ -52,8 +55,14 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 		} else if (actionObj.type == "viewImage") {
 			let list = actionObj.picArr;
 			medias.push({ mId: actionObj.mediaId, imgs: list });
+		} else if (actionObj.type == "video") {
+			let item = actionObj.videoItem;
+			if (item) {
+				videoArr.push(item.name);
+			}
 		}
 	}
+	console.log(videoArr);
 
 	if (fs.existsSync(vrPath)) {
 		fse.removeSync(vrPath);
@@ -93,16 +102,15 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 			if (picArr.indexOf(pic) < 0) {
 				picArr.push(pic);
 			}
-        }
-        fse.copySync(srcPath,destPath)
-		// for (let j = 0; j < IMG_NAME_ARR.length; j++) {
-		// 	if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
-		// 		fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
-		// 	} else {
-		// 		fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
-		// 	}
-		// 	fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
-		// }
+		}
+		for (let j = 0; j < IMG_NAME_ARR.length; j++) {
+			if (IMG_NAME_ARR[j] == "origin_preview.jpg") {
+				fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./thumb.jpg`));
+			} else {
+				fse.copySync(path.resolve(srcPath, `./${IMG_NAME_ARR[j]}`), path.resolve(destPath, `./${IMG_NAME_ARR[j]}`));
+			}
+			fse.copySync(path.resolve(srcPath, `./thumb.jpg`), path.resolve(destPath, `./preview.jpg`));
+		}
 		if (scene.music1) {
 			audioArr.push(scene.music1);
 		}
@@ -116,9 +124,19 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 		fs.mkdirSync(picPath);
 	}
 
+	if (!fs.existsSync(videoPath)) {
+		fs.mkdirSync(videoPath);
+	}
+
 	for (let i = 0; i < picArr.length; i++) {
 		let srcPath = path.resolve(electron_app_pic_path, `./${picArr[i]}`);
 		let destPath = path.resolve(picPath, `./${picArr[i]}`);
+		fse.copySync(srcPath, destPath);
+	}
+
+	for (let i = 0; i < videoArr.length; i++) {
+		let srcPath = path.resolve(electron_app_video_path, `./${videoArr[i]}`);
+		let destPath = path.resolve(videoPath, `./${videoArr[i]}`);
 		fse.copySync(srcPath, destPath);
 	}
 
@@ -136,7 +154,7 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
 	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title }));
 
-	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./api_export.xml"), path.resolve(vrPath, "./api_export.xml"));
+	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./api_export_jiemi.xml"), path.resolve(vrPath, "./api_export.xml"));
 
 	fs.writeFileSync(path.resolve(vrPath, "./data.xml"), getProductionXml(vrItem, sceneList, hotpotList, groupList, allSceneList));
 
