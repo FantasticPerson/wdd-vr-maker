@@ -15,7 +15,7 @@ export default class EditPicture extends Component {
 			list: [],
 			showUploadModal: false,
 			showPicListModal: false,
-			check: false,
+			check: true,
 			openInNewWindow: true
 		};
 	}

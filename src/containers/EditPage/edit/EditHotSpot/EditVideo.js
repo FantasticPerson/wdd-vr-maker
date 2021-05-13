@@ -10,7 +10,7 @@ export default class EditVideo extends Component {
 		this.summaryRef = React.createRef();
 		this.moreInfo = React.createRef();
 
-		this.state = { check: false, openInNewWindow: true, showUploadModal: false, videoItem: null };
+		this.state = { check: true, openInNewWindow: true, showUploadModal: false, videoItem: null };
 	}
 
 	componentWillMount() {

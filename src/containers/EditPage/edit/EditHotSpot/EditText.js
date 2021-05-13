@@ -8,7 +8,7 @@ export default class EditText extends Component {
 		this.summaryRef = React.createRef();
 		this.moreInfo = React.createRef();
 
-		this.state = { check: false, openInNewWindow: true };
+		this.state = { check: true, openInNewWindow: true };
 	}
 
 	componentWillMount() {

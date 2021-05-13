@@ -34,8 +34,26 @@ export function getPanoXml(data) {
 	const image = scene.ele("image");
 	image.att("type", "CUBE");
 
-	const cube = image.ele("cube");
-	cube.attribute("url", `${data.scenePath}/mobile_%s.jpg`);
+	image.att("multires", "true");
+	image.att("tilesize", "512");
+
+	const level = image.ele("level");
+	level.att("tiledimagewidth", "3200");
+	level.att("tiledimageheight", "3200");
+	const cube = level.ele("cube");
+	cube.attribute("url", `${data.scenePath}/%s/l3/%v/l3_%s_%v_%h.jpg`);
+
+	const level1 = image.ele("level");
+	level1.att("tiledimagewidth", "1536");
+	level1.att("tiledimageheight", "1536");
+	const cube1 = level1.ele("cube");
+	cube1.attribute("url", `${data.scenePath}/%s/l2/%v/l2_%s_%v_%h.jpg`);
+
+	const level2 = image.ele("level");
+	level2.att("tiledimagewidth", "768");
+	level2.att("tiledimageheight", "768");
+	const cube2 = level2.ele("cube");
+	cube2.attribute("url", `${data.scenePath}/%s/l1/%v/l1_%s_%v_%h.jpg`);
 
 	return krpano.doc().end();
 }
@@ -120,18 +138,23 @@ function getSceneXmlData(pano, krpano) {
 	image.att("type", "CUBE");
 	image.att("multires", true);
 	image.att("tilesize", 512);
-	image.att("if", "!webvr.isenabled AND device.desktop");
+	const level = image.ele("level");
+	level.att("tiledimagewidth", "3200");
+	level.att("tiledimageheight", "3200");
+	const cube = level.ele("cube");
+	cube.attribute("url", `./scene_${pano.scene.id}/%s/l3/%v/l3_%s_%v_%h.jpg`);
 
-	const cube = image.ele("cube");
+	const level1 = image.ele("level");
+	level1.att("tiledimagewidth", "1536");
+	level1.att("tiledimageheight", "1536");
+	const cube1 = level1.ele("cube");
+	cube1.attribute("url", `./scene_${pano.scene.id}/%s/l2/%v/l2_%s_%v_%h.jpg`);
 
-	cube.att("url", `./scene_${pano.scene.id}/mobile_%s.jpg`);
-
-	const imageMobile = scene.ele("image");
-	imageMobile.att("if", "webvr.isenabled OR !device.desktop");
-
-	const mobile = imageMobile.ele("cube");
-
-	mobile.att("url", `./scene_${pano.scene.id}/mobile_%s.jpg`);
+	const level2 = image.ele("level");
+	level2.att("tiledimagewidth", "768");
+	level2.att("tiledimageheight", "768");
+	const cube2 = level2.ele("cube");
+	cube2.attribute("url", `./scene_${pano.scene.id}/%s/l1/%v/l1_%s_%v_%h.jpg`);
 
 	for (let i = 0; i < pano.hotspots.length; i++) {
 		const hotspot = scene.ele("hotspot");
@@ -213,7 +236,7 @@ function panosXmlData(productData, config) {
 			const info = panoElement.ele("info");
 			info.att("pano_id", pano.scene.id);
 			info.att("title", pano.scene.name);
-
+			console.log(pano.scene);
 			const view = panoElement.ele("view");
 			view.att("hloolat", pano.scene.hlookat || 0);
 			view.att("vloolat", pano.scene.vlookat || 0);
@@ -251,6 +274,9 @@ function panosXmlData(productData, config) {
 
 				hotspot.att("ath", hotspotData.ath);
 				hotspot.att("atv", hotspotData.atv);
+				hotspot.att("show_txt", actionObj.check ? 1 : 0);
+				hotspot.att("keep_view", 0);
+
 				console.log(actionObj);
 				switch (actionObj.type) {
 					case "switch":
@@ -285,7 +311,7 @@ function panosXmlData(productData, config) {
 						// videoElement.att("title", "");
 						// videoElement.att("url", `./video/${actionObj.videoItem.name}`);
 						hotspot.att("type", 3);
-						hotspot.att("text", `./video/${actionObj.videoItem.name}`);
+						hotspot.att("text", actionObj.url);
 						hotspot.att("title", actionObj.title);
 						hotspot.att("url", `./video/${actionObj.videoItem.name}`);
 						hotspot.att("is_blank", actionObj.openInNewWindow ? 1 : 0);

@@ -4,7 +4,7 @@ import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 export default class EditLink extends Component {
 	constructor() {
 		super();
-		this.state = { check: false, openInNewWindow: true };
+		this.state = { check: true, openInNewWindow: true };
 
 		this.titleRef = React.createRef();
 		this.urlRef = React.createRef();

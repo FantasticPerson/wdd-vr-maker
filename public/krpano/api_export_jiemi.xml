@@ -1,47 +1,47 @@
 <krpano>
-    <layer name='layer_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='1'>
-        <layer name='info_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='title_layer' keep='true' align='topcenter' zorder='200' />
+    <layer name="layer_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="1">
+        <layer name="info_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="title_layer" keep="true" align="topcenter" zorder="200"/>
         </layer>
-        <layer name='auth_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='auth_layer' keep='true' align='topleft' visible='false' />
+        <layer name="auth_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="auth_layer" keep="true" align="topleft" visible="false"/>
         </layer>
-        <layer name='start_image_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='start_image_layer' keep='false' align='center' zorder='201' />
+        <layer name="start_image_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="start_image_layer" keep="false" align="center" zorder="201"/>
         </layer>
-        <layer name='logo_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='logo_layer' keep='true' align='topleft' />
-            <layer name='logo_detail_container' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10' />
+        <layer name="logo_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="logo_layer" keep="true" align="topleft"/>
+            <layer name="logo_detail_container" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10"/>
         </layer>
-        <layer name='feature_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='more_layer' keep='true' align='topright' visible='false' />
-            <layer name='fullscreen_layer' keep='true' align='topright' />
-            <layer name='sound_layer' keep='true' align='topright' />
-            <layer name='voice_layer' keep='true' align='topright' />
-            <layer name='gyro_layer' keep='true' align='topright' />
-            <layer name='vr_layer' keep='true' align='topright' />
-            <layer name='multi_view_layer' keep='true' align='topright' />
-            <layer name='multi_resolution_layer' keep='true' align='topright' />
-            <layer name='comment_layer' keep='true' visible='false' align='bottomright' />
-            <layer name='like_layer' keep='true' visible='false' align='bottomright' />
-            <layer name='location_layer' keep='true' visible='false' align='bottomright' />
-            <layer name='qr_layer' keep='true' visible='false' align='bottomright' />
-            <layer name='intro_layer' keep='true' visible='false' align='bottomright' />
+        <layer name="feature_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="more_layer" keep="true" align="topright" visible="false"/>
+            <layer name="fullscreen_layer" keep="true" align="topright"/>
+            <layer name="sound_layer" keep="true" align="topright"/>
+            <layer name="voice_layer" keep="true" align="topright"/>
+            <layer name="gyro_layer" keep="true" align="topright"/>
+            <layer name="vr_layer" keep="true" align="topright"/>
+            <layer name="multi_view_layer" keep="true" align="topright"/>
+            <layer name="multi_resolution_layer" keep="true" align="topright"/>
+            <layer name="comment_layer" keep="true" visible="false" align="bottomright"/>
+            <layer name="like_layer" keep="true" visible="false" align="bottomright"/>
+            <layer name="location_layer" keep="true" visible="false" align="bottomright"/>
+            <layer name="qr_layer" keep="true" visible="false" align="bottomright"/>
+            <layer name="intro_layer" keep="true" visible="false" align="bottomright"/>
         </layer>
-        <layer name='menu_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-            <layer name='thumb_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10'>
-                <layer name='category_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10' />
-                <layer name='thumb_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10' />
+        <layer name="menu_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+            <layer name="thumb_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10">
+                <layer name="category_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10" />
+                <layer name="thumb_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10" />
             </layer>
-            <layer name='links_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10' />
-            <layer name='autotour_container' keep='true' type='container' align='bottomleft' width='100%' height='100%' maskchildren='true' visible='true' bgcapture='false' zorder='10' />
+            <layer name="links_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10" />
+            <layer name="autotour_container" keep="true" type="container" align="bottomleft" width="100%" height="100%" maskchildren="true" visible="true" bgcapture="false" zorder="10" />
         </layer>
     </layer>
-    <layer name='radar_container' keep='true' type='container' align='topleft' width='100%' height='100%' maskchildren='fasle' visible='true' bgcapture='false' zorder='10'>
-        <layer name='radar_layer' keep='true' type='container' align='topright' width='100%' height='100%' maskchildren='false' visible='true' bgcapture='false' zorder='10' />
+    <layer name="radar_container" keep="true" type="container" align="topleft" width="100%" height="100%" maskchildren="fasle" visible="true" bgcapture="false" zorder="10">
+        <layer name="radar_layer" keep="true" type="container" align="topright" width="100%" height="100%" maskchildren="false" visible="true" bgcapture="false" zorder="10"/>
     </layer>
 
-    <action name='setup_js_bridge'>
+    <action name="setup_js_bridge">
   set(js_show_loading,window.krpToggleLoading(true));
   set(js_hide_loading,window.krpToggleLoading(false));
   set(js_start_comment,window.krpShowModal('SPEAK_MODAL'));
@@ -75,16 +75,21 @@
     </action>
 
 
-    <action name='show_loading'>
+
+
+    <action name="show_loading">
   jscall(get(js_show_loading));
     </action>
 
-    <action name='hide_loading'>
+    <action name="hide_loading">
   jscall(get(js_hide_loading));
     </action>
 
 
-    <action name='modalClosed'>
+
+
+
+    <action name="modalClosed">
   resume_autoplay();
   if(video_is_show == true,
     resume_sound();
@@ -92,46 +97,49 @@
   );
     </action>
 
-    <action name='passwordCorrect'>
+    <action name="passwordCorrect">
     set(config.feature.enable_password,0);
     startup();
     </action>
 
 
-    <action name='dispose'>
+
+
+    <action name="dispose">
    removelensflare("obj");
    removeplugin(snow);
    set(autorotate.enabled, true);
     </action>
 
-    <settings first_pano_inited='false' client='false' sound_play_id='play_sound_id' sound_playing='false' sound_on='true' voice_play_id='play_voice_id' voice_playing='false' voice_on='true' bottom_right_btn_width='55' menu_btn_width='70' pano_thumbs_width='80' pano_thumbs_height='80' pano_thumbs_padding_v='10' pano_thumbs_padding_h='20' category_thumbs_width='100' category_thumbs_height='100' category_thumbs_padding_v='10' category_thumbs_padding_h='30' category_thumbs_bg_crop='0|0|218|218' category_thumbs_bg_crop_selected='218|241|218|218' thumb_btn_url='krp/system/piclist.png' start_image_desktop='krp/skin/mouseAlert.png' start_image_mobile='krp/skin/touchAlert.png' circle_mask='krp/skin/ground-logo.png' rain_image='krp/skin/rain.png' snow_image='krp/skin/snow.png' snow_js='krp/plugins/snow.js' snow_swf='krp/plugins/snow.swf' map_zoom_image='krp/skin/mapZoom.png' close_image='krp/skin/close.png' embed_txt_image='krp/skin/embed_txt_bg.png' weather_image_1='krp/skin/hongbao.png' weather_image_2='krp/skin/hongbao1.png' weather_image_3='krp/skin/hongbao2.png' comment_add_head_bg_image='krp/skin/comment_add_head_bg.png' comment_edit_line_image='krp/skin/editLine.png' comment_edit_bg_image='krp/skin/editBg.png' custom_weather_image_4='krp/skin/hongbao.png' custom_weather_image_5='krp/skin/hongbao1.png' custom_weather_image_6='krp/skin/hongbao2.png' feipai_logo_url='%$PLAYER_DOMAIN%/source/720_feipai.png' />
+    <settings first_pano_inited="false" client="false" sound_play_id="play_sound_id" sound_playing="false" sound_on="true" voice_play_id="play_voice_id" voice_playing="false" voice_on="true" bottom_right_btn_width="55" menu_btn_width="70" pano_thumbs_width="80" pano_thumbs_height="80" pano_thumbs_padding_v="10" pano_thumbs_padding_h="20" category_thumbs_width="100" category_thumbs_height="100" category_thumbs_padding_v="10" category_thumbs_padding_h="30" category_thumbs_bg_crop="0|0|218|218" category_thumbs_bg_crop_selected="218|241|218|218" thumb_btn_url="krp/system/piclist.png" start_image_desktop="krp/skin/mouseAlert.png" start_image_mobile="krp/skin/touchAlert.png" circle_mask="krp/skin/ground-logo.png" rain_image="krp/skin/rain.png" snow_image="krp/skin/snow.png" snow_js="krp/plugins/snow.js" snow_swf="krp/plugins/snow.swf" map_zoom_image="krp/skin/mapZoom.png" close_image="krp/skin/close.png" embed_txt_image="krp/skin/embed_txt_bg.png" weather_image_1="krp/skin/hongbao.png" weather_image_2="krp/skin/hongbao1.png" weather_image_3="krp/skin/hongbao2.png" comment_add_head_bg_image="krp/skin/comment_add_head_bg.png" comment_edit_line_image="krp/skin/editLine.png" comment_edit_bg_image="krp/skin/editBg.png" custom_weather_image_4="krp/skin/hongbao.png" custom_weather_image_5="krp/skin/hongbao1.png" custom_weather_image_6="krp/skin/hongbao2.png" />
 
 
-    <plugin_url BASE_URL='krp/plugins/' TEXT_SWF='calc:plugin_url.BASE_URL + ' textfield.swf'' GYRO='calc:plugin_url.BASE_URL + ' gyro2.js'' SOUND_SWF='calc:plugin_url.BASE_URL + ' soundinterface.swf'' SOUND_JS='calc:plugin_url.BASE_URL + ' soundinterface.js'' SCROLL_SWF='calc:plugin_url.BASE_URL + ' scrollarea.swf'' SCROLL_JS='calc:plugin_url.BASE_URL + ' scrollarea.js'' RADAR_SWF='calc:plugin_url.BASE_URL + ' radar.swf'' RADAR_JS='calc:plugin_url.BASE_URL + ' radar.js'' SNOW_SWF='calc:plugin_url.BASE_URL + ' snow.swf'' SNOW_JS='calc:plugin_url.BASE_URL + ' snow.js'' PLUGINS_SUN_IMAGE='calc:plugin_url.BASE_URL + ' lensflareset lensflares.jpg'' WEBVR_JS='calc:plugin_url.BASE_URL + ' webvr.js'' WEBVR_XML='calc:plugin_url.BASE_URL + ' webvr.xml'' />
+
+    <plugin_url BASE_URL="krp/plugins/" TEXT_SWF="calc:plugin_url.BASE_URL + 'textfield.swf'" GYRO="calc:plugin_url.BASE_URL + 'gyro2.js'" SOUND_SWF="calc:plugin_url.BASE_URL + 'soundinterface.swf'" SOUND_JS="calc:plugin_url.BASE_URL + 'soundinterface.js'" SCROLL_SWF="calc:plugin_url.BASE_URL + 'scrollarea.swf'" SCROLL_JS="calc:plugin_url.BASE_URL + 'scrollarea.js'" RADAR_SWF="calc:plugin_url.BASE_URL + 'radar.swf'" RADAR_JS="calc:plugin_url.BASE_URL + 'radar.js'" SNOW_SWF="calc:plugin_url.BASE_URL + 'snow.swf'" SNOW_JS="calc:plugin_url.BASE_URL + 'snow.js'" PLUGINS_SUN_IMAGE="calc:plugin_url.BASE_URL + 'lensflareset/lensflares.jpg'" WEBVR_JS="calc:plugin_url.BASE_URL + 'webvr.js'" WEBVR_XML="calc:plugin_url.BASE_URL + 'webvr.xml'" />
 
 
-    <contextmenu keep='true' fullscreen='true' enterfs='全屏' exitfs='退出全屏' separator='true'>
+    <contextmenu keep="true" fullscreen="true" enterfs="全屏" exitfs="退出全屏" separator="true">
 
-        <item name='normalView' caption='正常视角' onclick='cm_normal_view();' separator='true' />
+        <!-- <item name="normalView" caption="正常视角" onclick="cm_normal_view();" separator="true" />
 
-        <item name='planetView' caption='小行星视角' onclick='cm_littleplanet_view();' separator='false' />
+        <item name="planetView" caption="小行星视角" onclick="cm_littleplanet_view();" separator="false" /> -->
 
     </contextmenu>
 
 
-    <control mouse='moveto' keycodesin='16,65,107' keycodesout='17,89,90,109' bouncinglimits='true' />
+    <control mouse="moveto" keycodesin="16,65,107" keycodesout="17,89,90,109" bouncinglimits="true" />
 
 
-    <events onclick='on_click();' onmousedown='on_mouse_down();' onautorotateoneround='load_pano_loop();' />
+    <events onclick="on_click();" onmousedown="on_mouse_down();" onautorotateoneround="load_pano_loop();" />
 
-    <action name='on_click'>
+    <action name="on_click">
   if(category_thumbs_show == true,
     toggle_category_thumbs();
   );
     </action>
 
 
-    <action name='on_mouse_down'>
+    <action name="on_mouse_down">
 
   if(device.ios == true AND fixios != true,
     if(settings.voice_on == true AND settings.sound_on == true AND settings.sound_playing == true,
@@ -145,7 +153,9 @@
     </action>
 
 
-    <action name='showtext_install' autorun='preinit'>
+
+
+    <action name="showtext_install" autorun="preinit">
                                                                                   
     set(showtext, action(showtext_xml,%%1,%%2) );
                                           
@@ -159,7 +169,7 @@
     </action>
 
 
-    <action name='showtext_xml'>
+    <action name="showtext_xml">
     set(showtext_style, DEFAULT);
     if(%2 != null, ifnot(textstyle[%2], trace('textstyle "%2" not found'); , set(showtext_style,%2)); );
 
@@ -173,7 +183,7 @@
     </action>
 
 
-    <action name='showtext_createnewtext'>
+    <action name="showtext_createnewtext">
                                                       
     stopdelayedcall(showtext_mouseupdates);
     stoptween(layer[showtext_tf].alpha);
@@ -295,7 +305,7 @@
     </action>
 
 
-    <action name='showtext_do_clipping'>
+    <action name="showtext_do_clipping">
     if(showtext_clipping,
       layer[showtext_tf].updatepos();
       copy(tf_px, layer[showtext_tf].pixelx);
@@ -316,7 +326,7 @@
     </action>
 
 
-    <action name='showtext_movetomouse'>
+    <action name="showtext_movetomouse">
     copy(layer[showtext_tf].x, mouse.stagex);
     copy(layer[showtext_tf].y, mouse.stagey);
     showtext_do_clipping();
@@ -324,7 +334,7 @@
     </action>
 
 
-    <action name='showtext_hide'>
+    <action name="showtext_hide">
     if(layer[showtext_tf],
       tween(layer[showtext_tf].alpha, 0.0, get(showtext_fadeout), linear,
           stopdelayedcall(showtext_mouseupdates);
@@ -336,9 +346,10 @@
     </action>
 
 
-    <textstyle name='tooltipTextStyle' font='STXihei' fontsize.no-mobile='14' fontsize.mobile='18' bold='false' background='true' backgroundcolor='0x000000' backgroundalpha='0.667' border='true' borderwidth='2' bordercolor='0xFFFFFF' roundedge='5' textcolor='0xFFFFFF' padding='6 10' textalign='center' yoffset.no-touch='-5' yoffset.touch='-40' />
 
-    <action name='startup' autorun='onstart'>
+    <textstyle name="tooltipTextStyle" font="STXihei" fontsize.no-mobile="14" fontsize.mobile="18" bold="false" background="true" backgroundcolor="0x000000" backgroundalpha="0.667" border="true" borderwidth="2" bordercolor="0xFFFFFF" roundedge="5" textcolor="0xFFFFFF" padding="6 10" textalign="center" yoffset.no-touch="-5" yoffset.touch="-40" />
+
+    <action name="startup" autorun="onstart">
 
   copy(config.is_sdk,IS_SDK);
   copy(config.is_feipai, IS_FEIPAI);
@@ -358,7 +369,7 @@
 
     </action>
 
-    <action name='setup_hide_exitfullscreen'>
+    <action name="setup_hide_exitfullscreen">
   addlayer(hide_exit_layer);
   set(layer[hide_exit_layer].type,container);
   set(layer[hide_exit_layer].align,left);
@@ -387,7 +398,7 @@
 
     </action>
 
-    <action name='setup_startup_vars'>
+    <action name="setup_startup_vars">
 
   if(device.mobile,
     set(customScale, 1);
@@ -440,7 +451,7 @@
   set(view_type,0);
     </action>
 
-    <action name='setup_start_pano'>
+    <action name="setup_start_pano">
 
   loadscene(get(scene_name));
 
@@ -456,7 +467,7 @@
     setup_littleplanet_view();
   );
     </action>
-    <action name='on_preview_complete'>
+    <action name="on_preview_complete">
 
   hide_loading();
 
@@ -482,7 +493,7 @@
 
     </action>
 
-    <action name='setup_pano_settings'>
+    <action name="setup_pano_settings">
 
   setup_top_mask();
 
@@ -515,7 +526,7 @@
     </action>
 
 
-    <action name='setup_global_settings'>
+    <action name="setup_global_settings">
 
   delayedcall(0.5,
 
@@ -523,7 +534,6 @@
     setup_start_image();
 
     if(is_clean != 1,
-      setup_logo();
       setup_gyro();
       setup_auth();
       setup_pv_like();
@@ -551,7 +561,7 @@
     </action>
 
 
-    <action name='setup_layout'>
+    <action name="setup_layout">
 
 
 
@@ -632,7 +642,7 @@
     setup_layout_template();
 
     </action>
-    <action name='setup_multi_resolution'>
+    <action name="setup_multi_resolution">
   set(resolution_type,0);
   if(config.feature.enable_resolution == 1 AND !device.desktop,
     set(layer[multi_resolution_layer].enabled,true);
@@ -743,12 +753,12 @@
     set(layer[multi_resolution_layer].visible,false);
   );
     </action>
-    <action name='reset_multi_resolution_btn'>
+    <action name="reset_multi_resolution_btn">
     set(layer[multi_resolution_normal_btn].crop,650|115|84|84);
     set(layer[multi_resolution_hd_btn].crop,760|14|84|84);
     set(resolution_type,0);
     </action>
-    <action name='change_multi_resolution'>
+    <action name="change_multi_resolution">
 
   reset_multi_resolution_btn();
   set(resolution_type,%1);
@@ -763,14 +773,14 @@
   );
   hide_multi_resolution();
     </action>
-    <action name='show_multi_resolution'>
+    <action name="show_multi_resolution">
   set(layer[multi_resolution_bg].visible,true);
     </action>
-    <action name='hide_multi_resolution'>
+    <action name="hide_multi_resolution">
   set(layer[multi_resolution_bg].visible,false);
     </action>
 
-    <action name='setup_multi_view'>
+    <action name="setup_multi_view">
   set(view_type,0);
   if((config.is_sdk == 1 OR config.feature.enable_viewchange == 1) AND webvr.isenabled != true,
     set(layer[multi_view_layer].enabled,true);
@@ -917,14 +927,14 @@
   );
     </action>
 
-    <action name='reset_multi_view_btn'>
+    <action name="reset_multi_view_btn">
     set(layer[multi_view_normal_btn].crop,678|600|84|84);
     set(layer[multi_view_littleplanet_btn].crop,480|600|84|84);
     set(layer[multi_view_fisheye_btn].crop,579|600|84|84);
     set(layer[multi_view_ball_btn].crop,779|600|84|84);
     set(view_type,0);
     </action>
-    <action name='change_multi_view'>
+    <action name="change_multi_view">
 
   reset_multi_view_btn();
   set(view_type,%1);
@@ -963,13 +973,13 @@
   );
 
     </action>
-    <action name='show_multi_view'>
+    <action name="show_multi_view">
   set(layer[multi_view_bg].visible,true);
     </action>
-    <action name='hide_multi_view'>
+    <action name="hide_multi_view">
   set(layer[multi_view_bg].visible,false);
     </action>
-    <action name='setup_view'>
+    <action name="setup_view">
 
   if((view_type == 0 OR view_type === null) AND webvr.isenabled != true,
                                                                                  
@@ -1009,7 +1019,7 @@
   );
     </action>
 
-    <action name='setup_view_limit'>
+    <action name="setup_view_limit">
   if(config.panos.pano[get(scene_name)].view.vlookatmin != -90 OR config.panos.pano[get(scene_name)].view.vlookatmax != 90,
     set(view.limitview, lookat);
     copy(view.vlookatmin, config.panos.pano[get(scene_name)].view.vlookatmin);
@@ -1038,7 +1048,7 @@
     </action>
 
 
-    <action name='setup_littleplanet_view'>
+    <action name="setup_littleplanet_view">
 	set(view.fovmax, 170);
 	set(view.limitview, lookto);
 	set(view.vlookatmin, 90);
@@ -1046,7 +1056,7 @@
 	lookat(calc(lp_hlookat + 180), 90, 150, 1, 0, 0);
     </action>
 
-    <action name='setup_littleplanet'>
+    <action name="setup_littleplanet">
   if(config.panos.pano[get(scene_name)].view.fovmin == "" OR config.panos.pano[get(scene_name)].view.fovmin === null,
     set(config.panos.pano[get(scene_name)].view.fovmin,70);
   );
@@ -1091,7 +1101,7 @@
     </action>
 
 
-    <action name='skin_view_look_straight'>
+    <action name="skin_view_look_straight">
                          
     set(view.fovmax, get(config.panos.pano[get(scene_name)].view.fovmax));
     set(view.fovmin, get(config.panos.pano[get(scene_name)].view.fovmin));
@@ -1099,7 +1109,7 @@
              
     </action>
 
-    <action name='cm_normal_view'>
+    <action name="cm_normal_view">
   tween(view.architectural, 0.0, 0.5);
   tween(view.pannini,       0.0, 0.5);
   tween(view.fisheye,       0.0, 0.5);
@@ -1115,7 +1125,7 @@
   );
     </action>
 
-    <action name='skin_view_fisheye'>
+    <action name="skin_view_fisheye">
                                    
 	tween(view.architectural, 0.0,  distance(1.0,0.5));
 	tween(view.pannini,       0.0,  distance(1.0,0.5));
@@ -1131,7 +1141,7 @@
   );
     </action>
 
-    <action name='skin_view_ball'>
+    <action name="skin_view_ball">
                                    
 	tween(view.architectural, 0.0,  distance(1.0,0.5));
 	tween(view.pannini,       0.0,  distance(1.0,0.5));
@@ -1145,21 +1155,21 @@
   );
     </action>
 
-    <action name='skin_view_architectural'>
+    <action name="skin_view_architectural">
 	skin_view_look_straight();
 	tween(view.architectural, 1.0, distance(1.0,0.5));
 	tween(view.pannini,       0.0, distance(1.0,0.5));
 	tween(view.distortion,    0.0, distance(1.0,0.5));
     </action>
 
-    <action name='skin_view_stereographic'>
+    <action name="skin_view_stereographic">
 	skin_view_look_straight();
 	tween(view.architectural, 0.0, distance(1.0,0.5));
 	tween(view.pannini,       0.0, distance(1.0,0.5));
 	tween(view.distortion,    1.0, distance(1.0,0.8));
     </action>
 
-    <action name='skin_view_pannini'>
+    <action name="skin_view_pannini">
 	skin_view_look_straight();
 	tween(view.architectural, 0.0, distance(1.0,0.5));
 	tween(view.pannini,       1.0, distance(1.0,0.8));
@@ -1168,7 +1178,7 @@
 	  );
     </action>
 
-    <action name='cm_littleplanet_view'>
+    <action name="cm_littleplanet_view">
   tween(view.architectural, 0.0, 0.25);
   tween(view.vlookat,  90, distance(179, 1.50), easeoutquad);
   set(backtonormalfirst,false);
@@ -1186,26 +1196,27 @@
     );
   );
     </action>
-    <action name='hide_UI'>
+    <action name="hide_UI">
   set(layer[layer_container].visible,false);
   if(%1 != 1,
     set(layer[radar_container].visible,false);
   );
     </action>
-    <action name='show_UI'>
+    <action name="show_UI">
   set(layer[layer_container].visible,true);
   set(layer[radar_container].visible,true);
     </action>
 
 
-    <action name='show_hotspots'>
+
+    <action name="show_hotspots">
   set(plugin[hotspot_container].visible , true);
     </action>
-    <action name='hide_hotspots'>
+    <action name="hide_hotspots">
   set(plugin[hotspot_container].visible , false);
     </action>
 
-    <action name='setup_top_mask'>
+    <action name="setup_top_mask">
   if(config.panos.pano[get(scene_name)].top_circle !== null,
     addhotspot(top_mask_layer);
     set(hotspot[top_mask_layer].ath,0);
@@ -1233,7 +1244,7 @@
     );
   );
     </action>
-    <action name='setup_bottom_mask'>
+    <action name="setup_bottom_mask">
   if(config.panos.pano[get(scene_name)].bottom_circle !== null,
     addhotspot(bottom_mask_layer);
     if(displayMode === null,
@@ -1263,7 +1274,8 @@
     </action>
 
 
-    <action name='setup_hotspot'>
+
+    <action name="setup_hotspot">
 
   if(plugin[hotspot_container] === null,
     addplugin(hotspot_container);
@@ -1404,7 +1416,7 @@
   hide_vr_hotspot();
     </action>
 
-    <action name='hotspot_action'>
+    <action name="hotspot_action">
   if(hotspot_type == 0,
 
     if(blend !== null,
@@ -1661,120 +1673,12 @@
     </action>
 
 
-    <style name='hotspot_4' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot1.png?2.2.7' />
-    <style name='hotspot_5' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot2.png?2.2.7' />
-    <style name='hotspot_6' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot3.png?2.2.7' />
-    <style name='hotspot_7' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot4.png?2.2.7' />
-    <style name='hotspot_8' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot5.png?2.2.7' />
-    <style name='hotspot_9' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot6.png?2.2.7' />
-    <style name='hotspot_10' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot7.png?2.2.7' />
-    <style name='hotspot_11' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot8.png?2.2.7' />
-    <style name='hotspot_12' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot9.png?2.2.7' />
-    <style name='hotspot_13' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot10.png?2.2.7' />
-    <style name='hotspot_14' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot11.png?2.2.7' />
-    <style name='hotspot_15' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot12.png?2.2.7' />
-    <style name='hotspot_16' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot13.png?2.2.7' />
-    <style name='hotspot_17' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot14.png?2.2.7' />
-    <style name='hotspot_18' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot15.png?2.2.7' />
-    <style name='hotspot_19' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot16.png?2.2.7' />
-    <style name='hotspot_20' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot17.png?2.2.7' />
-    <style name='hotspot_21' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot18.png?2.2.7' />
-    <style name='hotspot_22' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot19.png?2.2.7' />
-    <style name='hotspot_23' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd1_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_24' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd2_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_25' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd3_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_26' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd4_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_27' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd5_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_28' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_link.png?2.2.7' />
-    <style name='hotspot_29' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_gallery.png?2.2.7' />
-    <style name='hotspot_30' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_video.png?2.2.7' />
-    <style name='hotspot_31' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_txt.png?2.2.7' />
-    <style name='hotspot_32' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_music.png?2.2.7' />
-    <style name='hotspot_33' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd1_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_34' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd2_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_35' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd3_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_36' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd4_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_37' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd5_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_38' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd6_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_39' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd7_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_40' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd8_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_41' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd9_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_42' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd10_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_43' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd11_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_44' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd12_gif.png?2.2.7' framewidth='128' frameheight='128' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_45' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd1.png?2.2.7' />
-    <style name='hotspot_46' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd2.png?2.2.7' />
-    <style name='hotspot_47' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd3.png?2.2.7' />
-    <style name='hotspot_48' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd4.png?2.2.7' />
-    <style name='hotspot_49' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd5.png?2.2.7' />
-    <style name='hotspot_50' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd6.png?2.2.7' />
-    <style name='hotspot_51' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd7.png?2.2.7' />
-    <style name='hotspot_52' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd8.png?2.2.7' />
-    <style name='hotspot_53' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd9.png?2.2.7' />
-    <style name='hotspot_54' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd10.png?2.2.7' />
-    <style name='hotspot_55' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd11.png?2.2.7' />
-    <style name='hotspot_56' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd12.png?2.2.7' />
-    <style name='hotspot_57' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot20.png?2.2.7' />
-    <style name='hotspot_58' crop='0|0|128|128' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot21.png?2.2.7' />
-
-    <style name='hotspot_4_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot1.png?imageView2/0/w/64' />
-    <style name='hotspot_5_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot2.png?imageView2/0/w/64' />
-    <style name='hotspot_6_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot3.png?imageView2/0/w/64' />
-    <style name='hotspot_7_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot4.png?imageView2/0/w/64' />
-    <style name='hotspot_8_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot5.png?imageView2/0/w/64' />
-    <style name='hotspot_9_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot6.png?imageView2/0/w/64' />
-    <style name='hotspot_10_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot7.png?imageView2/0/w/64' />
-    <style name='hotspot_11_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot8.png?imageView2/0/w/64' />
-    <style name='hotspot_12_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot9.png?imageView2/0/w/64' />
-    <style name='hotspot_13_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot10.png?imageView2/0/w/64' />
-    <style name='hotspot_14_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot11.png?imageView2/0/w/64' />
-    <style name='hotspot_15_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot12.png?imageView2/0/w/64' />
-    <style name='hotspot_16_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot13.png?imageView2/0/w/64' />
-    <style name='hotspot_17_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot14.png?imageView2/0/w/64' />
-    <style name='hotspot_18_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot15.png?imageView2/0/w/64' />
-    <style name='hotspot_19_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot16.png?imageView2/0/w/64' />
-    <style name='hotspot_20_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot17.png?imageView2/0/w/64' />
-    <style name='hotspot_21_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot18.png?imageView2/0/w/64' />
-    <style name='hotspot_22_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot19.png?imageView2/0/w/64' />
-    <style name='hotspot_23_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd1_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_24_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd2_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_25_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd3_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_26_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd4_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_27_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spotd5_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='9' onloaded='hotspot_animate();' />
-    <style name='hotspot_28_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_link.png?imageView2/0/w/64' />
-    <style name='hotspot_29_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_gallery.png?imageView2/0/w/64' />
-    <style name='hotspot_30_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_video.png?imageView2/0/w/64' />
-    <style name='hotspot_31_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_txt.png?imageView2/0/w/64' />
-    <style name='hotspot_32_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/static_music.png?imageView2/0/w/64' />
-    <style name='hotspot_33_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd1_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_34_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd2_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_35_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd3_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_36_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd4_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_37_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd5_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_38_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd6_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_39_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd7_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_40_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd8_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_41_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd9_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_42_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd10_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_43_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd11_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_44_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd12_gif.png?imageView2/0/w/1600' framewidth='64' frameheight='64' frame='0' lastframe='24' onloaded='hotspot_animate();' />
-    <style name='hotspot_45_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd1.png?imageView2/0/w/64' />
-    <style name='hotspot_46_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd2.png?imageView2/0/w/64' />
-    <style name='hotspot_47_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd3.png?imageView2/0/w/64' />
-    <style name='hotspot_48_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd4.png?imageView2/0/w/64' />
-    <style name='hotspot_49_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd5.png?imageView2/0/w/64' />
-    <style name='hotspot_50_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd6.png?imageView2/0/w/64' />
-    <style name='hotspot_51_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd7.png?imageView2/0/w/64' />
-    <style name='hotspot_52_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd8.png?imageView2/0/w/64' />
-    <style name='hotspot_53_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd9.png?imageView2/0/w/64' />
-    <style name='hotspot_54_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd10.png?imageView2/0/w/64' />
-    <style name='hotspot_55_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd11.png?imageView2/0/w/64' />
-    <style name='hotspot_56_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/new_spotd12.png?imageView2/0/w/64' />
-    <style name='hotspot_57_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot20.png?imageView2/0/w/64' />
-    <style name='hotspot_58_flash' crop='0|0|64|64' url='http://api-qiniu2.720static.com/krp/hotspot/v2/spot21.png?imageView2/0/w/64' />
 
 
-    <action name='hotspot_animate'>
+    
+
+
+    <action name="hotspot_animate">
     inc(frame,1,get(lastframe),0);
     mul(ypos,frame,frameheight);
     txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
@@ -1782,31 +1686,34 @@
     </action>
 
 
-    <style name='new_spotd01' crop='0|0|100|100' url='hotspots/new_spotd01_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd02' crop='0|0|100|100' url='hotspots/new_spotd02_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd03' crop='0|0|100|100' url='hotspots/new_spotd03_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd04' crop='0|0|100|100' url='hotspots/new_spotd04_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd05' crop='0|0|100|100' url='hotspots/new_spotd05_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd06' crop='0|0|100|100' url='hotspots/new_spotd06_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd07' crop='0|0|100|100' url='hotspots/new_spotd07_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd08' crop='0|0|100|100' url='hotspots/new_spotd08_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd09' crop='0|0|100|100' url='hotspots/new_spotd09_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd10' crop='0|0|100|100' url='hotspots/new_spotd10_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd11' crop='0|0|100|100' url='hotspots/new_spotd11_gif.png' framewidth='100' frameheight='100' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
 
-    <style name='new_spotd01_flash' crop='0|0|50|50' url='hotspots/new_spotd01_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd02_flash' crop='0|0|50|50' url='hotspots/new_spotd02_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd03_flash' crop='0|0|50|50' url='hotspots/new_spotd03_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd04_flash' crop='0|0|50|50' url='hotspots/new_spotd04_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd05_flash' crop='0|0|50|50' url='hotspots/new_spotd05_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd06_flash' crop='0|0|50|50' url='hotspots/new_spotd06_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd07_flash' crop='0|0|50|50' url='hotspots/new_spotd07_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd08_flash' crop='0|0|50|50' url='hotspots/new_spotd08_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd09_flash' crop='0|0|50|50' url='hotspots/new_spotd09_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd10_flash' crop='0|0|50|50' url='hotspots/new_spotd10_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
-    <style name='new_spotd11_flash' crop='0|0|50|50' url='hotspots/new_spotd11_gif.png?imageView2/0/w/850' framewidth='50' frameheight='50' frame='0' lastframe='16' onloaded='hotspot_animate_new();' />
 
-    <action name='hotspot_animate_new'>
+
+    <style name="new_spotd01" crop="0|0|100|100" url="hotspots/new_spotd01_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd02" crop="0|0|100|100" url="hotspots/new_spotd02_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd03" crop="0|0|100|100" url="hotspots/new_spotd03_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd04" crop="0|0|100|100" url="hotspots/new_spotd04_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd05" crop="0|0|100|100" url="hotspots/new_spotd05_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd06" crop="0|0|100|100" url="hotspots/new_spotd06_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd07" crop="0|0|100|100" url="hotspots/new_spotd07_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd08" crop="0|0|100|100" url="hotspots/new_spotd08_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd09" crop="0|0|100|100" url="hotspots/new_spotd09_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd10" crop="0|0|100|100" url="hotspots/new_spotd10_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd11" crop="0|0|100|100" url="hotspots/new_spotd11_gif.png" framewidth="100" frameheight="100" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+
+    <style name="new_spotd01_flash" crop="0|0|50|50" url="hotspots/new_spotd01_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd02_flash" crop="0|0|50|50" url="hotspots/new_spotd02_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd03_flash" crop="0|0|50|50" url="hotspots/new_spotd03_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd04_flash" crop="0|0|50|50" url="hotspots/new_spotd04_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd05_flash" crop="0|0|50|50" url="hotspots/new_spotd05_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd06_flash" crop="0|0|50|50" url="hotspots/new_spotd06_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd07_flash" crop="0|0|50|50" url="hotspots/new_spotd07_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd08_flash" crop="0|0|50|50" url="hotspots/new_spotd08_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd09_flash" crop="0|0|50|50" url="hotspots/new_spotd09_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd10_flash" crop="0|0|50|50" url="hotspots/new_spotd10_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+    <style name="new_spotd11_flash" crop="0|0|50|50" url="hotspots/new_spotd11_gif.png?imageView2/0/w/850" framewidth="50" frameheight="50" frame="0" lastframe="16" onloaded="hotspot_animate_new();"/>
+
+    <action name="hotspot_animate_new">
     inc(frame,1,get(lastframe),0);
     mul(xpos,frame,frameheight);
     txtadd(crop,get(xpos),'|0|',get(framewidth),'|',get(frameheight));
@@ -1814,7 +1721,10 @@
     </action>
 
 
-    <action name='play_hotspot_sound'>
+
+
+
+    <action name="play_hotspot_sound">
     if(layer[hotspot_sound_stop_btn] === null,
         addlayer(hotspot_sound_stop_btn);
         set(layer[hotspot_sound_stop_btn].keep,true);
@@ -1857,7 +1767,7 @@
     );
 
     </action>
-    <action name='stop_hotspot_sound'>
+    <action name="stop_hotspot_sound">
 
     set(layer[hotspot_sound_stop_btn].visible,false);
 
@@ -1873,17 +1783,17 @@
     </action>
 
 
-    <blendmodes name='blend0' blend='OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)' />
-    <blendmodes name='blend1' blend='ZOOMBLEND(2.0, 2.0, easeInOutSine)' />
-    <blendmodes name='blend2' blend='COLORBLEND(2.0, 0x000000, easeOutSine)' />
-    <blendmodes name='blend3' blend='LIGHTBLEND(1.0, 0xFFFFFF, 2.0, linear)' />
-    <blendmodes name='blend4' blend='SLIDEBLEND(1.0, 0.0, 0.2, linear)' />
-    <blendmodes name='blend5' blend='SLIDEBLEND(1.0, 135.0, 0.4, linear)' />
-    <blendmodes name='blend6' blend='OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)' />
-    <blendmodes name='blend7' blend='OPENBLEND(1.0, -1.0, 0.3, 0.0, linear)' />
-    <blendmodes name='blend8' blend='OPENBLEND(1.0, -0.5, 0.3, 0.8, linear)' />
+    <blendmodes name="blend0" blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)" />
+    <blendmodes name="blend1" blend="ZOOMBLEND(2.0, 2.0, easeInOutSine)" />
+    <blendmodes name="blend2" blend="COLORBLEND(2.0, 0x000000, easeOutSine)" />
+    <blendmodes name="blend3" blend="LIGHTBLEND(1.0, 0xFFFFFF, 2.0, linear)" />
+    <blendmodes name="blend4" blend="SLIDEBLEND(1.0, 0.0, 0.2, linear)" />
+    <blendmodes name="blend5" blend="SLIDEBLEND(1.0, 135.0, 0.4, linear)" />
+    <blendmodes name="blend6" blend="OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)" />
+    <blendmodes name="blend7" blend="OPENBLEND(1.0, -1.0, 0.3, 0.0, linear)" />
+    <blendmodes name="blend8" blend="OPENBLEND(1.0, -0.5, 0.3, 0.8, linear)" />
 
-    <action name='setup_embed'>
+    <action name="setup_embed">
 
   if(plugin[embed_container] === null,
     addplugin(embed_container);
@@ -1996,7 +1906,7 @@
     );
   );
     </action>
-    <action name='switch_embed_image'>
+    <action name="switch_embed_image">
 
   set(onloaded,);
 
@@ -2039,7 +1949,7 @@
   );
     </action>
 
-    <action name='switch_embed_image_click'>
+    <action name="switch_embed_image_click">
 
   set(onloaded,);
 
@@ -2078,7 +1988,7 @@
 
     </action>
 
-    <action name='setup_start_image'>
+    <action name="setup_start_image">
   if((config.panos.pano[0].start_image_pc === null OR config.panos.pano[0].start_image_pc.url == "" OR config.panos.pano[0].start_image_pc.url !== null) AND device.desktop,
 
     if(config.panos.pano[0].start_image_pc.url === null OR config.panos.pano[0].start_image_pc.url == "",
@@ -2131,7 +2041,8 @@
     </action>
 
 
-    <action name='setup_title'>
+
+    <action name="setup_title">
 
     if(settings.first_pano_inited == true,
       set(layer[title_layer].html,get(config.panos.pano[get(scene_name)].info.title));
@@ -2170,7 +2081,8 @@
     </action>
 
 
-    <action name='setup_auth'>
+
+    <action name="setup_auth">
   if(config.is_sdk != 1,
     if(config.feature.show_auth == 1,
         copy(layer[auth_layer].url,plugin_url.TEXT_SWF);
@@ -2203,141 +2115,14 @@
     </action>
 
 
-    <action name='disableProAuth'>
+
+    <action name="disableProAuth">
   set(config.logo.enabled, 1);
-  set(config.logo.is_720, 1);
-  setup_logo();
     </action>
 
 
-    <action name='setup_logo'>
-  if(config.is_sdk != 1 OR config.is_feipai == 1,
-    if(config.logo.enabled == 1,
-      indexoftxt(logoIndex,get(config.logo.url),'720yunLOGO');
-      if(config.logo.is_720 == 1 OR logoIndex GT 0 OR config.logo.url === null OR config.is_feipai == 1,
-        if(config.is_feipai == 1,
-          set(layer[logo_layer].width,220);
-          set(layer[logo_layer].height,150);
-          copy(layer[logo_layer].url,settings.feipai_logo_url);
-          ,
-          set(layer[logo_layer].width,220);
-          set(layer[logo_layer].height,66);
-          set(layer[logo_layer].crop,240|156|220|66);
-          layer[logo_layer].loadstyle(skin_style);
-        )
-        ,
 
-        copy(config_logo_url,config.logo.url);
-        txtadd(config_logo_url,'?imageView2/0/w/300/h/300');
-        copy(layer[logo_layer].url,config_logo_url);
-        set(layer[logo_layer].onloaded,
-          set(logoWHRate,get(layer[logo_layer].width));
-          div(logoWHRate,get(layer[logo_layer].height));
-          if(layer[logo_layer].width GT 300 OR layer[logo_layer].height GT 144,
-              if(logoWHRate GT 2.5,
-                set(layer[logo_layer].width,300);
-                set(layer[logo_layer].height,prop);
-                set(layer[logo_layer].scale,0.5);
-                ,
-                set(layer[logo_layer].height,144);
-                set(layer[logo_layer].width,prop);
-                set(layer[logo_layer].scale,0.5);
-              );
-              ,
-              if(layer[logo_layer].width GT 200 OR layer[logo_layer].height GT 36,
-                set(layer[logo_layer].scale,0.5);
-              );
-            );
-                                                                                                                                                                                                                                                                                                                                                                                           
-        );
-      );
-      set(layer[logo_layer].scale,0.5);
-      set(layer[logo_layer].enabled,false);
-
-      set(layer[logo_layer].handcursor,true);
-      set(layer[logo_layer].enabled,true);
-      set(layer[logo_layer].onclick,
-        indexoftxt(logoIndex,get(config.logo.url),'720yunLOGO');
-        if(config.logo.is_720 == 1 OR logoIndex GT 0 OR config.logo.url === null,
-          openurl("http://720yun.com");
-          ,
-          logo_action();
-        );
-      );
-    );
-  );
-  setup_layout();
-    </action>
-
-    <action name='logo_action'>
-
-  addlayer(logo_pane_container);
-  set(layer[logo_pane_container].type,container);
-  set(layer[logo_pane_container].align,center);
-  set(layer[logo_pane_container].alpha,0);
-  set(layer[logo_pane_container].x,0);
-  set(layer[logo_pane_container].y,0);
-  set(layer[logo_pane_container].width,100%);
-  set(layer[logo_pane_container].height,100%);
-  set(layer[logo_pane_container].bgcolor,0x000000);
-  set(layer[logo_pane_container].bgalpha,0.8);
-  set(layer[logo_pane_container].bgcapture,true);
-  set(layer[logo_pane_container].zorder,350);
-  set(layer[logo_pane_container].keep,false);
-  set(layer[logo_pane_container].onclick,hide_logo(););
-
-  addlayer(logo_img_container);
-  set(layer[logo_img_container].align,center);
-  set(layer[logo_img_container].x,0);
-  set(layer[logo_img_container].y,0);
-  set(layer[logo_img_container].parent,logo_pane_container);
-  if(config.logo.is_720 == 1,
-    set(layer[logo_img_container].crop,240|160|270|66);
-    layer[logo_img_container].loadstyle(skin_style);
-    ,
-    set(layer[logo_img_container].url,get(config.logo.url));
-  );
-  set(layer[logo_img_container].onclick,hide_logo(););
-  set(layer[logo_img_container].onloaded,
-    if(layer[logo_img_container].width GT 500,
-      set(layer[logo_img_container].width,500);
-      set(layer[logo_img_container].height,prop);
-    );
-  );
-
-  if(config.logo.link != '#' AND config.logo.link != '',
-    addlayer(logo_action_btn);
-    set(layer[logo_action_btn].align,bottom);
-    set(layer[logo_action_btn].x,0);
-    set(layer[logo_action_btn].y,40);
-    set(layer[logo_action_btn].scale,0.5);
-    set(layer[logo_action_btn].parent,logo_pane_container);
-    set(layer[logo_action_btn].crop,0|510|480|75);
-    layer[logo_action_btn].loadstyle(skin_style);
-    set(layer[logo_action_btn].onclick,
-      copy(logo_link,config.logo.link);
-      unescape(logo_link);
-      openurl(get(logo_link));
-    );
-  );
-
-  tween(layer[logo_pane_container].alpha,1.0, 0.30, default);
-
-  pause_autoplay();
-    </action>
-
-    <action name='hide_logo'>
-  tween(layer[logo_pane_container].alpha,0.0, 0.30, default,
-    removelayer(logo_pane_container);
-    removelayer(logo_img_container);
-    removelayer(logo_action_btn);
-  );
-
-  resume_autoplay();
-    </action>
-
-
-    <action name='setup_pv_like'>
+    <action name="setup_pv_like">
   if(displayMode.preview != true AND displayMode.export != true ,
     if(config.feature.show_pv == 1 AND config.is_feipai != 1,
       showPV(get(var_pv));
@@ -2348,7 +2133,7 @@
   );
     </action>
 
-    <action name='showPV'>
+    <action name="showPV">
   if(config.feature.show_pv == 1 AND %1 != 0 ,
     if(layer[auth_layer].visible == false ,
       copy(layer[auth_layer].url,plugin_url.TEXT_SWF);
@@ -2376,7 +2161,9 @@
     </action>
 
 
-    <action name='setup_fullscreen'>
+
+
+    <action name="setup_fullscreen">
   if(device.fullscreensupport,
     set(layer[fullscreen_layer].enabled,true);
     set(layer[fullscreen_layer].scale,0.5);
@@ -2396,245 +2183,11 @@
     set(layer[fullscreen_layer].visible,false);
   );
     </action>
-    <action name='setup_password'>
+    <action name="setup_password">
   jscall(get(js_require_password));
     </action>
 
-    <domains>
-        <domain name='domain_1' replace_txt='http://pano.qncdn.720static.com' search_txt='https://ssl-panoimg.720static.com' />
-        <domain name='domain_2' replace_txt='http://pano2.qncdn.720static.com' search_txt='https://ssl-panoimg2.720static.com' />
-        <domain name='domain_3' replace_txt='http://pano3.qncdn.720static.com' search_txt='https://ssl-panoimg3.720static.com' />
-        <domain name='domain_4' replace_txt='http://pano4.qncdn.720static.com' search_txt='https://ssl-panoimg4.720static.com' />
-        <domain name='domain_5' replace_txt='http://pano5.qncdn.720static.com' search_txt='https://ssl-panoimg5.720static.com' />
-        <domain name='domain_6' replace_txt='http://pano6a.qncdn.720static.com' search_txt='https://ssl-panoimg6.720static.com' />
-        <domain name='domain_7' replace_txt='http://pano7.qncdn.720static.com' search_txt='https://ssl-panoimg7.720static.com' />
-        <domain name='domain_8' replace_txt='http://pano8.qncdn.720static.com' search_txt='https://ssl-panoimg8.720static.com' />
-        <domain name='domain_9' replace_txt='http://pano9.qncdn.720static.com' search_txt='https://ssl-panoimg9.720static.com' />
-        <domain name='domain_10' replace_txt='http://pano10.qncdn.720static.com' search_txt='https://ssl-panoimg10.720static.com' />
-        <domain name='domain_11' replace_txt='http://pano11.qncdn.720static.com' search_txt='https://ssl-panoimg11.720static.com' />
-        <domain name='domain_12' replace_txt='http://pano12.qncdn.720static.com' search_txt='https://ssl-panoimg12.720static.com' />
-        <domain name='domain_13' replace_txt='http://pano13.qncdn.720static.com' search_txt='https://ssl-panoimg13.720static.com' />
-        <domain name='domain_14' replace_txt='http://pano14.qncdn.720static.com' search_txt='https://ssl-panoimg14.720static.com' />
-        <domain name='domain_15' replace_txt='http://pano15.qncdn.720static.com' search_txt='https://ssl-panoimg15.720static.com' />
-        <domain name='domain_16' replace_txt='http://pano16.qncdn.720static.com' search_txt='https://ssl-panoimg16.720static.com' />
-        <domain name='domain_17' replace_txt='http://pano17.qncdn.720static.com' search_txt='https://ssl-panoimg17.720static.com' />
-    </domains>
-
-    <action name='replace_for_http'>
-  if(isHttp,
-
-    set(player_http, 'http://api-qiniu2.720static.com');
-    set(player_https, 'https://ssl-player.720static.com');
-    set(media_http, 'http://media-qiniu2.720static.com');
-    set(media_https, 'https://ssl-media.720static.com');
-    set(thumb_http, 'http://thumb-qiniu.720static.com');
-    set(thumb_https, 'https://ssl-thumb.720static.com');
-    set(client_http, 'http://client-product.720static.com');
-    set(client_https, 'https://ssl-client.720static.com');
-
-    if(settings.client,
-
-      for(set(i,0), i LT scene.count, inc(i),
-        txtreplace(scene[get(i)].content, get(client_https), get(client_http));
-      );
-
-
-      txtreplace(style[skin_style].url, get(player_https), get(player_http));
-      txtreplace(settings.thumb_btn_url, get(player_https), get(player_http));
-
-      txtreplace(plugin_url.BASE_URL, get(player_https), get(player_http));
-      txtreplace(plugin_url.TEXT_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.GYRO, get(player_https), get(player_http));
-      txtreplace(plugin_url.SOUND_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SOUND_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.SCROLL_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SCROLL_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.RADAR_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.RADAR_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.SNOW_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SNOW_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.PLUGINS_SUN_IMAGE, get(player_https), get(player_http));
-      txtreplace(plugin_url.WEBVR_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.WEBVR_XML, get(player_https), get(player_http));
-
-      for(set(i,4), i LT 59, inc(i),
-        txtadd(hotspot_name_temp,'hotspot_',get(i));
-        txtreplace(style[get(hotspot_name_temp)].url, get(player_https), get(player_http));
-      );
-
-      for(set(i,1), i LT 10, inc(i),
-        txtadd(hotspot_name_temp, 'new_spotd0' ,get(i));
-        txtreplace(style[get(hotspot_name_temp)].url, get(player_https), get(player_http));
-      );
-      txtreplace(style[new_spotd10].url, get(player_https), get(player_http));
-      txtreplace(style[new_spotd11].url, get(player_https), get(player_http));
-
-      txtreplace(settings.start_image_desktop, get(player_https), get(player_http));
-      txtreplace(settings.start_image_mobile, get(player_https), get(player_http));
-
-      txtreplace(settings.rain_image, get(player_https), get(player_http));
-      txtreplace(settings.snow_image, get(player_https), get(player_http));
-      txtreplace(settings.snow_js, get(player_https), get(player_http));
-      txtreplace(settings.snow_swf, get(player_https), get(player_http));
-
-      txtreplace(settings.map_zoom_image,  get(player_https), get(player_http));
-      txtreplace(settings.close_image,  get(player_https), get(player_http));
-
-      txtreplace(settings.comment_add_head_bg_image,  get(player_https), get(player_http));
-      txtreplace(settings.comment_edit_line_image,  get(player_https), get(player_http));
-      txtreplace(settings.comment_edit_bg_image,  get(player_https), get(player_http));
-
-      txtreplace(hotspot[vr_cursor].url,  get(player_https), get(player_http));
-
-      txtreplace(config.logo.url,  get(player_https), get(player_http));
-      txtreplace(config.logo.url,  get(client_https), get(client_http));
-
-      txtreplace(config.thumbs.thumb,  get(player_https), get(player_http));
-
-      for(set(i,0), i LT config.thumbs.category.count , inc(i),
-        txtreplace(config.thumbs.category[get(i)].thumb,  get(player_https), get(player_http));
-        txtreplace(config.thumbs.category[get(i)].thumb,  get(client_https), get(client_http));
-
-        for(set(j,0), j LT config.thumbs.category[get(i)].pano.count , inc(j),
-          txtreplace(config.thumbs.category[get(i)].pano[get(j)].thumb,  get(thumb_https), get(thumb_http));
-          txtreplace(config.thumbs.category[get(i)].pano[get(j)].thumb,  get(client_https), get(client_http));
-        );
-      );
-
-      for(set(i,0), i LT config.links.link.count , inc(i),
-        txtreplace(config.links.link[get(i)].url,  get(player_https), get(player_http));
-        txtreplace(config.links.link[get(i)].url,  get(client_https), get(client_http));
-      );
-
-
-      for(set(i,0), i LT config.panos.pano.count, inc(i),
-        txtreplace(config.panos.pano[get(i)].top_circle.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].top_circle.url,  get(client_https), get(client_http));
-
-        txtreplace(config.panos.pano[get(i)].bottom_circle.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].bottom_circle.url,  get(client_https), get(client_http));
-
-        txtreplace(config.panos.pano[get(i)].sound.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].sound.url,  get(client_https), get(client_http));
-
-        txtreplace(config.panos.pano[get(i)].voice.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].voice.url,  get(client_https), get(client_http));
-
-        txtreplace(config.panos.pano[get(i)].radar.map_url,  get(client_https), get(client_http));
-
-        txtreplace(config.panos.pano[get(i)].weather.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].weather.url,  get(client_https), get(client_http));
-
-        for(set(j,0), j LT config.panos.pano[get(i)].hotspots.hotspot.count , inc(j),
-          txtreplace(config.panos.pano[get(i)].hotspots.hotspot[get(j)].image_url,  get(client_https), get(client_http));
-        );
-      );
-
-      ,
-
-      for(set(i,0), i LT scene.count, inc(i),
-        for(set(j,0), j LT domains.domain.count, inc(j),
-          txtreplace(scene[get(i)].content, get(domains.domain[get(j)].search_txt), get(domains.domain[get(j)].replace_txt));
-        );
-      );
-
-
-      txtreplace(style[skin_style].url, get(player_https), get(player_http));
-      txtreplace(settings.thumb_btn_url, get(player_https), get(player_http));
-
-      txtreplace(plugin_url.BASE_URL, get(player_https), get(player_http));
-      txtreplace(plugin_url.TEXT_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.GYRO, get(player_https), get(player_http));
-      txtreplace(plugin_url.SOUND_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SOUND_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.SCROLL_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SCROLL_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.RADAR_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.RADAR_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.SNOW_SWF, get(player_https), get(player_http));
-      txtreplace(plugin_url.SNOW_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.PLUGINS_SUN_IMAGE, get(player_https), get(player_http));
-      txtreplace(plugin_url.WEBVR_JS, get(player_https), get(player_http));
-      txtreplace(plugin_url.WEBVR_XML, get(player_https), get(player_http));
-
-      for(set(i,4), i LT 59, inc(i),
-        txtadd(hotspot_name_temp,'hotspot_',get(i));
-        txtreplace(style[get(hotspot_name_temp)].url, get(player_https), get(player_http));
-      );
-
-      for(set(i,1), i LT 10, inc(i),
-        txtadd(hotspot_name_temp, 'new_spotd0' ,get(i));
-        txtreplace(style[get(hotspot_name_temp)].url, get(player_https), get(player_http));
-      );
-      txtreplace(style[new_spotd10].url, get(player_https), get(player_http));
-      txtreplace(style[new_spotd11].url, get(player_https), get(player_http));
-
-      txtreplace(settings.start_image_desktop, get(player_https), get(player_http));
-      txtreplace(settings.start_image_mobile, get(player_https), get(player_http));
-
-      txtreplace(settings.rain_image, get(player_https), get(player_http));
-      txtreplace(settings.snow_image, get(player_https), get(player_http));
-      txtreplace(settings.snow_js, get(player_https), get(player_http));
-      txtreplace(settings.snow_swf, get(player_https), get(player_http));
-
-      txtreplace(settings.map_zoom_image,  get(player_https), get(player_http));
-      txtreplace(settings.close_image,  get(player_https), get(player_http));
-
-      txtreplace(settings.comment_add_head_bg_image,  get(player_https), get(player_http));
-      txtreplace(settings.comment_edit_line_image,  get(player_https), get(player_http));
-      txtreplace(settings.comment_edit_bg_image,  get(player_https), get(player_http));
-
-      txtreplace(hotspot[vr_cursor].url,  get(player_https), get(player_http));
-
-      txtreplace(config.logo.url,  get(player_https), get(player_http));
-      txtreplace(config.logo.url,  get(media_https), get(media_http));
-
-      txtreplace(config.thumbs.thumb,  get(player_https), get(player_http));
-
-      for(set(i,0), i LT config.thumbs.category.count , inc(i),
-        txtreplace(config.thumbs.category[get(i)].thumb,  get(player_https), get(player_http));
-        txtreplace(config.thumbs.category[get(i)].thumb,  get(media_https), get(media_http));
-
-        for(set(j,0), j LT config.thumbs.category[get(i)].pano.count , inc(j),
-          txtreplace(config.thumbs.category[get(i)].pano[get(j)].thumb,  get(thumb_https), get(thumb_http));
-          txtreplace(config.thumbs.category[get(i)].pano[get(j)].thumb,  get(media_https), get(media_http));
-        );
-      );
-
-      for(set(i,0), i LT config.links.link.count , inc(i),
-        txtreplace(config.links.link[get(i)].url,  get(player_https), get(player_http));
-        txtreplace(config.links.link[get(i)].url,  get(media_https), get(media_http));
-      );
-
-
-      for(set(i,0), i LT config.panos.pano.count, inc(i),
-        txtreplace(config.panos.pano[get(i)].top_circle.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].top_circle.url,  get(media_https), get(media_http));
-
-        txtreplace(config.panos.pano[get(i)].bottom_circle.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].bottom_circle.url,  get(media_https), get(media_http));
-
-        txtreplace(config.panos.pano[get(i)].sound.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].sound.url,  get(media_https), get(media_http));
-
-        txtreplace(config.panos.pano[get(i)].voice.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].voice.url,  get(media_https), get(media_http));
-
-        txtreplace(config.panos.pano[get(i)].radar.map_url,  get(media_https), get(media_http));
-
-        txtreplace(config.panos.pano[get(i)].weather.url,  get(player_https), get(player_http));
-        txtreplace(config.panos.pano[get(i)].weather.url,  get(media_https), get(media_http));
-
-        for(set(j,0), j LT config.panos.pano[get(i)].hotspots.hotspot.count , inc(j),
-          txtreplace(config.panos.pano[get(i)].hotspots.hotspot[get(j)].image_url,  get(media_https), get(media_http));
-        );
-      );
-    );
-  );
-
-    </action>
-
-    <action name='load_pano_by_id'>
+    <action name="load_pano_by_id">
   if(pano_id != %1,
 
     show_loading();
@@ -2705,7 +2258,7 @@
   );
     </action>
 
-    <action name='load_pano_loop'>
+    <action name="load_pano_loop">
                                                                                                                                                                                                                                                                                                                                                                                                          
 
   if(is_looping != true AND config.panos.pano[0].autoplay.enter_next != 0,
@@ -2737,7 +2290,7 @@
     </action>
 
 
-    <action name='setup_weather'>
+    <action name="setup_weather">
 
   if(config.panos.pano[get(scene_name)].sun.id !== null,
     add_sun(get(config.panos.pano[get(scene_name)].sun.ath),get(config.panos.pano[get(scene_name)].sun.atv));
@@ -2773,7 +2326,7 @@
     );
   );
     </action>
-    <action name='add_sun'>
+    <action name="add_sun">
                                                                
   addlensflare("obj",true);
   set(lensflares[obj].keep,false);
@@ -2786,7 +2339,7 @@
   set(lensflares[obj].item[flareobj].dust_effect,false);
   set(lensflares[obj].item[flareobj].keep,false);
     </action>
-    <action name='add_rain'>
+    <action name="add_rain">
 
   if(%1 === null,
     set(rain_size, 2);
@@ -2819,10 +2372,10 @@
 		copy(plugin[snow].url,          settings.snow_js);
   );
     </action>
-    <action name='remove_rain'>
+    <action name="remove_rain">
   removeplugin(snow);
     </action>
-    <action name='add_snow'>
+    <action name="add_snow">
 
   if(%1 === null,
     set(snow_size, 2);
@@ -2858,7 +2411,7 @@
 
 
     </action>
-    <action name='add_image_rain'>
+    <action name="add_image_rain">
 
   if(%2 == null ,
     set(snow_size, 2);
@@ -2893,22 +2446,22 @@
     </action>
 
 
-    <action name='setup_contextmenu'>
+
+
+
+    <action name="setup_contextmenu">
   if(config.auth.status == 1,
     set(contextmenu.item["copyright"].visible, true);
     ,
     set(contextmenu.item["copyright"].visible, false);
   );
-
-  if(config.info.ccagreement !== null AND config.logo.is_720 == 1,
-      copy(contextmenu.item["ccagreement"].caption, config.info.ccagreement);
-      set(contextmenu.item["ccagreement"].visible, true);
-  );
     </action>
 
 
-    <plugin name='gyro_plugin' keep='true' url='' devices='html5' enabled='true' />
-    <action name='setup_gyro'>
+
+
+    <plugin name="gyro_plugin" keep="true" url="" devices="html5" enabled="true" />
+    <action name="setup_gyro">
     if(config.feature.enable_gyro == 1 AND !device.desktop AND device.html5,
 	    copy(plugin[gyro_plugin].url, plugin_url.GYRO);
 
@@ -2929,7 +2482,7 @@
       set(layer[gyro_layer].visible,false);
     );
     </action>
-    <action name='toggle_gyro'>
+    <action name="toggle_gyro">
     switch(plugin[gyro_plugin].enabled);
     if(displayMode.online == true OR displayMode === null,
       if(plugin[gyro_plugin].enabled == true,
@@ -2941,7 +2494,16 @@
     </action>
 
 
-    <action name='setup_vr'>
+
+
+
+
+
+
+
+
+
+    <action name="setup_vr">
     copy(vr_plugin_url,plugin_url.WEBVR_JS);
     if(config.feature.enable_vr == 1 AND device.html5 AND device.webgl AND displayMode.preview != true,
 
@@ -2959,19 +2521,21 @@
         set(layer[vr_layer].visible,false);
   );
     </action>
-    <action name='disable_vr'>
+    <action name="disable_vr">
     set(layer[vr_layer].visible,false);
     setup_layout();
     </action>
-    <action name='turn_on_vr'>
+    <action name="turn_on_vr">
     webvr.entervr();
     </action>
-    <action name='turn_off_vr'>
+    <action name="turn_off_vr">
     webvr.exitvr();
     </action>
 
 
-    <action name='setup_autoplay'>
+
+
+    <action name="setup_autoplay">
   if(config.feature.enable_autorotate == 1 OR config.panos.pano[get(scene_name)].autoplay.enabled == true,
     delayedcall(6,
       set(autorotate.waittime, 6);
@@ -3005,32 +2569,32 @@
     );
   );
     </action>
-    <action name='resume_autoplay'>
+    <action name="resume_autoplay">
   set(autoplayWaitPause,false);
   autorotate.resume();
     </action>
-    <action name='pause_autoplay'>
+    <action name="pause_autoplay">
   set(autoplayWaitPause,true);
   autorotate.pause();
     </action>
 
 
-    <action name='switch_to_multires'>
+    <action name="switch_to_multires">
   for(set(i,0), i LT scene.count, inc(i),
     txtreplace(scene[get(i)].content, "webvr.isenabled AND device.desktop", "webvr.isenabled OR device.desktop");
   );
   loadscene(get(xml.scene),null,KEEPVIEW|MERGE,BLEND(0.5, easeInCubic));
     </action>
 
-    <action name='switch_to_mobile'>
+    <action name="switch_to_mobile">
   for(set(i,0), i LT scene.count, inc(i),
     txtreplace(scene[get(i)].content, "webvr.isenabled OR device.desktop", "webvr.isenabled AND device.desktop");
   );
   loadscene(get(xml.scene),null,KEEPVIEW|MERGE,BLEND(0.5, easeInCubic));
     </action>
-    <style name='skin_style' url='krp/skin/skin_v8.png' />
+    <style name="skin_style" url="krp/skin/skin_v8.png"/>
 
-    <action name='setup_layout_template'>
+    <action name="setup_layout_template">
 
 
       set(menu_offset,5);
@@ -3099,7 +2663,7 @@
       );
 
     </action>
-    <action name='showLike'>
+    <action name="showLike">
 
   set(liked,%1);
   set(liked_total,%2);
@@ -3125,7 +2689,7 @@
     </action>
 
 
-    <action name='setup_bottom_btn'>
+    <action name="setup_bottom_btn">
   if(config.is_sdk != 1,
 
   if(config.feature.enable_like == 1 AND displayMode.preview != true AND displayMode.export != true,
@@ -3360,7 +2924,7 @@
   );
   );
     </action>
-    <action name='setup_links'>
+    <action name="setup_links">
 
 
 
@@ -3444,7 +3008,7 @@
   );
     </action>
 
-    <action name='show_mix_link'>
+    <action name="show_mix_link">
 
   copy(titleJSON,title);
   escape(titleJSON);
@@ -3507,7 +3071,7 @@
   pause_autoplay();
     </action>
 
-    <action name='update_pano_change_ui'>
+    <action name="update_pano_change_ui">
   for(set(o,0), o LT config.thumbs.category.count, inc(o),
     for(set(i,0), i LT config.thumbs.category[get(o)].pano.count, inc(i),
       txtadd(pano_thumb_container_name,'pano_thumb_container_',get(o),'_',get(i));
@@ -3520,7 +3084,7 @@
   );
     </action>
 
-    <action name='scroll_to_current_pano'>
+    <action name="scroll_to_current_pano">
   for(set(o,0), o LT config.thumbs.category.count, inc(o),
     for(set(i,0), i LT config.thumbs.category[get(o)].pano.count, inc(i),
       txtadd(pano_thumb_container_name,'pano_thumb_container_',get(o),'_',get(i));
@@ -3533,7 +3097,7 @@
   );
     </action>
 
-    <action name='setup_thumbs'>
+    <action name="setup_thumbs">
 
   copy(menu_btn_size,settings.menu_btn_width);
 
@@ -3612,7 +3176,7 @@
   );
     </action>
 
-    <action name='add_category_thumbs'>
+    <action name="add_category_thumbs">
 
 
   if(config.thumbs.category.count GT 1,
@@ -3742,7 +3306,7 @@
   );
     </action>
 
-    <action name='add_pano_thumbs'>
+    <action name="add_pano_thumbs">
 
   if(config.panos.pano.count GT 1 ,
 
@@ -3890,7 +3454,7 @@
     );
   );
     </action>
-    <action name='toggle_category_thumbs'>
+    <action name="toggle_category_thumbs">
   if(config.thumbs.category.count GT 1 ,
     if(category_thumbs_show == true,
       hide_category_thumbs();
@@ -3923,17 +3487,17 @@
     );
   );
     </action>
-    <action name='show_category_thumbs'>
+    <action name="show_category_thumbs">
   tween(layer[category_thumbs_container].y,0,0.2);
   set(category_thumbs_show,true);
     </action>
-    <action name='hide_category_thumbs'>
+    <action name="hide_category_thumbs">
   if(category_thumbs_show == true,
     tween(layer[category_thumbs_container].y,-150,0.2);
     set(category_thumbs_show,false);
   );
     </action>
-    <action name='show_pano_thumbs'>
+    <action name="show_pano_thumbs">
 
   if(pano_thumbs_show == true AND current_category_index != category_index,
     hide_pano_thumbs();
@@ -3959,7 +3523,7 @@
 
     </action>
 
-    <action name='hide_pano_thumbs'>
+    <action name="hide_pano_thumbs">
 
   if(pano_thumbs_show == true,
     txtadd(current_category_thumb_name,'category_thumb_container_',get(current_category_index));
@@ -3971,7 +3535,7 @@
   );
     </action>
 
-    <action name='add_thumbs'>
+    <action name="add_thumbs">
 
   addlayer(category_thumbs_scrollarea);
   if(device.flash,
@@ -4052,7 +3616,8 @@
     </action>
 
 
-    <action name='setupAutoTourUI'>
+
+    <action name="setupAutoTourUI">
 
     if(layer[autoTourBtnContainer] !== null ,
       set(autoTourBtnName,'autoTourBtn');
@@ -4137,7 +3702,7 @@
 
 
     </action>
-    <action name='setup_music'>
+    <action name="setup_music">
 
   if((config.panos.pano[get(scene_name)].sound.url !== null AND config.panos.pano[get(scene_name)].sound.url != "") OR (config.panos.pano[get(scene_name)].voice.url !== null AND config.panos.pano[get(scene_name)].voice.url != ""),
 
@@ -4168,7 +3733,11 @@
     </action>
 
 
-    <action name='setup_sound'>
+
+
+
+
+    <action name="setup_sound">
 
   if(config.panos.pano[get(scene_name)].sound.url !== null AND config.panos.pano[get(scene_name)].sound.url != "",
 
@@ -4203,14 +3772,14 @@
     </action>
 
 
-    <action name='play_sound'>
+    <action name="play_sound">
   playsound(get(settings.sound_play_id),%1,0);
   set(current_sound_url,%1);
   set(settings.sound_playing,true);
   set(settings.sound_on,true);
   set(layer[sound_layer].crop,129|659|64|65);
     </action>
-    <action name='start_sound'>
+    <action name="start_sound">
     if(plugin[soundinterface] !== null,
       if(config.panos.pano[get(scene_name)].sound.url !== current_sound_url,
         play_sound(get(config.panos.pano[get(scene_name)].sound.url));
@@ -4222,7 +3791,7 @@
       set(layer[sound_layer].crop,129|659|64|65);
     );
     </action>
-    <action name='stop_sound'>
+    <action name="stop_sound">
   if(plugin[soundinterface] !== null,
     pausesound(get(settings.sound_play_id));
     set(settings.sound_playing,false);
@@ -4230,14 +3799,14 @@
     set(layer[sound_layer].crop,129|589|64|65);
   );
     </action>
-    <action name='pause_sound'>
+    <action name="pause_sound">
     if(settings.sound_playing == true AND plugin[soundinterface] !== null,
         pausesound(get(settings.sound_play_id));
         set(settings.sound_playing,false);
         set(layer[sound_layer].crop,129|589|64|65);
     );
     </action>
-    <action name='resume_sound'>
+    <action name="resume_sound">
     if(settings.sound_on == true AND settings.sound_playing == false AND plugin[soundinterface] !== null,
       if(config.panos.pano[get(scene_name)].sound.url !== null AND config.panos.pano[get(scene_name)].sound.url != "",
         if(config.panos.pano[get(scene_name)].sound.url !== current_sound_url,
@@ -4252,7 +3821,12 @@
     </action>
 
 
-    <action name='setup_voice'>
+
+
+
+
+
+    <action name="setup_voice">
 
   if(config.panos.pano[get(scene_name)].voice.url !== null AND config.panos.pano[get(scene_name)].voice.url != "",
 
@@ -4287,14 +3861,14 @@
     </action>
 
 
-    <action name='play_voice'>
+    <action name="play_voice">
   playsound(get(settings.voice_play_id),%1,1,pause_voice(););
   set(current_voice_url,%1);
   set(settings.voice_playing,true);
   set(settings.voice_on,true);
   set(layer[voice_layer].crop,194|659|64|65);
     </action>
-    <action name='start_voice'>
+    <action name="start_voice">
     if(plugin[soundinterface] !== null,
       if(config.panos.pano[get(scene_name)].voice.url !== current_voice_url,
         play_voice(get(config.panos.pano[get(scene_name)].voice.url));
@@ -4306,7 +3880,7 @@
       set(layer[voice_layer].crop,194|659|64|65);
     );
     </action>
-    <action name='stop_voice'>
+    <action name="stop_voice">
   if(plugin[soundinterface] !== null,
     pausesound(get(settings.voice_play_id));
     set(settings.voice_playing,false);
@@ -4314,14 +3888,14 @@
     set(layer[voice_layer].crop,194|589|64|65);
   );
     </action>
-    <action name='pause_voice'>
+    <action name="pause_voice">
     if(settings.voice_playing == true AND plugin[soundinterface] !== null,
         pausesound(get(settings.voice_play_id));
         set(settings.voice_playing,false);
         set(layer[voice_layer].crop,194|589|64|65);
     );
     </action>
-    <action name='resume_voice'>
+    <action name="resume_voice">
     if(settings.voice_on == true AND settings.voice_playing == false AND plugin[soundinterface] !== null,
       if(config.panos.pano[get(scene_name)].voice.url !== null AND config.panos.pano[get(scene_name)].voice.url != "",
         if(config.panos.pano[get(scene_name)].voice.url !== current_voice_url,
@@ -4336,7 +3910,7 @@
     </action>
 
 
-    <action name='setup_radar'>
+    <action name="setup_radar">
 
     if(config.panos.pano[get(scene_name)].radar.enabled == 1 OR config.panos.pano[get(scene_name)].radar.enable == 1,
 
@@ -4527,7 +4101,7 @@
 
 
     </action>
-    <action name='zoomRadar'>
+    <action name="zoomRadar">
 
       set(layer[radar_layer].bgalpha,0.5);
 
@@ -4598,7 +4172,7 @@
       pause_autoplay();
       hide_ui(1);
     </action>
-    <action name='toggleRadar'>
+    <action name="toggleRadar">
     set(layer[radar_layer].bgalpha,0);
     set(layer[radarImageClose].visible,false);
 
@@ -4664,7 +4238,7 @@
     </action>
 
 
-    <action name='setup_autotour'>
+    <action name="setup_autotour">
 
      if(config.autoTours.tour.point.count GT 0 ,
       set(autoTourPointIndex,0);
@@ -4768,7 +4342,7 @@
 
     </action>
 
-    <action name='autoTourStart'>
+    <action name="autoTourStart">
     set(isAutoTourPause,false);
     set(isAutoTouring,true);
 
@@ -4829,7 +4403,7 @@
     );
 
     </action>
-    <action name='autoTourResume'>
+    <action name="autoTourResume">
     set(isAutoTourPause,false);
     dec(autoTourPointIndex);
 
@@ -4854,7 +4428,7 @@
     );
 
     </action>
-    <action name='autoTourPlay'>
+    <action name="autoTourPlay">
 
     set(layer[autoTourPauseBtnContainer].enable,false);
     tween(layer[autoTourPauseBtnContainer].alpha,1.0,0.2,default,set(ayer[autoTourPauseBtnContainer].enable.true););
@@ -4903,7 +4477,7 @@
     );
 
     </action>
-    <action name='autoTourPause'>
+    <action name="autoTourPause">
 
     set(isAutoTourPause,true);
 
@@ -4920,7 +4494,7 @@
     set(control.usercontrol,all);
 
     </action>
-    <action name='autoTourEnd'>
+    <action name="autoTourEnd">
 
     set(isAutoTourPause,false);
     set(autoTourPointIndex,0);
@@ -4971,7 +4545,8 @@
     </action>
 
 
-    <action name='showComments'>
+
+    <action name="showComments">
     for(set(i,0),i LT hotspot.count,inc(i),
       if(hotspot[get(i)].isComment,
         set(hotspot[get(i)].visible,true);
@@ -5005,7 +4580,7 @@
     set(config.feature.show_comment,1);
 
     </action>
-    <action name='hideComments'>
+    <action name="hideComments">
 
     for(set(i,0),i LT hotspot.count,inc(i),
       if(hotspot[get(i)].isComment,
@@ -5025,7 +4600,7 @@
     set(config.feature.show_comment,0);
 
     </action>
-    <action name='addComment'>
+    <action name="addComment">
                                                      
 
     set(avatarUrl,%3);
@@ -5160,7 +4735,7 @@
         );
 
     </action>
-    <action name='removeComments'>
+    <action name="removeComments">
 
     for(set(i,0),i LT hotspot.count,inc(i),
       if(hotspot[get(i)].isComment,
@@ -5178,7 +4753,7 @@
 
     set(config.feature.show_comment,0);
     </action>
-    <action name='enterEditComment'>
+    <action name="enterEditComment">
 
                                         
 
@@ -5337,7 +4912,7 @@
 
 
     </action>
-    <action name='dragAddHotspot'>
+    <action name="dragAddHotspot">
     if(%1 != dragging,
       spheretoscreen(ath, atv, hotspotcenterx, hotspotcentery);
       sub(drag_adjustx, mouse.stagex, hotspotcenterx);
@@ -5367,7 +4942,7 @@
       );
     </action>
 
-    <action name='updateInputComment'> if(addCommentTextName!=null AND %1!=null,
+    <action name="updateInputComment"> if(addCommentTextName!=null AND %1!=null,
       set(layer[add_comment_text].html,%1);
       txtadd(comment_tooltip_width_search, %1,'_countend');
       indexoftxt(number_of_characters,get(comment_tooltip_width_search), '_countend',0);
@@ -5384,7 +4959,7 @@
       set(layer[add_comment_text].html,'');
     );
     </action>
-    <action name='exitEditComment'>
+    <action name="exitEditComment">
 
     removehotspot(add_hotspot_comment_bg_container);
     removelayer(add_hotspot_comment_mask);
@@ -5395,7 +4970,7 @@
     show_ui();
 
     </action>
-    <action name='show_pano_comments'>
+    <action name="show_pano_comments">
     if(config.feature.show_comment != 0,
       set(config.feature.show_comment,1);
       showComments();
@@ -5404,7 +4979,8 @@
     </action>
 
 
-    <action name='hide_vr_hotspot'>
+
+    <action name="hide_vr_hotspot">
 	if(webvr.isenabled == true,
 	  set(hotspotCount,get(config.panos.pano[get(xml.scene)].hotspots.hotspot.count));
 	  for(set(i,0),i LT hotspotCount,inc(i),
@@ -5425,7 +5001,7 @@
     </action>
 
 
-    <action name='show_vr_hotspot'>
+    <action name="show_vr_hotspot">
 	set(hotspotCount,get(config.panos.pano[get(xml.scene)].hotspots.hotspot.count));
   for(set(i,0),i LT hotspotCount,inc(i),
 		set(hotspotName,get(config.panos.pano[get(xml.scene)].hotspots.hotspot[get(i)].name));
@@ -5442,24 +5018,27 @@
     </action>
 
 
-    <plugin name='WebVR' devices='html5' keep='true' url='' onloaded='copy(webvr, plugin[WebVR]);' mousespeed='0.00125' multireslock='true' fullscreen_mirroring='true' mobilevr_support='true' mobilevr_ipd='63.5' mobilevr_screensize='auto' mobilevr_lens_overlap='1.0' mobilevr_lens_fov='96' mobilevr_lens_dist='0.6' mobilevr_lens_dist2='1|0|0|0' mobilevr_lens_ca='0.0' mobilevr_lens_vign='100' mobilevr_wakelock='true' mobilevr_sensor_mode='3' mobilevr_autocalibration='false' mobilevr_touch_support='true' mobilevr_fake_support='false' vr_cursor='hotspot[vr_cursor]' vr_cursor_enabled='true' vr_cursor_onover='if(handcursor, tween(hotspot[vr_cursor].scale,0.4,0.1); vr_auto_click(get(vr_timeout)); );' vr_cursor_onout='tween(hotspot[vr_cursor].scale,0.3,0.1);' onavailable='webvr_onavailable();' onunavailable='' onunknowndevice='webvr_onunknowndevice();' onentervr='webvr_onentervr();' onexitvr='webvr_onexitvr();' />
+    <plugin name="WebVR" devices="html5" keep="true" url="" onloaded="copy(webvr, plugin[WebVR]);" mousespeed="0.00125" multireslock="true" fullscreen_mirroring="true" mobilevr_support="true" mobilevr_ipd="63.5" mobilevr_screensize="auto" mobilevr_lens_overlap="1.0" mobilevr_lens_fov="96" mobilevr_lens_dist="0.6" mobilevr_lens_dist2="1|0|0|0" mobilevr_lens_ca="0.0" mobilevr_lens_vign="100" mobilevr_wakelock="true" mobilevr_sensor_mode="3" mobilevr_autocalibration="false" mobilevr_touch_support="true" mobilevr_fake_support="false" vr_cursor="hotspot[vr_cursor]" vr_cursor_enabled="true" vr_cursor_onover="if(handcursor, tween(hotspot[vr_cursor].scale,0.4,0.1); vr_auto_click(get(vr_timeout)); );" vr_cursor_onout="tween(hotspot[vr_cursor].scale,0.3,0.1);" onavailable="webvr_onavailable();" onunavailable="" onunknowndevice="webvr_onunknowndevice();" onentervr="webvr_onentervr();" onexitvr="webvr_onexitvr();" />
+
 
 
     <vrheadsets>
-        <headset name='cb1' caption='Cardboard A' overlap='1.10' fov='96.0' dist='1.00' dist2='1|0|0|0' ca='0.000' vig='100' />
-        <headset name='cb2' caption='Cardboard B' overlap='1.00' fov='96.0' dist='0.60' dist2='1|0|0|0' ca='0.000' vig='100' />
-        <headset name='gvr' caption='GearVR' overlap='1.00' fov='112.0' dist='0.95' dist2='1|0|0|0' ca='0.090' vig='100' />
-        <headset name='hom' caption='HOMiDO' overlap='1.00' fov='101.0' dist='1.10' dist2='1|0|0|0' ca='0.075' vig='100' />
-        <headset name='one' caption='VR ONE' overlap='1.00' fov='109.9' dist='0.00' dist2='1.139|0.093|0.018|0.207' ca='0.090' vig='35' />
-        <headset name='ccr' caption='ColorCross VR' overlap='1.00' fov='70.0' dist='0.65' dist2='1|0|0|0' ca='0.000' vig='100' />
-        <headset name='nod' caption='无畸变' overlap='1.00' fov='96.0' dist='0.00' dist2='1|0|0|0' ca='0.000' vig='100' />
+        <headset name="cb1" caption="Cardboard A" overlap="1.10" fov="96.0" dist="1.00" dist2="1|0|0|0" ca="0.000" vig="100" />
+        <headset name="cb2" caption="Cardboard B" overlap="1.00" fov="96.0" dist="0.60" dist2="1|0|0|0" ca="0.000" vig="100" />
+        <headset name="gvr" caption="GearVR" overlap="1.00" fov="112.0" dist="0.95" dist2="1|0|0|0" ca="0.090" vig="100" />
+        <headset name="hom" caption="HOMiDO" overlap="1.00" fov="101.0" dist="1.10" dist2="1|0|0|0" ca="0.075" vig="100" />
+        <headset name="one" caption="VR ONE" overlap="1.00" fov="109.9" dist="0.00" dist2="1.139|0.093|0.018|0.207" ca="0.090" vig="35" />
+        <headset name="ccr" caption="ColorCross VR" overlap="1.00" fov="70.0" dist="0.65" dist2="1|0|0|0" ca="0.000" vig="100" />
+        <headset name="nod" caption="无畸变" overlap="1.00" fov="96.0" dist="0.00" dist2="1|0|0|0" ca="0.000" vig="100" />
     </vrheadsets>
 
 
-    <hotspot name='vr_cursor' keep='true' url='krp/skin/webvr_cursor_80x80_17f.png' visible='false' enabled='false' distorted='true' crop='0|0|80|80' scale='0.3' depth='1000' />
+
+    <hotspot name="vr_cursor" keep="true" url="krp/skin/webvr_cursor_80x80_17f.png" visible="false" enabled="false" distorted="true" crop="0|0|80|80" scale="0.3" depth="1000" />
 
 
-    <action name='vr_auto_click'>
+
+    <action name="vr_auto_click">
 		if(webvr.isenabled,
 			if(%1 != null, set(vr_aclk_timeout, %1), set(vr_aclk_timeout, 2000));
 			copy(vr_aclk_t1, timertick);
@@ -5496,17 +5075,19 @@
     </action>
 
 
-    <events name='webvr_events' devices='html5' keep='true' onkeydown='if(webvr AND webvr.isenabled AND keycode==32, webvr.resetSensor() );' onmousedown='if(webvr AND webvr.isenabled, webvr_showbuttons() );' />
+
+    <events name="webvr_events" devices="html5" keep="true" onkeydown="if(webvr AND webvr.isenabled AND keycode==32, webvr.resetSensor() );" onmousedown="if(webvr AND webvr.isenabled, webvr_showbuttons() );" />
 
 
-    <action name='webvr_onavailable'>
+
+    <action name="webvr_onavailable">
 		webvr.loadsettings(local);
 		                                                                       
 		                    
     </action>
 
 
-    <action name='webvr_onunknowndevice'>
+    <action name="webvr_onunknowndevice">
 		if(webvr.isfake AND device.desktop AND webvr.havesettings == false,
 			                                                               
 			set(webvr.mobilevr_lens_overlap, 1.0);
@@ -5521,7 +5102,7 @@
     </action>
 
 
-    <action name='webvr_onentervr'>
+    <action name="webvr_onentervr">
 		tween(layer[webvr_enterbutton].alpha,0,0);
 
 		webvr_showbuttons();
@@ -5540,7 +5121,7 @@
     </action>
 
 
-    <action name='webvr_onexitvr'>
+    <action name="webvr_onexitvr">
 		stopdelayedcall(vr_button_fadeout);
 
 		tween(layer[webvr_enterbutton].alpha,1);
@@ -5557,7 +5138,7 @@
     </action>
 
 
-    <action name='webvr_hide_all_non_vr_layers'>
+    <action name="webvr_hide_all_non_vr_layers">
 		for(set(i,0), i LT layer.count, inc(i),
 			copy(lr, layer[get(i)]);
 			if(lr.vr !== true,
@@ -5567,7 +5148,7 @@
 		  );
     </action>
 
-    <action name='webvr_restore_layers'>
+    <action name="webvr_restore_layers">
 		for(set(i,0), i LT layer.count, inc(i),
 			copy(lr, layer[get(i)]);
 			if(lr.vr_backup_visible,
@@ -5577,7 +5158,7 @@
 		  );
     </action>
 
-    <action name='webvr_show_fakemode_info'>
+    <action name="webvr_show_fakemode_info">
 		if('%1' == 'true',
 			addlayer(webvr_fakemode_info);
 			set(layer[webvr_fakemode_info].url, 'krp/plugins/textfield.swf');
@@ -5593,19 +5174,21 @@
     </action>
 
 
-    <krpano webvr_setup_scale='calc:(1.0 + 1.0*(device.mobile AND stagescale LT 1.0)) / (1.0 + 1.0*device.mobile)' webvr_button_scale.normal='1.0' webvr_button_scale.mobile='1.6' />
+
+    <krpano webvr_setup_scale="calc:(1.0 + 1.0*(device.mobile AND stagescale LT 1.0)) / (1.0 + 1.0*device.mobile)" webvr_button_scale.normal="1.0" webvr_button_scale.mobile="1.6" />
 
 
-    <style name='webvr_button_style' url='calc:plugin_url.TEXT_SWF' backgroundcolor='0x000000' backgroundalpha='0.5' roundedge='calc:9*webvr_setup_scale*webvr_button_scale' css='calc:' color:#FFFFFF;font-size:' + 20*webvr_setup_scale*webvr_button_scale + ' px;'' padding='calc:6*webvr_setup_scale*webvr_button_scale + ' />
 
-    <layer name='webvr_enterbutton' keep='true' vr='true' style='webvr_button_style' html='进入VR模式' align='top' y='24' autoalpha='true' alpha='0.0' onclick='webvr.enterVR();' />
+    <style name="webvr_button_style" url="calc:plugin_url.TEXT_SWF" backgroundcolor="0x000000" backgroundalpha="0.5" roundedge="calc:9*webvr_setup_scale*webvr_button_scale" css="calc:'color:#FFFFFF;font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'" padding="calc:6*webvr_setup_scale*webvr_button_scale + ' ' + 10*webvr_setup_scale*webvr_button_scale" />
 
-    <layer name='webvr_exitbutton' keep='true' vr='true' style='webvr_button_style' html='退出VR模式' align='top' y='24' autoalpha='true' alpha='0.0' onclick='webvr.exitVR();' />
+    <layer name="webvr_enterbutton" keep="true" vr="true" style="webvr_button_style" html="进入VR模式" align="top" y="24" autoalpha="true" alpha="0.0" onclick="webvr.enterVR();" />
 
-    <layer name='webvr_setupbutton' keep='true' vr='true' style='webvr_button_style' html='VR模式设置' align='bottom' y='24' autoalpha='true' alpha='0.0' onclick='vr_setup()' />
+    <layer name="webvr_exitbutton" keep="true" vr="true" style="webvr_button_style" html="退出VR模式" align="top" y="24" autoalpha="true" alpha="0.0" onclick="webvr.exitVR();" />
+
+    <layer name="webvr_setupbutton" keep="true" vr="true" style="webvr_button_style" html="VR模式设置" align="bottom" y="24" autoalpha="true" alpha="0.0" onclick="vr_setup()" />
 
 
-    <action name='webvr_showbuttons'>
+    <action name="webvr_showbuttons">
 		stopdelayedcall(vr_button_fadeout);
 		if(webvr.ismobilevr,
 			tween(layer[webvr_exitbutton].alpha|layer[webvr_setupbutton].alpha, 1.0|1.0, 0.25);
@@ -5617,7 +5200,10 @@
     </action>
 
 
-    <action name='vr_setup'>
+
+
+
+    <action name="vr_setup">
 		                       
 		set(webvr.vr_cursor_enabled, false);
 
@@ -5805,7 +5391,7 @@
     </action>
 
 
-    <action name='vr_setup_createtext'>
+    <action name="vr_setup_createtext">
 		                                                                                                                                                               
 		addlayer(%1);
 		set(layer[%1].parent, get(vr_setup_text_parent));
@@ -5828,7 +5414,7 @@
     </action>
 
 
-    <action name='vr_setup_createbutton'>
+    <action name="vr_setup_createbutton">
 		vr_setup_createtext(%1,%2,%3,%4,%5,%6,%7,%8,%9);
 		set(layer[%1].css, calc('vertical-align:middle;text-align:center;color:%7;font-size:'+60*webvr_setup_scale+'px;font-weight:bold;'));
 		set(layer[%1].background, true);
@@ -5840,7 +5426,7 @@
     </action>
 
 
-    <action name='vr_setup_reset'>
+    <action name="vr_setup_reset">
 		                              
 		set(webvr.mobilevr_screensize, 'auto');
 		copy(i_screensize, webvr.devicesize);
@@ -5874,7 +5460,7 @@
     </action>
 
 
-    <action name='vr_setup_close'>
+    <action name="vr_setup_close">
 		                                                             
 		removelayer(vr_setup_bg, true);
 
@@ -5883,13 +5469,13 @@
     </action>
 
 
-    <action name='vr_setup_save'>
+    <action name="vr_setup_save">
 		webvr.saveSettings(local);
 		vr_setup_close();
     </action>
 
 
-    <action name='vr_setup_customize_headset'>
+    <action name="vr_setup_customize_headset">
 		set(layer[vr_setup_bg].bgalpha, 0.1);
 
 		set(layer[vr_setup_m1].visible,false);
@@ -5909,12 +5495,13 @@
     </action>
 
 
-    <action name='vr_setup_calibration'>
+
+    <action name="vr_setup_calibration">
 		set(layer[vr_setup_m1].visible,false);
 		set(layer[vr_setup_m2].visible,true);
     </action>
 
-    <action name='vr_setup_close_sub_menus'>
+    <action name="vr_setup_close_sub_menus">
 		set(layer[vr_setup_bg].bgalpha, 0.5);
 
 		set(layer[vr_setup_m1].visible,true);
@@ -5935,7 +5522,7 @@
 		  );
     </action>
 
-    <action name='vr_setup_do_calibration'>
+    <action name="vr_setup_do_calibration">
 		if(!webvr.isfake,
 			tween(layer[vr_setup_cb6].alpha, 1.0, 0.1);
 			tween(layer[vr_setup_cb7].alpha, 0.0, 0.1);
@@ -5952,12 +5539,12 @@
 		  );
     </action>
 
-    <action name='vr_setup_update_dist2'>
+    <action name="vr_setup_update_dist2">
 		txtadd(webvr.mobilevr_lens_dist2, get(i_dist2_k1), '|', calc(i_dist2_k2/10.0), '|', calc(i_dist2_k3/10.0), '|', calc(i_dist2_k4/10.0));
 		vr_setup_change_headset(0);
     </action>
 
-    <action name='vr_setup_select'>
+    <action name="vr_setup_select">
 		                                       
 		set(layer[vr_setup_siz2].background, false);
 		set(layer[vr_setup_ipd2].background, false);
@@ -6133,14 +5720,14 @@
     </action>
 
 
-    <action name='vr_setup_change_screen'>
+    <action name="vr_setup_change_screen">
 		set(layer[vr_setup_dvn2].html, 'Custom');
 		set(layer[vr_setup_dvn2].css, calc('color:#FFFFFF;font-size:'+40*webvr_setup_scale+'px;font-weight:bold;'));
 		set(layer[vr_setup_siz2].css, calc('color:#FFFFFF;font-size:'+40*webvr_setup_scale+'px;font-weight:bold;'));
     </action>
 
 
-    <action name='vr_setup_change_ondown'>
+    <action name="vr_setup_change_ondown">
 		copy(t0,timertick);
 		set(t1,0);
 		asyncloop(pressed,
@@ -6158,7 +5745,7 @@
     </action>
 
 
-    <action name='vr_setup_adjust'>
+    <action name="vr_setup_adjust">
 		if(selected_setting != null,
 			mul(change, selected_var_step, %1);
 			add(selected_var_value, change);
@@ -6172,7 +5759,7 @@
     </action>
 
 
-    <action name='vr_setup_change_headset'>
+    <action name="vr_setup_change_headset">
 		set(i_headset, 'Custom');
 		if(%1 != 0,
 			copy(i_fov, webvr.mobilevr_lens_fov);
@@ -6245,23 +5832,26 @@
     </action>
 
 
-    <plugin name='WebVR' keep='true' devices='html5' url='' multireslock.desktop='true' multireslock.mobile.or.tablet='false' mobilevr_support='true' mobilevr_fake_support='true' onavailable='removelayer(webvr_enterbutton); webvr_onavailable();' onunavailable='disable_vr();' onentervr='webvr_onentervr(); webvr_setup(); ' onexitvr='webvr_onexitvr(); webvr_setup(); ' />
 
 
-    <style name='webvr_button_style' border='false' roundedge='calc:1.0' backgroundcolor='0x2D3E50' backgroundalpha='0.8' shadow='0.01' shadowrange='10.0' shadowangle='90.0' shadowcolor='0x30261B' shadowalpha='0.50' css='calc:' color:#FFFFFF; font-family:Arial;' + ' color:#FFFFFF;font-size:' + 20*webvr_setup_scale*webvr_button_scale + ' px;'' />
+
+    <plugin name="WebVR" keep="true" devices="html5" url="" multireslock.desktop="true" multireslock.mobile.or.tablet="false" mobilevr_support="true" mobilevr_fake_support="true" onavailable="removelayer(webvr_enterbutton); webvr_onavailable();" onunavailable="disable_vr();" onentervr="webvr_onentervr(); webvr_setup(); " onexitvr="webvr_onexitvr(); webvr_setup(); " />
 
 
-    <layer name='webvr_rotate_to_landscape_request' keep='true' vr='true' devices='mobile' url='krp/skin/rotate_device_1.png' scale='0.5' align='top' edge='center' y='28%' autoalpha='true' alpha='0.0' enabled='false' />
+    <style name="webvr_button_style" border="false" roundedge="calc:1.0" backgroundcolor="0x2D3E50" backgroundalpha="0.8" shadow="0.01" shadowrange="10.0" shadowangle="90.0" shadowcolor="0x30261B" shadowalpha="0.50" css="calc:'color:#FFFFFF; font-family:Arial;' + ' color:#FFFFFF;font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'" />
 
-    <events name='webvr_events' keep='true' devices='html5' onxmlcomplete='webvr_set_startup_view()' onresize.mobile='webvr_act_as_gyro_in_portrait_mode();' onloadcomplete='delayedcall(0.5, if(webvr.isenabled AND scene.count GT 1 , set(hotspot[webvr_prev_scene].visible,true); set(hotspot[webvr_next_scene].visible,true); ); );' onviewchange='' />
 
-    <action name='webvr_set_startup_view'>
+    <layer name="webvr_rotate_to_landscape_request" keep="true" vr="true" devices="mobile" url="krp/skin/rotate_device_1.png" scale="0.5" align="top" edge="center" y="28%" autoalpha="true" alpha="0.0" enabled="false" />
+
+    <events name="webvr_events" keep="true" devices="html5" onxmlcomplete="webvr_set_startup_view()" onresize.mobile="webvr_act_as_gyro_in_portrait_mode();" onloadcomplete="delayedcall(0.5, if(webvr.isenabled AND scene.count GT 1 , set(hotspot[webvr_prev_scene].visible,true); set(hotspot[webvr_next_scene].visible,true); ); );" onviewchange="" />
+
+    <action name="webvr_set_startup_view">
 			if((webvr.isenabled OR plugin[skin_gyro].enabled) ,
 				skin_lookat( get(xml.view.hlookat) );
 			  );
     </action>
 
-    <action name='webvr_setup'>
+    <action name="webvr_setup">
 			if(webvr.isenabled,
 			                                                                                                                                                                                                                       
 				copy(loadscene_flags_backup, MERGE);
@@ -6281,7 +5871,7 @@
 			  );
     </action>
 
-    <action name='webvr_act_as_gyro_in_portrait_mode'>
+    <action name="webvr_act_as_gyro_in_portrait_mode">
 			if(device.mobile AND webvr.isenabled,
 				div(aspect, stagewidth, stageheight);
 				if(aspect != lastaspect OR '%1' == 'true',
@@ -6307,11 +5897,11 @@
     </action>
 
 
-    <style name='webvr_menu_style' depth='800' scale='0.5' distorted='true' ath='0' atv='45' alpha='0.5' />
+    <style name="webvr_menu_style" depth="800" scale="0.5" distorted="true" ath="0" atv="45" alpha="0.5" />
 
 
-    <action name='webvr_menu_following' type='Javascript' devices='html5'>
-        <![CDATA[
+
+    <action name="webvr_menu_following" type="Javascript" devices="html5"><![CDATA[
 			var hs1 = krpano.get("hotspot[webvr_prev_scene]");
 			var hs2 = krpano.get("hotspot[webvr_next_scene]");
 			if(!hs1.hovering && !hs2.hovering)
@@ -6335,8 +5925,10 @@
 				hs1.atv = hs2.atv = hsv;
 				hs1.alpha = hs2.alpha = a;
 			}
-		]]>
-    </action>
+		]]>    </action>
+
+
+
 
 
 </krpano>
