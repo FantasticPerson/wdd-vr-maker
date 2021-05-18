@@ -16,7 +16,6 @@ export function builder(data) {
 }
 
 export function getPanoXml(data) {
-	console.log("getPanoXml");
 	const krpano = xmlBuilder.create("krpano");
 	krpano.att("version", Common.KR_VERSION);
 
@@ -131,8 +130,6 @@ function getSceneXmlData(pano, krpano) {
 		image.att("tilesize", "512");
 	}
 
-	console.log(pano);
-
 	for (let i = 0; i < (pano.scene.mutiInfos || []).length; i++) {
 		let multiItem = pano.scene.mutiInfos[i];
 		const level = image.ele("level");
@@ -223,7 +220,6 @@ function panosXmlData(productData, config) {
 			const info = panoElement.ele("info");
 			info.att("pano_id", pano.scene.id);
 			info.att("title", pano.scene.name);
-			console.log(pano.scene);
 			const view = panoElement.ele("view");
 			view.att("hloolat", pano.scene.hlookat || 0);
 			view.att("vloolat", pano.scene.vlookat || 0);
@@ -238,11 +234,8 @@ function panosXmlData(productData, config) {
 			view.att("autorotatekeepview", 0);
 			view.att("loadscenekeepview", 0);
 
-			let startImagePc = panoElement.ele("start_image_pc");
-			let startImageMobile = panoElement.ele("start_image_mobile");
-
-			// startImagePc.att("url", `./scene_${pano.scene.id}/thumb.jpg`);
-			// startImageMobile.att("url", `./scene_${pano.scene.id}/thumb.jpg`);
+			panoElement.ele("start_image_pc");
+			panoElement.ele("start_image_mobile");
 
 			const hotspots = panoElement.ele("hotspots");
 
@@ -267,7 +260,6 @@ function panosXmlData(productData, config) {
 				hotspot.att("show_txt", actionObj.check ? 1 : 0);
 				hotspot.att("keep_view", 0);
 
-				console.log(actionObj);
 				switch (actionObj.type) {
 					case "switch":
 						hotspot.att("type", 0);

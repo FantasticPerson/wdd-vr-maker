@@ -35,8 +35,6 @@ export default function createPano(src) {
 		if (!fs.existsSync(cPTmep)) {
 			fs.mkdirSync(cPTmep);
 		}
-		console.log(publicPath);
-
 		let isDev = window.NODE_ENV == "dev";
 		let batPath = path.resolve(publicPath, "../../krpano-1.19/MAKE PANO (MULTIRES) droplet.bat");
 		if (isDev) {
@@ -44,13 +42,10 @@ export default function createPano(src) {
 		}
 
 		let dest = path.resolve(cPTmep, "./origin.jpg");
-		// fs.createReadStream(src).pipe(fs.createWriteStream(dest));
 		fse.copySync(src, dest);
 		fse.removeSync(path.resolve(cPTmep, "./origin"));
 		let tool = getPanoTool();
 		let originPath = path.resolve(cPTmep, "./origin.jpg");
-		console.log(window.NODE_ENV);
-		// let cmd = spawn(tool, ["sphere2cube", "cube", `${originPath}`, `${cPTmep}/mobile`]);
 		let cmd2 = spawn(tool, ["makepreview", `${originPath}`]);
 		let multiInfos = [];
 		const promise1 = new Promise((resolve, reject) => {
@@ -72,8 +67,6 @@ export default function createPano(src) {
 			bat.on("exit", (code) => {
 				console.log(`Child exited with code ${code}`);
 				if (code == 0) {
-					console.log(multiInfos);
-					// fse.copySync(path.resolve(devPath, "./origin"), path.resolve(devPath, "./origin2"));
 					resolve(multiInfos);
 				} else {
 					reject(code);
@@ -81,15 +74,8 @@ export default function createPano(src) {
 			});
 		});
 
-		// let cmd1Promise = execCMD(cmd, 1);
 		let cmd2Promise = new Promise((resolve) => {
 			execCMD(cmd2, 2).then((_) => {
-				let previewPath = getTmpPreviewPath();
-				// let writeStream = fs.createWriteStream(previewPath);
-				// gm(previewPath)
-				// 	.resize("512", "512")
-				// 	.stream()
-				// 	.pipe(writeStream);
 				resolve();
 			});
 		});

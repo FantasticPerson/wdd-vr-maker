@@ -58,7 +58,6 @@ export default class CreateVrModal extends Component {
         let res = await openFolder(["openFile"], [{ name: "Images", extensions: ["jpg", "png", "gif"] }]);
         if (res && res[0]) {
             let path = await checkVrCoverValid(res[0]);
-            console.log(copyImagaToTmpImage);
             let name = await copyImagaToTmpImage(path);
             this.setState({ tmpImgStatus: true, imgName: name });
         }

@@ -14,7 +14,8 @@
         "pack": "electron-builder",
         "copy:electron": "cp -r ./app/. ./build",
         "build:win": " set NODE_ENV=production&& npm run build:react-copy && node fixBuild.js && npm run pack:win",
-        "pack:win": "electron-builder --win",
+        "copy:tool": "cp -r ./public/tools/krpano-1.19 ./dist/win-unpacked/resources",
+        "pack:win": "electron-builder --win && npm run copy:tool",
         "test": "react-app-rewired test --env=jsdom",
         "postinstall": "electron-builder install-app-deps"
     },

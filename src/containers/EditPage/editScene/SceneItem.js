@@ -10,7 +10,6 @@ class Sceneitemspe extends Component {
     }
 
     componentDidMount() {
-        // console.log(this);
     }
 
     onDrag(event) {

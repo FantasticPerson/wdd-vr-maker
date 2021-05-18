@@ -44,11 +44,6 @@ export default class CreateScenes extends Component {
 			this.setState({ isLoading: true, totalNum: res.length });
 			for (let i = 0; i < res.length; i++) {
 				let mutiInfos = await createPano(res[i]);
-				// console.log(err);
-				// if (err) {
-				//     alert("上传失败");
-				//     return;
-				// }
 				let sArr = res[i].split("\\");
 				let picName = sArr[sArr.length - 1];
 				let picNameArr = picName.split(".");
@@ -57,20 +52,14 @@ export default class CreateScenes extends Component {
 				await copyImageToScene(getScenePath(sceneId));
 				await Timer(800);
 				await addScene({ id: sceneId, vrid: vrId, name: picNameArr[0] || "默认", groupId, mutiInfos: mutiInfos[0] });
-				// ids.push0(sceneId);
 				ids.push(sceneId);
 				let newGroupItem = { ...groupItem, sceneListIds: ids };
 				updateGroup(newGroupItem);
 			}
-			// let selectIds = groupItem.sceneListIds || [];
-			// let newGroupItem = { ...groupItem, sceneListIds: [...selectIds, ...ids] };
-			// updateGroup(newGroupItem);
-			// alert("上传完成");
 			this.onCancelClick(true);
 		} else if (res == undefined) {
 			this.onCancelClick();
 		} else {
-			// alert("上传失败");
 			this.onCancelClick();
 		}
 	}

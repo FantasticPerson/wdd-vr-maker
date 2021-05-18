@@ -177,14 +177,8 @@ class EditSceneContainer extends Component {
 				updateSceneSelected,
 			};
 			const { groupList, allSceneList, groupSelectId } = this.props;
-			// let groupSceneList = allSceneList.filter((item) => {
-			//     return item.groupId == contextGroupData.id;
-			// });
-			// let canDelete = groupSceneList.length > 0 ? false : true;
-			console.log(contextGroupData);
 			let ids = contextGroupData.sceneListIds || [];
 			let canDelete = true;
-			console.log(ids);
 			if (ids.length > 0) {
 				canDelete = false;
 			}
