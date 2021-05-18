@@ -43,11 +43,10 @@ export function getPanoXml(data) {
 			image.att("tilesize", "512");
 		}
 
-		console.log(data);
-		for (let i = (data.sceneItem.mutiInfos || []).length - 1; i >= 0; i--) {
+		for (let i = 0; i < (data.sceneItem.mutiInfos || []).length; i++) {
 			const level = image.ele("level");
-			level.att("tiledimagewidth", data.sceneItem.mutiInfos[i].width);
-			level.att("tiledimageheight", data.sceneItem.mutiInfos[i].height);
+			level.att("tiledimagewidth", data.sceneItem.mutiInfos[data.sceneItem.mutiInfos.length - i - 1].width);
+			level.att("tiledimageheight", data.sceneItem.mutiInfos[data.sceneItem.mutiInfos.length - i - 1].height);
 
 			const cube = level.ele("cube");
 			cube.att("url", `${data.scenePath}/%s/l${data.sceneItem.mutiInfos[i].level}/%v/l${data.sceneItem.mutiInfos[i].level}_%s_%v_%h.jpg`);
@@ -134,14 +133,14 @@ function getSceneXmlData(pano, krpano) {
 
 	console.log(pano);
 
-	for (let i = (pano.scene.mutiInfos || []).length - 1; i >= 0; i--) {
+	for (let i = 0; i < (pano.scene.mutiInfos || []).length; i++) {
 		let multiItem = pano.scene.mutiInfos[i];
 		const level = image.ele("level");
 		level.att("tiledimagewidth", multiItem.width);
 		level.att("tiledimageheight", multiItem.height);
 
 		const cube = level.ele("cube");
-		cube.att("url", `./scene_${pano.scene.id}/%s/l${multiItem.level}/%v/l${multiItem.level}_%s_%v_%h.jpg`);
+		cube.att("url", `./scene_${pano.scene.id}/%s/l${pano.scene.mutiInfos[pano.scene.mutiInfos.length - i - 1].level}/%v/l${pano.scene.mutiInfos[pano.scene.mutiInfos.length - i - 1].level}_%s_%v_%h.jpg`);
 	}
 
 	for (let i = 0; i < pano.hotspots.length; i++) {
@@ -239,8 +238,11 @@ function panosXmlData(productData, config) {
 			view.att("autorotatekeepview", 0);
 			view.att("loadscenekeepview", 0);
 
-			panoElement.ele("start_image_pc");
-			panoElement.ele("start_image_mobile");
+			let startImagePc = panoElement.ele("start_image_pc");
+			let startImageMobile = panoElement.ele("start_image_mobile");
+
+			// startImagePc.att("url", `./scene_${pano.scene.id}/thumb.jpg`);
+			// startImageMobile.att("url", `./scene_${pano.scene.id}/thumb.jpg`);
 
 			const hotspots = panoElement.ele("hotspots");
 
