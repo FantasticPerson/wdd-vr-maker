@@ -8,8 +8,8 @@ export const dUpdateAllVr = createAction("update_all_vr");
 export function updateVrByFolderId(fId = null) {
 	return (dispatch, getState) => {
 		let id = fId == null ? getState().folder.selectId : fId;
-		Modals.Vr.findByFolderId(id).then(list => {
-            list.sort((item1, item2) => item1.timestamp > item2.timestamp);
+		Modals.Vr.findByFolderId(id).then((list) => {
+			list.sort((item1, item2) => item1.timestamp > item2.timestamp);
 			dispatch(dUpdateAllVr(list));
 		});
 	};
@@ -17,7 +17,7 @@ export function updateVrByFolderId(fId = null) {
 
 export function addMusic(vrId, music1, music2) {
 	return (dispatch, getState) => {
-		let vrItem = getState().vr.list.find(item => item.id == vrId);
+		let vrItem = getState().vr.list.find((item) => item.id == vrId);
 		if (vrItem) {
 			vrItem.music1 = music1;
 			vrItem.music2 = music2;
@@ -37,8 +37,20 @@ export function addVr(vrObj) {
 	};
 }
 
+export function updateVrForeImage(vrId, obj) {
+	return (dispatch, getState) => {
+		let vrItem = getState().vr.list.find((item) => item.id == vrId);
+		if (vrItem) {
+			vrItem = { ...vrItem, ...obj };
+			Modals.Vr.update({ ...vrItem, state: VrStateConstants.VR_STATE_UNSAVED }).then(() => {
+				dispatch(updateVrByFolderId());
+			});
+		}
+	};
+}
+
 export function delVr(vrObj) {
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Vr.delete(vrObj.id).then(() => {
 			dispatch(updateVrByFolderId());
 		});
@@ -46,7 +58,7 @@ export function delVr(vrObj) {
 }
 
 export function modifyVr(vrObj) {
-	return dispatch => {
+	return (dispatch) => {
 		Modals.Vr.update({ ...vrObj, state: VrStateConstants.VR_STATE_SAVED }).then(() => {
 			dispatch(updateVrByFolderId());
 		});

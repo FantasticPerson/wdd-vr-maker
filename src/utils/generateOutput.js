@@ -24,6 +24,12 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 	let audioArr = [];
 	let videoArr = [];
 	let medias = [];
+	if (vrItem.foreImageMobile) {
+		picArr.push(vrItem.foreImageMobile.name);
+	}
+	if (vrItem.foreImagePC) {
+		picArr.push(vrItem.foreImagePC.name);
+	}
 	for (let i = 0; i < allSceneList.length; i++) {
 		scenePathArr.push(allSceneList[i].id);
 	}
@@ -91,6 +97,11 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 		let scene = allSceneList[i];
 		let srcPath = getScenePath(scene.id);
 		let destPath = path.resolve(vrPath, `./scene_${scene.id}`);
+		let fPath = path.resolve(srcPath, "./b");
+
+		let mutisLength = fs.readdirSync(fPath).length;
+		scene.multiLength = mutisLength;
+		console.log(mutisLength);
 		if (!fs.existsSync(destPath)) {
 			fs.mkdirSync(destPath);
 		}
@@ -153,7 +164,9 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
 	const template = swig.compileFile(path.resolve(electron_app_root_path, window.NODE_ENV == "prod" ? "../app.asar/build/pano.html" : "../public/pano.html"));
 
-	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title }));
+	let foreImagePCPath = vrItem.foreImagePC ? `./picture/${vrItem.foreImagePC.name}` : "";
+	let foreImageMobile = vrItem.foreImageMobile ? `./picture/${vrItem.foreImageMobile.name}` : "";
+	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title, foreImagePCPath, foreImageMobile }));
 
 	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./api_export_jiemi.xml"), path.resolve(vrPath, "./api_export.xml"));
 

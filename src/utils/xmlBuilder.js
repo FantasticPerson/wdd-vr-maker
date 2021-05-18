@@ -1,4 +1,5 @@
 import Common from "../utils/common";
+const path = window.native_require("path");
 const xmlBuilder = require("xmlbuilder");
 
 export function builder(data) {
@@ -15,6 +16,7 @@ export function builder(data) {
 }
 
 export function getPanoXml(data) {
+	console.log("getPanoXml");
 	const krpano = xmlBuilder.create("krpano");
 	krpano.att("version", Common.KR_VERSION);
 
@@ -30,31 +32,27 @@ export function getPanoXml(data) {
 	view.att("fovmin", 70);
 	view.att("fovmax", 140);
 	view.att("limitview", "lookat");
+	if (data.sceneItem) {
+		const image = scene.ele("image");
+		image.att("type", "CUBE");
 
-	const image = scene.ele("image");
-	image.att("type", "CUBE");
+		image.att("multires", "true");
+		if ((data.sceneItem.athmutiInfos || [])[0]) {
+			image.att("tilesize", data.sceneItem.mutiInfos[0].size);
+		} else {
+			image.att("tilesize", "512");
+		}
 
-	image.att("multires", "true");
-	image.att("tilesize", "512");
+		console.log(data);
+		for (let i = (data.sceneItem.mutiInfos || []).length - 1; i >= 0; i--) {
+			const level = image.ele("level");
+			level.att("tiledimagewidth", data.sceneItem.mutiInfos[i].width);
+			level.att("tiledimageheight", data.sceneItem.mutiInfos[i].height);
 
-	const level = image.ele("level");
-	level.att("tiledimagewidth", "3200");
-	level.att("tiledimageheight", "3200");
-	const cube = level.ele("cube");
-	cube.attribute("url", `${data.scenePath}/%s/l3/%v/l3_%s_%v_%h.jpg`);
-
-	const level1 = image.ele("level");
-	level1.att("tiledimagewidth", "1536");
-	level1.att("tiledimageheight", "1536");
-	const cube1 = level1.ele("cube");
-	cube1.attribute("url", `${data.scenePath}/%s/l2/%v/l2_%s_%v_%h.jpg`);
-
-	const level2 = image.ele("level");
-	level2.att("tiledimagewidth", "768");
-	level2.att("tiledimageheight", "768");
-	const cube2 = level2.ele("cube");
-	cube2.attribute("url", `${data.scenePath}/%s/l1/%v/l1_%s_%v_%h.jpg`);
-
+			const cube = level.ele("cube");
+			cube.att("url", `${data.scenePath}/%s/l${data.sceneItem.mutiInfos[i].level}/%v/l${data.sceneItem.mutiInfos[i].level}_%s_%v_%h.jpg`);
+		}
+	}
 	return krpano.doc().end();
 }
 
@@ -100,15 +98,6 @@ function krpanoData(vrItem, sceneList, hotpotList, groupList, allSceneList) {
 				scenes.push(sItem);
 			}
 		});
-		// let sArr = allSceneList.filter((item) => {
-		// 	return item.groupId == groupList[i].id;
-		// });
-		// let ids = groupList[i].sceneListIds || [];
-		// sArr.sort((a, b) => {
-		// 	let index1 = ids.indexOf(a.id);
-		// 	let index2 = ids.indexOf(b.id);
-		// 	return index1 - index2;
-		// });
 		if (scenes.length > 0) {
 			for (let j = 0; j < scenes.length; j++) {
 				let hotspots = getHotspotList(hotpotList, scenes[j].id);
@@ -137,24 +126,23 @@ function getSceneXmlData(pano, krpano) {
 	const image = scene.ele("image");
 	image.att("type", "CUBE");
 	image.att("multires", true);
-	image.att("tilesize", 512);
-	const level = image.ele("level");
-	level.att("tiledimagewidth", "3200");
-	level.att("tiledimageheight", "3200");
-	const cube = level.ele("cube");
-	cube.attribute("url", `./scene_${pano.scene.id}/%s/l3/%v/l3_%s_%v_%h.jpg`);
+	if ((pano.scene.mutiInfos || [])[0]) {
+		image.att("tilesize", pano.scene.mutiInfos[0].size);
+	} else {
+		image.att("tilesize", "512");
+	}
 
-	const level1 = image.ele("level");
-	level1.att("tiledimagewidth", "1536");
-	level1.att("tiledimageheight", "1536");
-	const cube1 = level1.ele("cube");
-	cube1.attribute("url", `./scene_${pano.scene.id}/%s/l2/%v/l2_%s_%v_%h.jpg`);
+	console.log(pano);
 
-	const level2 = image.ele("level");
-	level2.att("tiledimagewidth", "768");
-	level2.att("tiledimageheight", "768");
-	const cube2 = level2.ele("cube");
-	cube2.attribute("url", `./scene_${pano.scene.id}/%s/l1/%v/l1_%s_%v_%h.jpg`);
+	for (let i = (pano.scene.mutiInfos || []).length - 1; i >= 0; i--) {
+		let multiItem = pano.scene.mutiInfos[i];
+		const level = image.ele("level");
+		level.att("tiledimagewidth", multiItem.width);
+		level.att("tiledimageheight", multiItem.height);
+
+		const cube = level.ele("cube");
+		cube.att("url", `./scene_${pano.scene.id}/%s/l${multiItem.level}/%v/l${multiItem.level}_%s_%v_%h.jpg`);
+	}
 
 	for (let i = 0; i < pano.hotspots.length; i++) {
 		const hotspot = scene.ele("hotspot");
