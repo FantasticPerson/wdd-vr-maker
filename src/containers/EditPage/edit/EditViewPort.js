@@ -24,6 +24,7 @@ const getSceneObjData = (sceneObj, obj) => {
 	if (sceneObj.vlookatmin != undefined) {
 		newStateObj.min1 = sceneObj.vlookatmin;
 	}
+	console.log(newStateObj);
 	return newStateObj;
 };
 
@@ -38,11 +39,12 @@ class EditViewPort extends Component {
 			min1: -90,
 			tip: {
 				open: false,
-				message: ""
-			}
+				message: "",
+			},
 		};
 
 		this._mounted = false;
+		this._hasSave = false;
 	}
 
 	componentDidMount() {
@@ -58,6 +60,15 @@ class EditViewPort extends Component {
 	}
 
 	componentWillReceiveProps(props, state) {
+		if (this._hasSave) {
+			this._hasSave = false;
+			let newStateObj = getSceneObjData(props.sceneSelectedItem);
+			Timer(100).then(() => {
+				if (this._mounted) {
+					this.setState(newStateObj);
+				}
+			});
+		}
 		if (props.sceneSelected != this.props.sceneSelected) {
 			if (props.sceneSelectedItem) {
 				let newStateObj = getSceneObjData(props.sceneSelectedItem);
@@ -78,8 +89,8 @@ class EditViewPort extends Component {
 		this.setState({
 			tip: {
 				open: true,
-				message: message
-			}
+				message: message,
+			},
 		});
 		Timer(1000).then(() => {
 			this.setState({ tip: { open: false } });
@@ -125,13 +136,14 @@ class EditViewPort extends Component {
 		const { max, min, start, min1, max1 } = this.state;
 		const { krpano } = this.props;
 		if (krpano) {
+			krpano.set("view.fov", start);
+
 			if (min > krpano.get("view.fov")) {
 				krpano.set("view.fov", min);
 			}
 			if (max < krpano.get("view.fov")) {
 				krpano.set("view.fov", max);
 			}
-			krpano.set("view.fov", start);
 			krpano.set("view.fovmin", min);
 			krpano.set("view.fovmax", max);
 			krpano.set("view.vlookatmin", min1);
@@ -149,12 +161,14 @@ class EditViewPort extends Component {
 		const { updateViewRange, sceneSelected } = this.props;
 		const { max, min, start, max1, min1 } = this.state;
 		updateViewRange(sceneSelected, start, max, min, min1, max1);
+		console.log("onConfirmToKrpano", start);
 		this.showTip("视角设置保存成功");
 	}
 
 	setViewPort() {
 		const { updateInitViewPort, sceneSelected } = this.props;
 		updateInitViewPort(sceneSelected);
+		this._hasSave = true;
 	}
 
 	render() {
@@ -165,7 +179,7 @@ class EditViewPort extends Component {
 			marginBottom: 10,
 			paddingBottom: 10,
 			marginTop: 10,
-			display: "block"
+			display: "block",
 		};
 		let conStyle = {
 			border: "2px solid #eee",
@@ -173,13 +187,13 @@ class EditViewPort extends Component {
 			marginBottom: 10,
 			borderRadius: 5,
 			marginTop: 10,
-			marginBottom: 10
+			marginBottom: 10,
 		};
 		return (
 			<div style={{ padding: "5px" }}>
 				<div style={{ borderBottom: "1px solid #eee", paddingBottom: "10px" }}>
 					<span>
-						<i className="fa fa-eye"></i>
+						<i className='fa fa-eye'></i>
 						<span style={{ marginLeft: "5px" }}>视角</span>
 					</span>
 				</div>
@@ -187,19 +201,19 @@ class EditViewPort extends Component {
 					<div style={{ margin: "5px" }}>
 						<span style={titleStyle}>视角范围设置</span>
 						<div>
-							<Typography style={{ display: "inline-block" }} id="label">
+							<Typography style={{ display: "inline-block" }} id='label'>
 								最小值
 							</Typography>
 							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMinChange.bind(this)} value={min}></Slider>
 						</div>
 						<div>
-							<Typography style={{ display: "inline-block" }} id="label">
+							<Typography style={{ display: "inline-block" }} id='label'>
 								最大值
 							</Typography>
 							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onMaxChange.bind(this)} value={max}></Slider>
 						</div>
 						<div>
-							<Typography style={{ display: "inline-block" }} id="label">
+							<Typography style={{ display: "inline-block" }} id='label'>
 								初始值
 							</Typography>
 							<Slider style={SliderStyle} max={155} min={-5} onChange={this.onStartChange.bind(this)} value={start}></Slider>
@@ -208,30 +222,30 @@ class EditViewPort extends Component {
 					<div style={{ margin: "5px" }}>
 						<span style={titleStyle}>垂直视角限制</span>
 						<div>
-							<Typography style={{ display: "inline-block" }} id="label">
+							<Typography style={{ display: "inline-block" }} id='label'>
 								最小值
 							</Typography>
 							<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMin1Change.bind(this)} value={min1}></Slider>
 						</div>
 						<div>
-							<Typography style={{ display: "inline-block" }} id="label">
+							<Typography style={{ display: "inline-block" }} id='label'>
 								最大值
 							</Typography>
 							<Slider style={SliderStyle} max={90} min={-90} onChange={this.onMax1Change.bind(this)} value={max1}></Slider>
 						</div>
 					</div>
 					<div>
-						<Button color="primary" variant="contained" onClick={this.onApplyToKarpano.bind(this)}>
+						<Button color='primary' variant='contained' onClick={this.onApplyToKarpano.bind(this)}>
 							应用查看效果
 						</Button>
 					</div>
 					<div>
-						<Button color="primary" variant="contained" onClick={this.setViewPort.bind(this)} style={{ marginTop: "10px", width: "100%" }}>
+						<Button color='primary' variant='contained' onClick={this.setViewPort.bind(this)} style={{ marginTop: "10px", width: "100%" }}>
 							将当前视角设置为初始视角
 						</Button>
 					</div>
 				</div>
-				<Button color="primary" variant="contained" style={{ float: "right" }} onClick={this.onConfirmToKrpano.bind(this)}>
+				<Button color='primary' variant='contained' style={{ float: "right" }} onClick={this.onConfirmToKrpano.bind(this)}>
 					保存
 				</Button>
 				<Snackbar anchorOrigin={{ vertical: "top", horizontal: "center" }} open={tip.open} message={tip.message} />
@@ -242,7 +256,7 @@ class EditViewPort extends Component {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		...bindActionCreators(sceneActions, dispatch)
+		...bindActionCreators(sceneActions, dispatch),
 	};
 }
 
@@ -250,7 +264,7 @@ export default connect(
 	getSelector({
 		krpano: true,
 		sceneSelected: true,
-		sceneSelectedItem: true
+		sceneSelectedItem: true,
 	}),
 	mapDispatchToProps
 )(EditViewPort);

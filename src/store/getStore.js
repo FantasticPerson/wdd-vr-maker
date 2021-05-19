@@ -28,6 +28,7 @@ export const editMusicConfig = {
 	sceneSelected: true,
 	sceneSelectedItem: true,
 	sceneList: true,
+	krpano: true,
 };
 
 export function getSelector(config) {

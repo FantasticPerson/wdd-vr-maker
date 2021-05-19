@@ -56,13 +56,14 @@ export function updateInitViewPort(sceneId) {
 		let krpano = getState().krpano.obj;
 		let sceneList = getState().scene.list;
 		let sceneItem = sceneList.find((item) => item.id == sceneId);
-
 		if (krpano && sceneItem) {
 			var hAov = krpano.get("view.hlookat");
 			var vAov = krpano.get("view.vlookat");
+			var fov = krpano.get("view.fov");
 
 			sceneItem.vlookat = vAov;
 			sceneItem.hlookat = hAov;
+			sceneItem.fov = fov;
 
 			Modals.Scene.update(sceneItem).then(() => {
 				dispatch(updateDAllScene());

@@ -4,7 +4,7 @@ import { addRainEffect, addSnowEffect, addSunlightToKrpano, removeSunlightFromKr
 export const dUpdateKrpano = createAction("update_krpano");
 
 export function updateKrpano(krpano) {
-	return dispatch => {
+	return (dispatch) => {
 		dispatch(dUpdateKrpano(krpano));
 	};
 }
@@ -36,6 +36,24 @@ export function RemoveSunlight() {
 		var krpano = getState().krpano.obj;
 		if (krpano) {
 			removeSunlightFromKrpano(krpano);
+		}
+	};
+}
+
+export function updateViewPort(id) {
+    return (dispatch, getState) => {
+        console.log(id)
+		let sceneList = getState().scene.list;
+		var krpano = getState().krpano.obj;
+        console.log(sceneList)
+		let sceneItem = sceneList.find((item) => item.id == id);
+		console.log(sceneItem);
+		console.log(krpano);
+		if (sceneItem && krpano) {
+			console.log("updateViewPort");
+			krpano.set("view.hlookat", sceneItem.hlookat || 0);
+			krpano.set("view.vlookat", sceneItem.vlookat || 0);
+			krpano.set("view.fov", sceneItem.fov || 75);
 		}
 	};
 }

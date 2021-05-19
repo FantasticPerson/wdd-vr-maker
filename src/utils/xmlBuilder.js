@@ -221,8 +221,9 @@ function panosXmlData(productData, config) {
 			info.att("pano_id", pano.scene.id);
 			info.att("title", pano.scene.name);
 			const view = panoElement.ele("view");
-			view.att("hloolat", pano.scene.hlookat || 0);
-			view.att("vloolat", pano.scene.vlookat || 0);
+            console.log(JSON.stringify(pano.scene))
+			view.att("hlookat", pano.scene.hlookat || 0);
+			view.att("vlookat", pano.scene.vlookat || 0);
 			view.att("fov", pano.scene.fov || 75);
 			view.att("fovtype", "MFOV");
 			view.att("maxpixelzoom", 2.0);
