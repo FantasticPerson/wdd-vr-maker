@@ -1,22 +1,74 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" type="image/png" href="http://static-qiniu.720static.com/favicon.ico"/>
-    <title>{{ title }}</title>
-    <style>
-      @-ms-viewport { width:device-width; }
-      @media only screen and (min-device-width:800px) { html { overflow:hidden; } }
-      html { height:100%; }
-      body { height:100%; overflow:hidden; margin:0; padding:0; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src='./krpano.js'></script>
-    <script src='./offline.js'></script>
-    <script src='./viewer.js'></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>{{ title }}</title>
+		<style>
+			@-ms-viewport {
+				width: device-width;
+			}
+			@media only screen and (min-device-width: 800px) {
+				html {
+					overflow: hidden;
+				}
+			}
+			html {
+				height: 100%;
+			}
+			body {
+				height: 100%;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+			.foreImage {
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				display: none;
+				z-index: 1024;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<div class="foreImage"></div>
+		<script src="./krpano.js"></script>
+		<script src="./offline.js"></script>
+		<script src="./viewer.js"></script>
+		<script>
+			function IsMobile() {
+				let info = navigator.userAgent;
+				let agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
+				for (let i = 0; i < agents.length; i++) {
+					if (info.indexOf(agents[i]) >= 0) return true;
+				}
+				return false;
+			}
+		</script>
+		<script>
+			var foreImagePC = "{{foreImagePC}}";
+			var foreImageMobile = "{{foreImageMobile}}";
+			var isMobile = IsMobile();
+			var foreImageEle = document.getElementsByClassName("foreImage")[0];
+			if (foreImagePC || foreImageMobile) {
+				var imgPath = foreImagePC || foreImageMobile;
+				if (isMobile && foreImageMobile) {
+					imgPath = foreImageMobile;
+				}
+				foreImageEle.style.backgroundImage = "url(" + imgPath + ")";
+				foreImageEle.style.display = "block";
+			}
+			foreImageEle.onclick = function () {
+				foreImageEle.style.display = "none";
+			};
+		</script>
+	</body>
 </html>

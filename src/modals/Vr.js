@@ -13,7 +13,9 @@ Vr.update = (obj) => {
         folderId: obj.folderId,
         headImg: obj.headImg,
         music1: obj.music1,
-        music2: obj.music2
+        music2: obj.music2,
+        foreImagePC: obj.foreImagePC,
+		foreImageMobile: obj.foreImageMobile,
     });
 }
 

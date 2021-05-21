@@ -24,153 +24,163 @@ import EditEffect from "./edit/EditEffect";
 import EditMusic from "./edit/EditMusic";
 import EditScene from "./editScene";
 import EditSand from "./edit/EditSand/index";
+import EditForeImage from "./edit/EditForeImage";
 
 import SandContainer from "./edit/EditSand/sandContainer";
 
 class EditPage extends Component {
-    constructor() {
-        super();
-        this.state = { editType: 0 };
-        this._mounted = false;
-    }
+	constructor() {
+		super();
+		this.state = { editType: 0 };
+		this._mounted = false;
+	}
 
-    componentDidMount() {
-        this._mounted = true;
+	componentDidMount() {
+		this._mounted = true;
 
-        Timer(100).then(() => {
-            if (this._mounted) {
-                this.props.updateAppTitle("编辑全景");
-                this.props.updatePictureFromLocal();
-                this.props.updateAudioFromLocal();
-                this.props.updateAppShowBack(true);
-                this.props.updateGroupByVrid();
-                this.props.updateVrByFolderId();
-                // this.props.updateFolderFromLocal();
-                setTimeout(() => {
-                    this.props.updateAllSceneFromLocal();
-                }, 100);
-            }
-        });
-    }
+		Timer(100).then(() => {
+			if (this._mounted) {
+				this.props.updateAppTitle("编辑全景");
+				this.props.updatePictureFromLocal();
+				this.props.updateAudioFromLocal();
+				this.props.updateAppShowBack(true);
+				this.props.updateGroupByVrid();
+				this.props.updateVrByFolderId();
+				// this.props.updateFolderFromLocal();
+				setTimeout(() => {
+					this.props.updateAllSceneFromLocal();
+				}, 100);
+			}
+		});
+	}
 
-    componentWillUnmount() {
-        this._mounted = false;
-    }
+	componentWillUnmount() {
+		this._mounted = false;
+	}
 
-    showHotspotEdit() {
-        this.setState({ editType: 1 });
-    }
+	showHotspotEdit() {
+		this.setState({ editType: 1 });
+	}
 
-    onEditClick(type) {
-        this.setState({ editType: type });
-        if (type != 1) {
-            this.props.updateHotspotSelect(null);
-        }
-    }
+	onEditClick(type) {
+		this.setState({ editType: type });
+		if (type != 1) {
+			this.props.updateHotspotSelect(null);
+		}
+	}
 
-    render() {
-        return (
-            <div className={styles.container}>
-                {this.renderLeftBtns()}
-                <div className={styles.content}>
-                    <div className={styles.panoContainer}>
-                        <PanoContainer showEditHotpot={this.showHotspotEdit.bind(this)}></PanoContainer>
-                        {this.renderSands()}
-                    </div>
-                    <div className={styles.sceneContainer}>
-                        <EditScene></EditScene>
-                    </div>
-                </div>
-                <div className={styles.rightBar}>
-                    {this.renderEditHotPot()}
-                    {this.renderEditSpecialShow()}
-                    {this.renderEditMusic()}
-                    {this.renderEditViewPort()}
-                    {this.renderEditSand()}
-                </div>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className={styles.container}>
+				{this.renderLeftBtns()}
+				<div className={styles.content}>
+					<div className={styles.panoContainer}>
+						<PanoContainer showEditHotpot={this.showHotspotEdit.bind(this)}></PanoContainer>
+						{this.renderSands()}
+					</div>
+					<div className={styles.sceneContainer}>
+						<EditScene></EditScene>
+					</div>
+				</div>
+				<div className={styles.rightBar}>
+					{this.renderEditHotPot()}
+					{this.renderEditSpecialShow()}
+					{this.renderEditMusic()}
+					{this.renderEditViewPort()}
+					{this.renderEditSand()}
+					{this.renderEditForeImage()}
+				</div>
+			</div>
+		);
+	}
 
-    renderEditViewPort() {
-        if (this.state.editType == 0) {
-            return <EditViewPort onfinish={this.showHotspotEdit.bind(this)}></EditViewPort>;
-        }
-    }
+	renderEditViewPort() {
+		if (this.state.editType == 0) {
+			return <EditViewPort onfinish={this.showHotspotEdit.bind(this)}></EditViewPort>;
+		}
+	}
 
-    renderEditHotPot() {
-        if (this.state.editType == 1) {
-            return <EditHotSpot></EditHotSpot>;
-        }
-    }
+	renderEditHotPot() {
+		if (this.state.editType == 1) {
+			return <EditHotSpot></EditHotSpot>;
+		}
+	}
 
-    renderEditMusic() {
-        if (this.state.editType == 2) {
-            return <EditMusic onfinish={this.showHotspotEdit.bind(this)}></EditMusic>;
-        }
-    }
+	renderEditMusic() {
+		if (this.state.editType == 2) {
+			return <EditMusic onfinish={this.showHotspotEdit.bind(this)}></EditMusic>;
+		}
+	}
 
-    renderEditSpecialShow() {
-        if (this.state.editType == 3) {
-            return <EditEffect onfinish={this.showHotspotEdit.bind(this)}></EditEffect>;
-        }
-    }
+	renderEditSpecialShow() {
+		if (this.state.editType == 3) {
+			return <EditEffect onfinish={this.showHotspotEdit.bind(this)}></EditEffect>;
+		}
+	}
 
-    renderEditSand() {
-        if (this.state.editType == 4) {
-            const { addPicture } = this.props;
-            return <EditSand onfinish={this.showHotspotEdit.bind(this)} addPicture={addPicture}></EditSand>;
-        }
-    }
+	renderEditSand() {
+		if (this.state.editType == 4) {
+			const { addPicture } = this.props;
+			return <EditSand onfinish={this.showHotspotEdit.bind(this)} addPicture={addPicture}></EditSand>;
+		}
+	}
 
-    renderLeftBtns() {
-        let btnProps = [
-            { class: "fa fa-eye", name: "视角" },
-            { class: "fa fa-dot-circle-o", name: "热点" },
-            { class: "fa fa-music", name: "音乐" },
-            { class: "fa fa-magic", name: "特效" },
-            { class: "fa fa-magic", name: "沙盘" },
-        ];
-        return (
-            <div className={styles.leftBar}>
-                {btnProps.map((item, index) => {
-                    let btnClassName = this.state.editType == index ? `${styles.btn} ${styles.btnSelected}` : `${styles.btn}`;
-                    return (
-                        <div
-                            key={item.class + item.name}
-                            className={btnClassName}
-                            onClick={() => {
-                                this.onEditClick(index);
-                            }}>
-                            <i className={item.class}></i>
-                            <p>{item.name}</p>
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    }
+	renderEditForeImage() {
+		if (this.state.editType == 5) {
+			const { addPicture, updateVrForeImage } = this.props;
+			return <EditForeImage addPicture={addPicture} updateVrForeImage={updateVrForeImage}></EditForeImage>;
+		}
+	}
 
-    renderSands() {
-        if (this.state.editType == 4) {
-            const { sceneSelected } = this.props;
-            return <SandContainer sceneSelected={sceneSelected}></SandContainer>;
-        }
-    }
+	renderLeftBtns() {
+		let btnProps = [
+			{ class: "fa fa-eye", name: "视角" },
+			{ class: "fa fa-dot-circle-o", name: "热点" },
+			{ class: "fa fa-music", name: "音乐" },
+			{ class: "fa fa-magic", name: "特效" },
+			{ class: "fa fa-magic", name: "沙盘" },
+			{ class: "fa fa-magic", name: "封面" },
+		];
+		return (
+			<div className={styles.leftBar}>
+				{btnProps.map((item, index) => {
+					let btnClassName = this.state.editType == index ? `${styles.btn} ${styles.btnSelected}` : `${styles.btn}`;
+					return (
+						<div
+							key={item.class + item.name}
+							className={btnClassName}
+							onClick={() => {
+								this.onEditClick(index);
+							}}>
+							<i className={item.class}></i>
+							<p>{item.name}</p>
+						</div>
+					);
+				})}
+			</div>
+		);
+	}
+
+	renderSands() {
+		if (this.state.editType == 4) {
+			const { sceneSelected } = this.props;
+			return <SandContainer sceneSelected={sceneSelected}></SandContainer>;
+		}
+	}
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        ...bindActionCreators(appActions, dispatch),
-        ...bindActionCreators(sceneActions, dispatch),
-        ...bindActionCreators(vrActions, dispatch),
-        ...bindActionCreators(folderActions, dispatch),
-        ...bindActionCreators(hotpotActions, dispatch),
-        ...bindActionCreators(PictureActions, dispatch),
-        ...bindActionCreators(audioActions, dispatch),
-        ...bindActionCreators(krpanoActions, dispatch),
-        ...bindActionCreators(groupActions, dispatch),
-    };
+	return {
+		...bindActionCreators(appActions, dispatch),
+		...bindActionCreators(sceneActions, dispatch),
+		...bindActionCreators(vrActions, dispatch),
+		...bindActionCreators(folderActions, dispatch),
+		...bindActionCreators(hotpotActions, dispatch),
+		...bindActionCreators(PictureActions, dispatch),
+		...bindActionCreators(audioActions, dispatch),
+		...bindActionCreators(krpanoActions, dispatch),
+		...bindActionCreators(groupActions, dispatch),
+	};
 }
 
 export default connect(getSelector({ vrList: true, vrId: true, sceneSelected: true }), mapDispatchToProps)(EditPage);

@@ -37,6 +37,18 @@ export function addVr(vrObj) {
 	};
 }
 
+export function updateVrForeImage(vrId, obj) {
+	return (dispatch, getState) => {
+		let vrItem = getState().vr.list.find((item) => item.id == vrId);
+		if (vrItem) {
+			vrItem = { ...vrItem, ...obj };
+			Modals.Vr.update({ ...vrItem, state: VrStateConstants.VR_STATE_UNSAVED }).then(() => {
+				dispatch(updateVrByFolderId());
+			});
+		}
+	};
+}
+
 export function delVr(vrObj) {
 	return dispatch => {
 		Modals.Vr.delete(vrObj.id).then(() => {
