@@ -1399,7 +1399,7 @@
         set(hotspot[get(hotspot_txt_name)].roundedge,5);
         set(hotspot[get(hotspot_txt_name)].padding,5);
         set(hotspot[get(hotspot_txt_name)].renderer,"css3d");
-        set(hotspot[get(hotspot_txt_name)].css,font-family:STXihei; font-size:12px; color:#ffffff;letter-spacing:1px;textAlign:center;);
+        set(hotspot[get(hotspot_txt_name)].css,font-family:STXihei; font-size:18px; color:#ffffff;letter-spacing:1px;textAlign:center;);
         set(hotspot[get(hotspot_txt_name)].edge,center);
         set(hotspot[get(hotspot_txt_name)].show_txt,get(config.panos.pano[get(xml.scene)].hotspots.hotspot[get(i)].show_txt));
         set(hotspot[get(hotspot_txt_name)].image_type,get(config.panos.pano[get(xml.scene)].hotspots.hotspot[get(i)].image_type));
