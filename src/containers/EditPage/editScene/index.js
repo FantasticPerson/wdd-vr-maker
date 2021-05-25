@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 
 import * as sceneActions from "../../../actions/scene";
 import * as groupActions from "../../../actions/group";
+import * as HotspotActions from "../../../actions/hotpot";
 
 import { getSelector } from "../../../store/getStore";
 import CreateSceneModal from "./createSceneModal";
@@ -424,11 +425,17 @@ class EditSceneContainer extends Component {
 		this.setState({ showEditSceneModal: false });
 	}
 
+	onModifySceneItem(item) {
+		const { modifyScene, updateAllHotspotBySceneItem, modifyHotspot,updateAllHotspot } = this.props;
+		modifyScene(item);
+		updateAllHotspotBySceneItem(item, modifyHotspot,updateAllHotspot);
+	}
+
 	renderEditSceneModal() {
 		const { showEditSceneModal, contextSceneData } = this.state;
 		if (showEditSceneModal) {
 			const { modifyScene } = this.props;
-			return <EditSceneModal onCancel={this.onEditSceneCancel.bind(this)} onModify={modifyScene} itemData={contextSceneData}></EditSceneModal>;
+			return <EditSceneModal onCancel={this.onEditSceneCancel.bind(this)} onModify={this.onModifySceneItem.bind(this)} itemData={contextSceneData}></EditSceneModal>;
 		}
 	}
 
@@ -491,6 +498,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		...bindActionCreators(sceneActions, dispatch),
 		...bindActionCreators(groupActions, dispatch),
+		...bindActionCreators(HotspotActions, dispatch),
 	};
 }
 
