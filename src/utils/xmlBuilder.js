@@ -251,6 +251,7 @@ function panosXmlData(productData, config) {
 
 				hotspot.att("ath", hotspotData.ath);
 				hotspot.att("atv", hotspotData.atv);
+				hotspot.att("show_txt", 1);
 
 				switch (actionObj.type) {
 					case "switch":
