@@ -169,11 +169,13 @@ function authXmlData(productData, config) {
 
 function featureXmlData(productData, configXmlNode) {
 	const feature = configXmlNode.ele("feature");
+    console.log(productData)
 
 	// feature.att('enable_gyro', 1)
 	// feature.att("enable_littleplanet", 1);
 	// feature.att('enable_autorotate', 1)
-	feature.att("enable_vr", 1);
+    console.log(productData)
+	feature.att("enable_vr", productData.item.enableVr);
 }
 
 function thumbsXmlData(productData, config, krpano) {

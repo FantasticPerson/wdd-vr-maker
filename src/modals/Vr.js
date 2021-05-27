@@ -16,5 +16,7 @@ Vr.update = (obj) => {
 		music2: obj.music2,
 		foreImagePC: obj.foreImagePC,
 		foreImageMobile: obj.foreImageMobile,
+		showBack: obj.showBack,
+		enableVr: obj.enableVr,
 	});
 };

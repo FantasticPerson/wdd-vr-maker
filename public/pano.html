@@ -27,49 +27,82 @@
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: center;
-                display: none;
-                z-index:1024;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+				display: none;
+				z-index: 1024;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			.backContainer {
+				position: fixed;
+				z-index: 1000;
+				width: 80px;
+				height: 30px;
+				top: 10px;
+				left: 10px;
+				border-radius: 15px;
+				background-color: rgba(0, 0, 0, 0.5);
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				cursor: pointer;
+				display: none;
+			}
+			.backContainer img {
+				width: 20px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="root"></div>
+		<div class="backContainer">
+			<img src="./backBtn.png" />
+			<div>返回</div>
+		</div>
 		<div class="foreImage"></div>
 		<script src="./krpano.js"></script>
 		<script src="./offline.js"></script>
 		<script src="./viewer.js"></script>
-        <script>
-            function IsMobile(){
-                let info = navigator.userAgent;
-                let agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
-                for(let i = 0; i < agents.length; i++){
-                    if(info.indexOf(agents[i]) >= 0) return true;
-                }
-                return false;
-            }
-        </script>
 		<script>
-			var foreImagePC = "{{foreImagePC}}"
-			var foreImageMobile = "{{foreImageMobile}}"
-            var isMobile = IsMobile()
-            var foreImageEle = document.getElementsByClassName('foreImage')[0]
-            if(foreImagePC || foreImageMobile){
-                var imgPath = foreImagePC || foreImageMobile
-                if(isMobile && foreImageMobile){
-                    imgPath = foreImageMobile
-                }
-                foreImageEle.style.backgroundImage = 'url('+imgPath+')'
-                foreImageEle.style.display = 'block'
-
-            }
-            foreImageEle.onclick = function(){
-                foreImageEle.style.display = 'none'
-            }
+			function IsMobile() {
+				let info = navigator.userAgent;
+				let agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
+				for (let i = 0; i < agents.length; i++) {
+					if (info.indexOf(agents[i]) >= 0) return true;
+				}
+				return false;
+			}
+		</script>
+		<script>
+			var foreImagePC = "{{foreImagePC}}";
+			var foreImageMobile = "{{foreImageMobile}}";
+			var isMobile = IsMobile();
+			var foreImageEle = document.getElementsByClassName("foreImage")[0];
+			if (foreImagePC || foreImageMobile) {
+				var imgPath = foreImagePC || foreImageMobile;
+				if (isMobile && foreImageMobile) {
+					imgPath = foreImageMobile;
+				}
+				foreImageEle.style.backgroundImage = "url(" + imgPath + ")";
+				foreImageEle.style.display = "block";
+			}
+			foreImageEle.onclick = function () {
+				foreImageEle.style.display = "none";
+			};
+		</script>
+		<script>
+			var showBack = "{{showBack}}";
+			if (showBack == 1) {
+				var backContainer = document.getElementsByClassName("backContainer")[0];
+				if (backContainer) {
+					backContainer.style.display = "flex";
+					backContainer.onclick = function () {
+						window.history.back();
+					};
+				}
+			}
 		</script>
 	</body>
 </html>

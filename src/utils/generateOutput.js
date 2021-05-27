@@ -157,8 +157,8 @@ export function GenerateOutput(vrItem, sceneList, hotpotList, groupList, allScen
 
 	let foreImagePCPath = vrItem.foreImagePC ? `./picture/${vrItem.foreImagePC.name}` : "";
 	let foreImageMobile = vrItem.foreImageMobile ? `./picture/${vrItem.foreImageMobile.name}` : "";
-	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title, foreImagePC:foreImagePCPath, foreImageMobile }));
-
+	fs.writeFileSync(path.resolve(vrPath, "./index.html"), template({ title: vrItem.title, foreImagePC: foreImagePCPath, foreImageMobile, showBack: vrItem.showBack }));
+    fs.copyFileSync(path.resolve(electron_app_krpano_path, "../backBtn.png"),path.resolve(vrPath, "./backBtn.png"))
 	fs.copyFileSync(path.resolve(electron_app_krpano_path, "./api_export_jiemi.xml"), path.resolve(vrPath, "./api_export.xml"));
 
 	fs.writeFileSync(path.resolve(vrPath, "./data.xml"), getProductionXml(vrItem, sceneList, hotpotList, groupList, allSceneList));

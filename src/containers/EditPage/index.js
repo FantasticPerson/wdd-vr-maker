@@ -139,7 +139,7 @@ class EditPage extends Component {
 			{ class: "fa fa-music", name: "音乐" },
 			{ class: "fa fa-magic", name: "特效" },
 			{ class: "fa fa-magic", name: "沙盘" },
-			{ class: "fa fa-magic", name: "封面" },
+			{ class: "fa fa-magic", name: "其他" },
 		];
 		return (
 			<div className={styles.leftBar}>

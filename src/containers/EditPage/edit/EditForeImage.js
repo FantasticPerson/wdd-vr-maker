@@ -15,10 +15,10 @@ class EditForeImage extends Component {
 		this.state = { foreImagePC: null, foreImageMobile: null };
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		const { vrItem } = this.props;
 		if (vrItem) {
-			this.setState({ foreImagePC: vrItem.foreImagePC, foreImageMobile: vrItem.foreImageMobile, showUploadModal1: false, showUploadModal2: false });
+			this.setState({ foreImagePC: vrItem.foreImagePC, foreImageMobile: vrItem.foreImageMobile, showUploadModal1: false, showUploadModal2: false, showBack: vrItem.showBack == 1, enableVr: vrItem.enableVr == 1 });
 		}
 	}
 
@@ -103,9 +103,17 @@ class EditForeImage extends Component {
 	}
 
 	onSelectConfirm() {
-		const { foreImageMobile, foreImagePC } = this.state;
+		const { foreImageMobile, foreImagePC, showBack, enableVr } = this.state;
 		const { updateVrForeImage, vrItem } = this.props;
-		updateVrForeImage(vrItem.id, { foreImageMobile, foreImagePC });
+		updateVrForeImage(vrItem.id, { foreImageMobile, foreImagePC, showBack: showBack ? 1 : 0, enableVr: enableVr ? 1 : 0 });
+	}
+
+	updateShowBack() {
+		this.setState({ showBack: !this.state.showBack });
+	}
+
+	updateEnableVr() {
+		this.setState({ enableVr: !this.state.enableVr });
 	}
 
 	render() {
@@ -149,11 +157,13 @@ class EditForeImage extends Component {
 						</FlatButton>
 					</div>
 					{this.renderImage(1)}
+					<FormControlLabel control={<Checkbox checked={this.state.showBack} onChange={this.updateShowBack.bind(this)} value='显示返回按钮' color='primary' />} label='显示返回按钮' />
+					<FormControlLabel control={<Checkbox checked={this.state.enableVr} onChange={this.updateEnableVr.bind(this)} value='受否启用VR' color='primary' />} label='受否启用VR' />
+					{this.renderUploadModal()}
 				</div>
 				<FlatButton variant='contained' color='primary' onClick={this.onSelectConfirm.bind(this)} color='primary' style={{ marginLeft: "155px" }}>
 					确定
 				</FlatButton>
-				{this.renderUploadModal()}
 			</div>
 		);
 	}
