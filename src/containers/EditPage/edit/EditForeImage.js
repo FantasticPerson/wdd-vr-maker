@@ -18,7 +18,7 @@ class EditForeImage extends Component {
 	componentWillMount() {
 		const { vrItem } = this.props;
 		if (vrItem) {
-			this.setState({ foreImagePC: vrItem.foreImagePC, foreImageMobile: vrItem.foreImageMobile, showUploadModal1: false, showUploadModal2: false, showBack: vrItem.showBack == 1, enableVr: vrItem.enableVr == 1 });
+			this.setState({ foreImagePC: vrItem.foreImagePC, foreImageMobile: vrItem.foreImageMobile, showUploadModal1: false, showUploadModal2: false, showBack: vrItem.showBack == 1, enableVr: vrItem.enableVr == 1, backToWelCome: vrItem.backToWelCome == 1 });
 		}
 	}
 
@@ -103,9 +103,9 @@ class EditForeImage extends Component {
 	}
 
 	onSelectConfirm() {
-		const { foreImageMobile, foreImagePC, showBack, enableVr } = this.state;
+		const { foreImageMobile, foreImagePC, showBack, enableVr, backToWelCome } = this.state;
 		const { updateVrForeImage, vrItem } = this.props;
-		updateVrForeImage(vrItem.id, { foreImageMobile, foreImagePC, showBack: showBack ? 1 : 0, enableVr: enableVr ? 1 : 0 });
+		updateVrForeImage(vrItem.id, { foreImageMobile, foreImagePC, showBack: showBack ? 1 : 0, enableVr: enableVr ? 1 : 0, backToWelCome: backToWelCome ? 1 : 0 });
 	}
 
 	updateShowBack() {
@@ -114,6 +114,10 @@ class EditForeImage extends Component {
 
 	updateEnableVr() {
 		this.setState({ enableVr: !this.state.enableVr });
+	}
+
+	updateBackToWelcome() {
+		this.setState({ backToWelCome: !this.state.backToWelCome });
 	}
 
 	render() {
@@ -158,7 +162,8 @@ class EditForeImage extends Component {
 					</div>
 					{this.renderImage(1)}
 					<FormControlLabel control={<Checkbox checked={this.state.showBack} onChange={this.updateShowBack.bind(this)} value='显示返回按钮' color='primary' />} label='显示返回按钮' />
-					<FormControlLabel control={<Checkbox checked={this.state.enableVr} onChange={this.updateEnableVr.bind(this)} value='受否启用VR' color='primary' />} label='受否启用VR' />
+					<FormControlLabel control={<Checkbox checked={this.state.backToWelCome} onChange={this.updateShowBack.bind(this)} value='返回到欢迎页' color='primary' />} label='返回到欢迎页' />
+					<FormControlLabel control={<Checkbox checked={this.state.backToWelCome} onChange={this.updateBackToWelcome.bind(this)} value='受否启用VR' color='primary' />} label='受否启用VR' />
 					{this.renderUploadModal()}
 				</div>
 				<FlatButton variant='contained' color='primary' onClick={this.onSelectConfirm.bind(this)} color='primary' style={{ marginLeft: "155px" }}>

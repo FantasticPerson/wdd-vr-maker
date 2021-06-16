@@ -17,6 +17,6 @@ Vr.update = (obj) => {
 		foreImagePC: obj.foreImagePC,
 		foreImageMobile: obj.foreImageMobile,
 		showBack: obj.showBack,
-		enableVr: obj.enableVr,
+		enableVr: obj.enableVr
 	});
 };
