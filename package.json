@@ -64,7 +64,7 @@
         "@material-ui/icons": "^4.4.3",
         "@material-ui/lab": "^4.0.0-alpha.28",
         "connected-react-router": "^6.5.2",
-        "dexie": "^2.0.4",
+        "dexie": "^3.2.2",
         "electron": "^6.0.12",
         "electron-is-dev": "^1.1.0",
         "font-awesome": "^4.7.0",
